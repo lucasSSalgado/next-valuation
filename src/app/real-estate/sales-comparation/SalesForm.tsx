@@ -44,9 +44,9 @@ export default function SalesForm() {
                         return (
                             <div className="mt-2" key={index}>
                                 <label htmlFor="sqtrFeets">Area: </label>
-                                <input type="number" name="sqtrFeets" id="sqtrFeets" onChange={(e) => property.sqtrFeets = Number(e.target.value)}/>
+                                <input type="text" name="sqtrFeets" id="sqtrFeets" onChange={(e) => property.sqtrFeets = Number(e.target.value)}/>
                                 <label htmlFor="price">Price: </label>
-                                <input type="number" name="price" id="price" onChange={(e) => property.price = Number(e.target.value)}/>
+                                <input type="text" name="price" id="price" onChange={(e) => property.price = Number(e.target.value)}/>
                                 <button className="bg-red-500 text-white p-1 rounded-md" type="button" onClick={() => removeInput(index) }>Remove</button>
                             </div>
                         )
