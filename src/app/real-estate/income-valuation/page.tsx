@@ -27,6 +27,16 @@ export default function IncameValuationPage() {
             </div>
 
             <IncomeForm />
+            <p>
+                Usefull links: 
+                <ul>
+                    <li>
+                        <a href="https://www.investopedia.com/terms/i/income-approach.asp" target="_blank">
+                            Cost Approach Investopidia
+                        </a>
+                    </li>
+                </ul>
+            </p>
         </div>
     )
 }

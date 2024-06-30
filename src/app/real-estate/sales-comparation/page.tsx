@@ -17,6 +17,16 @@ export default function SalesComparationPage() {
             </p>
 
             <SalesForm />
+            <p>
+                Usefull links: 
+                <ul>
+                    <li>
+                        <a href="https://www.investopedia.com/terms/s/sales-comparison-approach.asp" target="_blank">
+                            Sales Comparation Investopidia
+                        </a>
+                    </li>
+                </ul>
+            </p>
         </div>
     )
 }

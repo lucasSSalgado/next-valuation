@@ -6,7 +6,7 @@ export default function Lateralnav() {
             <Link href="/real-estate">Back</Link>
             <Link href="/real-estate/sales-comparation">Sales Comparation</Link>
             <Link href="/real-estate/cost-approach">Cost Approach</Link>
-            <Link href="/real-estate/income-valuation">Incame valuation</Link>
+            <Link href="/real-estate/income-valuation">Income valuation</Link>
         </div>
     )
 }
