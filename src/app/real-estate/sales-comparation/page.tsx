@@ -21,7 +21,7 @@ export default function SalesComparationPage() {
                 Usefull links: 
                 <ul>
                     <li>
-                        <a href="https://www.investopedia.com/terms/s/sales-comparison-approach.asp" target="_blank">
+                        <a className="text-blue-500" href="https://www.investopedia.com/terms/s/sales-comparison-approach.asp" target="_blank">
                             Sales Comparation Investopidia
                         </a>
                     </li>

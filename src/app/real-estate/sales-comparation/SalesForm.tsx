@@ -36,7 +36,7 @@ export default function SalesForm() {
             <h1 className="text-2xl">Sales Comparation</h1>
             <p>Enter your target property</p>
             <label htmlFor="">Square feet: </label>
-            <input type="number" name="sqtrFeets" id="sqtrFeets" onChange={(e) => setTargetProperty(Number(e.target.value))} />
+            <input type="text" name="sqtrFeets" id="sqtrFeets" onChange={(e) => setTargetProperty(Number(e.target.value))} />
 
             <form>
                 {
