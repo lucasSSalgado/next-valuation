@@ -1,3 +1,5 @@
+import GrahamForm from "./GrahamForm";
+
 export default function GrahamFormulaPAge() {
     return (
         <div className="p-8 w-3/4">
@@ -18,7 +20,7 @@ export default function GrahamFormulaPAge() {
                 and at most 1,5 times the book value. It can be used to start a valuation process in a assets intensive campany.
             </p>
 
-            
+            <GrahamForm />
         </div>
     )
 }
