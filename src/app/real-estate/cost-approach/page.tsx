@@ -3,7 +3,7 @@ import CostForm from "./CostForm"
 export default function CostApproachPage() {
     return (
         <div className="p-8 w-3/4">
-            <div >
+            <div>
                 <h2 className="text-2xl mb-2">Cost Approach Method</h2>
                 <p>
                     The Cost Approach method is one of the three methods used to value a real estate investiment, is less

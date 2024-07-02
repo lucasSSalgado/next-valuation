@@ -10,6 +10,7 @@ export default function Navbar() {
                 <Link className="flex-1" href="/concepts">Core Concepts</Link>
                 <Link className="flex-1" href="/value-investing">Value Investing</Link>
                 <Link className="flex-1" href="/real-estate">Real Estate</Link>
+                <Link className="flex-1" href="/about">About</Link>
             </nav>
         </header>
     )
