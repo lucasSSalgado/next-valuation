@@ -35,8 +35,11 @@ export default function LiquidationForm() {
             </form>
             <p>
                 The fair value is ${ fairValue.toFixed(2) } 
-                { fairValue !== 0 ? ` and the discout is ${((fairValue-price) / price *100).toFixed(2)}% `
-                : ''}
+                { 
+                    fairValue !== 0 
+                    ? ` and the discout is ${((fairValue-price) / price *100).toFixed(2)}% `
+                    : ''
+                }
             </p>
         </div>
     )

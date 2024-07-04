@@ -2,15 +2,17 @@ import Link from "next/link"
 
 export default function Navbar() {
     return (
-        <header className="flex bg-zinc-800 p-6 text-white justify-evenly">
-            <div className="font-bold flex-1 text-center">
-                <Link href="/">Logo</Link>    
-            </div>
-            <nav className="flex flex-1 justify-center">
-                <Link className="flex-1" href="/concepts">Core Concepts</Link>
-                <Link className="flex-1" href="/value-investing">Value Investing</Link>
-                <Link className="flex-1" href="/real-estate">Real Estate</Link>
-                <Link className="flex-1" href="/about">About</Link>
+        <header className="bg-zinc-800 p-6 text-white justify-evenly">
+            <nav className="flex w-10/12 mx-auto">
+                <div className="font-bold flex-1 pl-5">
+                    <Link href="/">Logo</Link>    
+                </div>
+                <nav className="">
+                    <Link className="text-center px-4" href="/value-investing">Value Investing</Link>
+                    <Link className="text-center px-4" href="/real-estate">Real Estate</Link>
+                    <Link className="text-center px-4" href="/investor-framework">Investing Framework</Link>
+                    <Link className="text-center px-4" href="/about">About</Link>
+                </nav>
             </nav>
         </header>
     )
