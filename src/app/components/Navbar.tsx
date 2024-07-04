@@ -11,7 +11,7 @@ export default function Navbar() {
                     <Link className="text-center px-4" href="/value-investing">Value Investing</Link>
                     <Link className="text-center px-4" href="/real-estate">Real Estate</Link>
                     <Link className="text-center px-4" href="/investor-framework">Investing Framework</Link>
-                    <Link className="text-center px-4" href="/about">About</Link>
+                    <Link className="text-center px-4" href="/extra">Extra</Link>
                 </nav>
             </nav>
         </header>

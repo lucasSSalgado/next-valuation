@@ -1,6 +1,5 @@
 import Lateralnav from "./Lateralnav";
 
-
 export default function RealEstateLayout({
     children,
   }: Readonly<{
