@@ -1,6 +1,9 @@
 'use client'
 
 import { useState } from "react"
+
+import { Button } from "@/components/ui/button"
+
 import CachCalculator from "./CashCalculator"
 import LoanCalculator from "./LoanCalculator"
 
@@ -12,8 +15,8 @@ export default function FlipForm() {
     return (
         <div>
             <div className="flex">
-                <button className="bg-green-500 p-1 rounded-md" onClick={() => setPaymentType('cash')}>Cash</button>
-                <button className="bg-green-500 p-1 rounded-md" onClick={() => setPaymentType('loan')}>Loan</button>
+                <Button onClick={() => setPaymentType('cash')}>Cash</Button>
+                <Button onClick={() => setPaymentType('loan')}>Loan</Button>
             </div>
 
             <div>

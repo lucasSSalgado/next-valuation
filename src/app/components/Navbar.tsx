@@ -8,7 +8,7 @@ export default function Navbar() {
                     <Link href="/">Logo</Link>    
                 </div>
                 <nav className="">
-                    <Link className="text-center px-4" href="/general">Geral</Link>
+                    <Link className="text-center px-4 hover:bg-slate-400" href="/general">Geral</Link>
                     <Link className="text-center px-4" href="/value-investing">Value Investing</Link>
                     <Link className="text-center px-4" href="/real-estate">Real Estate</Link>
                     <Link className="text-center px-4" href="/investor-framework">Investing Framework</Link>

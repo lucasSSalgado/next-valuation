@@ -1,5 +1,5 @@
 export type FlipResponse = {
-    cashProfit: number,
-    percentProfitAnnual: number,
-    percentProfitMonthly: number
+    netProfit: number,
+    roi: number,
+    monthlyRoi: number
 }   
