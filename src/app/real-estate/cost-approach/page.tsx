@@ -27,7 +27,7 @@ export default function CostApproachPage() {
             </div>
 
             <CostForm />
-            <p>
+            <div>
                 Usefull links: 
                 <ul>
                     <li>
@@ -36,7 +36,7 @@ export default function CostApproachPage() {
                         </a>
                     </li>
                 </ul>
-            </p>
+            </div>
         </div>
     )
 }

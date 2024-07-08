@@ -1,6 +1,9 @@
 'use client'
 
 import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
 export default function SalesForm() {
     let initialInputs: propertyStatus[] = [
@@ -35,31 +38,30 @@ export default function SalesForm() {
         <div className="bg-zinc-200 p-4 mt-4 rounded-md">
             <h1 className="text-2xl">Sales Comparation</h1>
             <p>Enter your target property</p>
-            <label htmlFor="">Square feet: </label>
-            <input type="text" name="sqtrFeets" id="sqtrFeets" onChange={(e) => setTargetProperty(Number(e.target.value))} />
-
+            <Label htmlFor="sqtrFeetsTarget">Square feet: </Label>
+            <Input type="text" name="sqtrFeets" id="sqtrFeetsTarget" onChange={(e) => setTargetProperty(Number(e.target.value))} />
             <form>
                 {
                     propertyList.map((property, index) => {
                         return (
                             <div className="mt-2" key={index}>
-                                <label htmlFor="sqtrFeets">Area: </label>
-                                <input type="text" name="sqtrFeets" id="sqtrFeets" onChange={(e) => property.sqtrFeets = Number(e.target.value)}/>
-                                <label htmlFor="price">Price: </label>
-                                <input type="text" name="price" id="price" onChange={(e) => property.price = Number(e.target.value)}/>
-                                <button className="bg-red-500 text-white p-1 rounded-md" type="button" onClick={() => removeInput(index) }>Remove</button>
+                                <Label htmlFor="sqtrFeets">Area: </Label>
+                                <Input type="text" name="sqtrFeets" id="sqtrFeets" onChange={(e) => property.sqtrFeets = Number(e.target.value)}/>
+                                <Label htmlFor="price">Price: </Label>
+                                <Input type="text" name="price" id="price" onChange={(e) => property.price = Number(e.target.value)}/>
+                                <Button variant="destructive" type="button" onClick={() => removeInput(index) }>Remove</Button>
                             </div>
                         )
                     })
                 }
             </form>
-            <button className="bg-green-500 p-1 rounded-md mt-1" onClick={ addNewInput }>
+            <Button className="" onClick={ addNewInput }>
                 add new input
-            </button>
+            </Button>
             <br />
-            <button className="bg-green-500 p-1 rounded-md mt-1" onClick={ calculateMean }>
+            <Button className="" onClick={ calculateMean }>
                 Calculate
-            </button>
+            </Button>
 
             <p className="mt-4"> The mean square feet price in the region is $ { mean.toFixed(2) } and your target property value is $ { (targetProperty * mean).toFixed(2) } </p>
         </div>

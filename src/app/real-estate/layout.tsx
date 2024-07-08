@@ -7,7 +7,7 @@ export default function RealEstateLayout({
   }>) {
     return (
         <main className="flex min-h-screen justify-between">
-            <div className="w-10/12 flex">
+            <div className="w-11/12 flex">
                 <Lateralnav />
                 {children}
             </div>

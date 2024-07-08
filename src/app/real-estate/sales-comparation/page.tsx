@@ -17,7 +17,7 @@ export default function SalesComparationPage() {
             </p>
 
             <SalesForm />
-            <p>
+            <div>
                 Usefull links: 
                 <ul>
                     <li>
@@ -26,7 +26,7 @@ export default function SalesComparationPage() {
                         </a>
                     </li>
                 </ul>
-            </p>
+            </div>
         </div>
     )
 }

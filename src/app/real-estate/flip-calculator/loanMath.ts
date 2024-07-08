@@ -1,89 +1,94 @@
 import { FlipResponse } from "@/app/types";
 import { z } from "zod"
 import { parseCorrencyToNumber, validatePositiveCurrency } from "./helper";
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
 
 export const formSchema = z.object({
     price: z.string().refine((val) => validatePositiveCurrency(val), { message: "Price must be a positive number." }),
-    sell: z.string().refine((val) => validatePositiveCurrency(val), { message: "Sell must be a positive number." }),
+    value: z.string().refine((val) => validatePositiveCurrency(val), { message: "Sell must be a positive number." }),
     downPayment: z.string().refine((val) => validatePositiveCurrency(val), { message: "Down Payment must be a positive number." }),
     interatesRate: z.string().refine((val) => validatePositiveCurrency(val), { message: "Interest Rate must be a positive number." }), 
-    interatesRateTaxes: z.coerce.boolean().optional(),
     financingYears: z.string().refine((val) => validatePositiveCurrency(val), { message: "Financing Years must be a positive number." }), 
     rehab: z.string().refine((val) => validatePositiveCurrency(val), { message: "Rehab must be a positive number." }),
-    rehabTaxes: z.coerce.boolean().optional(),
     hodingCosts: z.string().refine((val) => validatePositiveCurrency(val), { message: "Other Costs must be positive." }),
-    hodingCostsTaxes: z.coerce.boolean().optional(),
-    localFees: z.string().optional().refine((val) => validatePositiveCurrency(val), { message: "Other Costs must be positive." }),
-    localFeesTaxes: z.coerce.boolean().optional(),
-    buyerComission: z.string().optional().refine((val) => validatePositiveCurrency(val), { message: "Other Costs must be positive." }),
-    sellerComission: z.string().optional().refine((val) => validatePositiveCurrency(val), { message: "Other Costs must be positive." }),
-    sellerComissionTaxes: z.coerce.boolean().optional(),
-    otherCosts1: z.string().optional().refine((val) => validatePositiveCurrency(val), { message: "Other Costs must be a positive number." }),
-    otherCost1Taxes: z.coerce.boolean().optional(),
+    documentation: z.string().optional().refine((val) => validatePositiveCurrency(val), { message: "Other Costs must be positive." }),
+    discountInSell: z.string().optional(),
+    localFees: z.string().optional(),
+    leiloeiroComission: z.string().optional(),
+    sellerComission: z.string().optional(),
+    otherCosts1: z.string().optional(),
     otherCosts2: z.string().optional().refine((val) => validatePositiveCurrency(val), { message: "Other Costs must be a positive number." }),
-    otherCost2Taxes: z.coerce.boolean().optional(),
     timeToSell: z.string().refine((val) => validatePositiveCurrency(val), { message: "Other Costs must be a positive number." }),
     taxesOnProfit: z.string().refine((val) => validatePositiveCurrency(val), { message: "Other Costs must be a positive number." }),
 })
 
+export const useCustomForm = () => {
+    return useForm<z.infer<typeof formSchema>>({
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+            price: '',
+            value: '',
+            downPayment: '',
+            interatesRate: '',
+            financingYears: '',
+            rehab: '',
+            hodingCosts: '',
+            documentation: '',
+            discountInSell: '',
+            localFees: '',
+            leiloeiroComission: '',
+            sellerComission: '',
+            otherCosts1: '',
+            otherCosts2: '',
+            timeToSell: '',
+            taxesOnProfit: '',
+        },
+    })
+}
 
 export const calculateLoan = (data: z.infer<typeof formSchema>): FlipResponse => {
     const price = parseCorrencyToNumber(data.price);
-    const sell = parseCorrencyToNumber(data.sell);
+    const value = parseCorrencyToNumber(data.value);
     const downPayment = parseCorrencyToNumber(data.downPayment);
     const interatesRate = parseCorrencyToNumber(data.interatesRate);
-    const interatesRateTaxes = data.interatesRateTaxes
     const financingYears = parseCorrencyToNumber(data.financingYears);
     const rehab = parseCorrencyToNumber(data.rehab);
-    const rehabTaxes = data.rehabTaxes;
     const hodingCosts = parseCorrencyToNumber(data.hodingCosts);
-    const hodingCostsTaxes = data.hodingCostsTaxes;
-    const localFees = parseCorrencyToNumber(data.localFees as string); 
-    const localFeesTaxes = data.localFeesTaxes;
-    const buyerComission = parseCorrencyToNumber(data.buyerComission as string)
-    const sellerComission = parseCorrencyToNumber(data.sellerComission as string)
-    const sellerComissionTaxes = data.sellerComissionTaxes;
+    const documentation = parseCorrencyToNumber(data.documentation as string); 
+    const discountInSell = parseFloat(data.discountInSell as string);
+    const localFees = parseFloat(data.localFees as string);
+    const leiloeiroComission = parseFloat(data.leiloeiroComission as string)
+    const sellerComission = parseFloat(data.sellerComission as string);
     const otherCosts1 = parseCorrencyToNumber(data.otherCosts1 as string);
-    const otherCost1Taxes = data.otherCost1Taxes;
     const otherCosts2 = parseCorrencyToNumber(data.otherCosts2 as string);
-    const otherCost2Taxes = data.otherCost2Taxes;
     const timeToSell = parseCorrencyToNumber(data.timeToSell);
     const taxesOnProfit = parseCorrencyToNumber(data.taxesOnProfit);
 
-
     const { quota, restOfLoan } = priceMonthQuota(price * (1 - downPayment / 100), interatesRate/100, financingYears, timeToSell);
 
-    const allQuotaCosts = quota * timeToSell
-    const allHoldingCost = hodingCosts * timeToSell   
+    const sellingPrice = value * (1 - discountInSell/100)
+    const entrada = price * (downPayment / 100)
+    const parcelasFinaciamneto = (timeToSell * quota)
+    const saldoDevedor = restOfLoan
+    const condominioEiptu = (timeToSell * hodingCosts)
+    const outrasDespesas = rehab + otherCosts1 + otherCosts2
+    const comissaoDoLeiloeiro = (price * leiloeiroComission / 100)
+    const itbi = (price * localFees / 100)  
 
-    const sellerValue = (sell * sellerComission/100)
-    const buyerValue = (price * buyerComission/100)
+    const aquisicao = entrada + parcelasFinaciamneto + saldoDevedor + condominioEiptu + outrasDespesas + documentation + itbi + comissaoDoLeiloeiro
+    const cashNeed = entrada + parcelasFinaciamneto + condominioEiptu + documentation + itbi + comissaoDoLeiloeiro + outrasDespesas
 
-    let deductibleCosts = (rehabTaxes ? rehab : 0) + (hodingCostsTaxes ? allHoldingCost : 0) + (localFeesTaxes ? localFees : 0) 
-        + (otherCost1Taxes ? otherCosts1: 0) + (otherCost2Taxes ? otherCosts2 : 0) + (interatesRateTaxes ? allQuotaCosts : 0)
-    let nonDeductibleCosts = (rehabTaxes ? 0 : rehab) + (hodingCostsTaxes ? 0 : allHoldingCost) + (localFeesTaxes ? 0 : localFees) 
-        + (otherCost1Taxes ? 0 : otherCosts1) + (otherCost2Taxes ? 0 : otherCosts2) + (interatesRateTaxes ? 0 : allQuotaCosts)
+    const taxes = (sellingPrice - aquisicao) * (taxesOnProfit/100)
+    const netProfit = sellingPrice - (sellingPrice * sellerComission/100) - taxes - aquisicao
 
-    const entrada = (price * downPayment / 100)
-    const taxes = (sell - (entrada + deductibleCosts + sellerValue  + restOfLoan)) * (taxesOnProfit / 100)
-    const allCosts = entrada + deductibleCosts + nonDeductibleCosts + buyerValue
-    const realSellingPrice = sell - (restOfLoan + taxes + sellerValue)
-    const profit = realSellingPrice - allCosts
-
-    console.log("all quota: ", allQuotaCosts)
-    console.log("all holding: ", allHoldingCost)
-    console.log("deductible: ", deductibleCosts, "non Deductible: ", nonDeductibleCosts)
-    console.log("entrada: ", entrada)
-    console.log("saldo devedor: ", restOfLoan)
-    console.log("byuer comission: ", buyerValue)
-    console.log("seller comission: ", sellerValue)
-    console.log("real selling price: ", realSellingPrice)
-    console.log("all cost: ", allCosts)
-    console.log("taxes: ", taxes, "profit: ", profit)
+    console.log("taxes: ", taxes)
+    console.log("Cash need: ", cashNeed)
 
     return {
-        netProfit: profit,
-        roi: 0,
+        netProfit: netProfit,
+        necessaryCash: cashNeed,
+        roi: (netProfit / cashNeed) * 100,
         monthlyRoi: Math.pow(1, 1/12)
     }
 }

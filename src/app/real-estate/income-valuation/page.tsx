@@ -27,7 +27,7 @@ export default function IncameValuationPage() {
             </div>
 
             <IncomeForm />
-            <p>
+            <div>
                 Usefull links: 
                 <ul>
                     <li>
@@ -36,7 +36,7 @@ export default function IncameValuationPage() {
                         </a>
                     </li>
                 </ul>
-            </p>
+            </div>
         </div>
     )
 }
