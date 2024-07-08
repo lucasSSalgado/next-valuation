@@ -14,6 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+
 import { calculateLoan, formSchema } from "./loanMath"
 import { Checkbox } from "@/components/ui/checkbox"
 import { handleCurrencyInput } from "./helper"
@@ -32,6 +33,11 @@ export default function LoanCalculator() {
             rehabTaxes: false,
             hodingCosts: '',
             hodingCostsTaxes: false,
+            localFees: '',
+            localFeesTaxes: false,
+            buyerComission: '',
+            sellerComission: '',
+            sellerComissionTaxes: false,
             otherCosts1: '',
             otherCost1Taxes: false,
             otherCosts2: '',
@@ -43,14 +49,13 @@ export default function LoanCalculator() {
 
     function onSubmit(values: z.infer<typeof formSchema>) {
         const resp = calculateLoan(values)
-        console.log(resp)
     }  
 
 
     return (
         <div>
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-1">
                     <FormField
                     control={form.control}
                     name="price"
@@ -119,7 +124,7 @@ export default function LoanCalculator() {
                             </FormLabel>
                             <FormMessage />
                         </FormItem>
-                        )}
+                    )}
                     />
                     <FormField
                     control={form.control}
@@ -134,6 +139,7 @@ export default function LoanCalculator() {
                         </FormItem>
                     )}
                     />
+                    <p>Add all deductible costs here</p>
                     <FormField
                     control={form.control}
                     name="rehab"
@@ -145,7 +151,7 @@ export default function LoanCalculator() {
                             </FormControl>
                             <FormMessage />
                         </FormItem>
-                        )}
+                    )}
                     />
                     <FormField
                     control={form.control}
@@ -163,20 +169,20 @@ export default function LoanCalculator() {
                             </FormLabel>
                             <FormMessage />
                         </FormItem>
-                        )}
+                    )}
                     />
                     <FormField
                     control={form.control}
                     name="hodingCosts"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>All Holding Cost (utilities, insurance, taxes, fees, etc) by Month: </FormLabel>
+                            <FormLabel>All Holding Cost (utilities, insurance, taxes, fees. Excluding loan payment) by Month: </FormLabel>
                             <FormControl>
                             <Input placeholder="$50.000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
-                        )}
+                    )}
                     />
                     <FormField
                     control={form.control}
@@ -194,38 +200,113 @@ export default function LoanCalculator() {
                             </FormLabel>
                             <FormMessage />
                         </FormItem>
-                        )}
+                    )}
+                    />
+                    <FormField 
+                    control={form.control}
+                    name="localFees"
+                    render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Local Fees: </FormLabel>
+                                <FormControl>
+                                    <Input placeholder="local fees..." {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                    )}
+                    />
+                    <FormField 
+                    control={form.control}
+                    name="localFeesTaxes"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormControl>
+                                <Checkbox
+                                    checked={field.value}
+                                    onCheckedChange={field.onChange}
+                                />
+                            </FormControl>
+                            <FormLabel className="text-sm ml-2">
+                                can be deducted from tax
+                            </FormLabel>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                    <FormField 
+                    control={form.control}
+                    name="buyerComission"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Buyer Comission if applicable (%): </FormLabel>
+                            <FormControl>
+                                <Input placeholder="5%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                    <FormField 
+                    control={form.control}
+                    name="sellerComission"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Seller Comission if applicable (%): </FormLabel>
+                            <FormControl>
+                                <Input placeholder="5%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                    <FormField 
+                    control={form.control}
+                    name="sellerComissionTaxes"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormControl>
+                                <Checkbox
+                                    checked={field.value}
+                                    onCheckedChange={field.onChange}
+                                />
+                            </FormControl>
+                            <FormLabel className="text-sm ml-2">
+                                can be deducted from tax
+                            </FormLabel>
+                            <FormMessage />
+                        </FormItem>
+                    )}
                     />
                     <FormField 
                     control={form.control}
                     name="otherCosts1"
                     render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Optional Costs 1 (Selling Costs, more fees, more taxes): </FormLabel>
-                                <FormControl>
-                                    <Input placeholder="legal fees..." {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
+                        <FormItem>
+                            <FormLabel>Optional Costs 1 (specific taxes, loyer, bla bla): </FormLabel>
+                            <FormControl>
+                                <Input placeholder="Loyer..." {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
                     />
                     <FormField 
                     control={form.control}
                     name="otherCost1Taxes"
                     render={({ field }) => (
-                            <FormItem>
-                                <FormControl>
-                                    <Checkbox
-                                        checked={field.value}
-                                        onCheckedChange={field.onChange}
-                                    />
-                                </FormControl>
-                                <FormLabel className="text-sm ml-2">
-                                    can be deducted from tax
-                                </FormLabel>
-                                <FormMessage />
-                            </FormItem>
-                        )}
+                        <FormItem>
+                            <FormControl>
+                                <Checkbox
+                                    checked={field.value}
+                                    onCheckedChange={field.onChange}
+                                />
+                            </FormControl>
+                            <FormLabel className="text-sm ml-2">
+                                can be deducted from tax
+                            </FormLabel>
+                            <FormMessage />
+                        </FormItem>
+                    )}
                     />
                     <FormField 
                     control={form.control}
@@ -234,11 +315,11 @@ export default function LoanCalculator() {
                         <FormItem>
                             <FormLabel>Optional Costs 2 (More taxes? Really?): </FormLabel>
                             <FormControl>
-                                <Input placeholder="legal fees..." {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                                <Input placeholder="more legal fees..." {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
-                        )}
+                    )}
                     />
                     <FormField 
                     control={form.control}
@@ -259,7 +340,7 @@ export default function LoanCalculator() {
                     )}
                     />
                     <FormField
-                        control={form.control}
+                    control={form.control}
                         name="timeToSell"
                         render={({ field }) => (
                         <FormItem>
@@ -269,10 +350,10 @@ export default function LoanCalculator() {
                             </FormControl>
                             <FormMessage />
                         </FormItem>
-                        )}
+                    )}
                     />
                     <FormField
-                        control={form.control}
+                    control={form.control}
                         name="taxesOnProfit"
                         render={({ field }) => (
                         <FormItem>
@@ -282,7 +363,7 @@ export default function LoanCalculator() {
                             </FormControl>
                             <FormMessage />
                         </FormItem>
-                        )}
+                    )}
                     />
                     <Button type="submit">Submit</Button>
                 </form>

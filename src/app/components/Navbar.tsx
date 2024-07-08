@@ -7,12 +7,12 @@ export default function Navbar() {
                 <div className="font-bold flex-1 pl-5">
                     <Link href="/">Logo</Link>    
                 </div>
-                <nav className="">
-                    <Link className="text-center px-4 hover:bg-slate-400" href="/general">Geral</Link>
-                    <Link className="text-center px-4" href="/value-investing">Value Investing</Link>
-                    <Link className="text-center px-4" href="/real-estate">Real Estate</Link>
-                    <Link className="text-center px-4" href="/investor-framework">Investing Framework</Link>
-                    <Link className="text-center px-4" href="/contact">Contact</Link>
+                <nav>
+                    <Link className="text-center px-4 hover:text-zinc-100" href="/general">Geral</Link>
+                    <Link className="text-center px-4 hover:text-zinc-100" href="/value-investing">Value Investing</Link>
+                    <Link className="text-center px-4 hover:text-zinc-100" href="/real-estate">Real Estate</Link>
+                    <Link className="text-center px-4 hover:text-zinc-100" href="/investor-framework">Investing Framework</Link>
+                    <Link className="text-center px-4 hover:text-zinc-100" href="/contact">Contact</Link>
                 </nav>
             </nav>
         </header>
