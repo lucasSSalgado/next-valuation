@@ -15,13 +15,16 @@ import { Input } from "@/components/ui/input"
 
 import { calculateLoan, formSchema, useCustomForm } from "./loanMath"
 import { handleCurrencyInput } from "./helper"
+import { useState } from "react"
+import { FlipResponse } from "@/app/types"
 
 export default function LoanCalculator() {     
     const form = useCustomForm();
+    const [resp, setResp] = useState<FlipResponse>()
 
     function onSubmit(values: z.infer<typeof formSchema>) {
         const resp = calculateLoan(values)
-        console.log(resp)
+        setResp(resp)
     }  
 
     return (
@@ -239,6 +242,13 @@ export default function LoanCalculator() {
                     <Button className="mt-2" type="submit">Submit</Button>
                 </form>
             </Form>
+
+            { resp && 
+                <div>
+                    The operation will generate ${resp.netProfit.toFixed(2)} of profit, equivalent to a ROI of {resp.roi.toFixed(2)}%.
+                    The cash need to operate is ${resp.necessaryCash.toFixed(2)}
+                </div>
+            }
         </div>
       )
 }

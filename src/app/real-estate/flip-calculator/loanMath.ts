@@ -82,9 +82,6 @@ export const calculateLoan = (data: z.infer<typeof formSchema>): FlipResponse =>
     const taxes = (sellingPrice - aquisicao) * (taxesOnProfit/100)
     const netProfit = sellingPrice - (sellingPrice * sellerComission/100) - taxes - aquisicao
 
-    console.log("taxes: ", taxes)
-    console.log("Cash need: ", cashNeed)
-
     return {
         netProfit: netProfit,
         necessaryCash: cashNeed,
