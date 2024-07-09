@@ -14,8 +14,8 @@ export default function FlipForm() {
 
     return (
         <div>
-            <div className="flex">
-                <Button onClick={() => setPaymentType('cash')}>Cash</Button>
+            <div className="flex gap-4 mt-4">
+                <Button variant="outline" onClick={() => setPaymentType('cash')}>Cash</Button>
                 <Button onClick={() => setPaymentType('loan')}>Loan</Button>
             </div>
 
