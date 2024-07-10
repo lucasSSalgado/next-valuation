@@ -6,8 +6,7 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-  } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
+} from "@/components/ui/card"
   
 
 export default function PhilipFisher() {
@@ -38,7 +37,7 @@ export default function PhilipFisher() {
                             <a href="#">commom stocks uncommon profits</a>
                         </Button>
                         <Button variant="outline">
-                            <a href="#">dont know slep well</a>
+                            <a href="#">conservative investors sleep well</a>
                         </Button>
                     </div>
                 </div>

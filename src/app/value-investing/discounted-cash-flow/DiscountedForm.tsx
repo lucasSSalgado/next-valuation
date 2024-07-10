@@ -1,6 +1,10 @@
 'use client'
 
 import { useState } from "react"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Button } from "@/components/ui/button"
+import { Form } from "@/components/ui/form"
 
 export default function DiscountedForm() {
     const [eps, setEps] = useState(0)
@@ -27,33 +31,33 @@ export default function DiscountedForm() {
             value += (eps * Math.pow((1 + rate2), j)) / Math.pow((1 + discoutedPercent), j)
         }
         setFairValue(value)
-        console.log(fairValue, stockPrice)
     }
 
     return (
         <div className="bg-zinc-200 p-4 mt-4 rounded-md">
-            <h1 className="text-2xl mb-2">Discounted Cash Flow From</h1>
-            <p>All data is yearly</p>
-            <label className="text-xl text-green-600" htmlFor="stockPrice">Actual Stock Price: </label>
-            <input type="text" name="stockPrice" id="stockPrice" onChange={(e) => setStockPrice(Number(e.target.value))}/>
+            <h1 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">Discounted Cash Flow From</h1>
+            <p className="text-sm font-medium leading-none italic mb-3">All data is yearly</p>
+            <Label htmlFor="stockPrice">Actual Stock Price: </Label>
+            <Input type="text" name="stockPrice" id="stockPrice" onChange={(e) => setStockPrice(Number(e.target.value))}/>
 
             <form>
-                <label htmlFor="eps">Earning Per Share: </label>
-                <input type="text" id="eps" onChange={(e) => setEps(Number(e.target.value))} /> <br />
-                <label htmlFor="firstY">Years of first growth rate: </label>
-                <input type="text" id="firstY" onChange={(e) => setFirstYears(Number(e.target.value))} /> <br />
-                <label htmlFor="rateF">First growth rate (% yearly): </label>
-                <input type="text" id="rateF" onChange={(e) => setFirstRate(Number(e.target.value))} /> <br />
-                <label htmlFor="secondY">Years of second growth rate: </label>
-                <input type="text" id="secondY" onChange={(e) => setSecondYears(Number(e.target.value))} /> <br />
-                <label htmlFor="rateS">Second growth rate: </label>
-                <input type="text" id="rateS" onChange={(e) => setSecondRate(Number(e.target.value))} /> <br />
-                <label htmlFor="perp">Discouted rate: </label>
-                <input type="text" id="perp" onChange={(e) => setDiscountedRate(Number(e.target.value))} /> <br />
-                <button className="bg-green-500 p-1 rounded-md" type="button" onClick={ handleCalculator }>
+                <Label htmlFor="eps">Earning Per Share: </Label>
+                <Input type="text" id="eps" onChange={(e) => setEps(Number(e.target.value))} /> <br />
+                <Label htmlFor="firstY">Years of first growth rate: </Label>
+                <Input type="text" id="firstY" onChange={(e) => setFirstYears(Number(e.target.value))} /> <br />
+                <Label htmlFor="rateF">First growth rate (% yearly): </Label>
+                <Input type="text" id="rateF" onChange={(e) => setFirstRate(Number(e.target.value))} /> <br />
+                <Label htmlFor="secondY">Years of second growth rate: </Label>
+                <Input type="text" id="secondY" onChange={(e) => setSecondYears(Number(e.target.value))} /> <br />
+                <Label htmlFor="rateS">Second growth rate: </Label>
+                <Input type="text" id="rateS" onChange={(e) => setSecondRate(Number(e.target.value))} /> <br />
+                <Label htmlFor="perp">Discouted rate: </Label>
+                <Input type="text" id="perp" onChange={(e) => setDiscountedRate(Number(e.target.value))} /> <br />
+                <Button type="button" onClick={ handleCalculator }>
                     Calculator
-                </button>
+                </Button>
             </form>
+
             {
                 fairValue === 0 
                 ? null :
