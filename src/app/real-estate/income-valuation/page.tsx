@@ -1,3 +1,4 @@
+import { Separator } from "@/components/ui/separator";
 import IncomeForm from "./IncomeForm";
 
 export default function IncameValuationPage() {
@@ -12,21 +13,22 @@ export default function IncameValuationPage() {
                     generate more income then for a property that generate less. 
                 </p>
                 <p className="leading-7 [&:not(:first-child)]:mt-2">
-                    Here like in many valuation method with stocks we will use a discounted cash flow to bring the future cash flow 
-                    into present value and see how much is ok to pay for the property. 
+                    The formula is the follow: <span className="font-semibold">Fair Price = (NOI - (NOI * Vancancy Rate))  / Market Cap Rate</span>.
+                    Where NOI is the Net Operation Income, all the rent pay minus all the oprational costs, but do not consider taxes here. 
+                    Market Cap rate is usually calculate by <span className="font-semibold">NOI  / Property Market value</span>. But I dislike
+                    this way of calculate, for me look like a circular thinking. So here de denominator will be 
+                    <span className="font-semibold">Free rate of return + Risk premium - Expected growth</span>.
+                    So now the formula is using the market conditions to value the future cash flow of the income, and not the Market value of similar 
+                    properties.
                 </p>
                 <p className="leading-7 [&:not(:first-child)]:mt-2">
-                    So in the calculator above add the risk free rate in your country (usually the sort term tresuary bond rate) 
-                    and the risk premium (a realistic one) you need to make a investment. So add the normal yearly income of similar
-                    properties in the same region. Also add the growth rate in the income (based on your expectation of the future 
-                    of the region) and for how many years you want to calculate (10 years is a good start).
-                </p>
-                <p className="leading-7 [&:not(:first-child)]:mt-2">
-                    Additionally you can also add the price you want to pay for the given property.
+                    Additionally you can also add the price you want to pay for the given property to get the current discount.
                 </p>
             </div>
-           
+
+            <Separator className="my-4" />
             <IncomeForm />
+            <Separator className="my-4" />
             <div>
                 Usefull links: 
                 <ul>

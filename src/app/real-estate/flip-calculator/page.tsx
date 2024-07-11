@@ -13,7 +13,7 @@ export default function FlipCalculatorPage() {
         <div className="p-5 w-3/4 mx-auto mt-10">
             <Card>
                 <CardHeader>
-                    <CardTitle>The all in one flip calculator</CardTitle>
+                    <CardTitle>Your All in One Flip Calculator</CardTitle>
                     <CardDescription>
                         This is a very custbale flip calculator make to be possible its use in difference countries, 
                         difference way of payment, different interest rates and diferent taxes systems, enjoy.

@@ -14,7 +14,7 @@ export default function Lateralnav() {
                 <Link className="text-secondary" href="/general/crypto">Cryptocurrency</Link>
             </Button>
             <Button variant="link">
-                <Link className="text-secondary" href="/general/100baggers">Bagger Calculator</Link>
+                <Link className="text-secondary" href="/general/100baggers">100x Bagger Calculator</Link>
             </Button>
         </div>
     )

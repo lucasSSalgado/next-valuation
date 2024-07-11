@@ -1,8 +1,6 @@
 "use client"
 
 import type { FlipResponse } from '@/app/types'
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
 import { z } from "zod"
 
 import { Button } from "@/components/ui/button"
@@ -15,176 +13,141 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Checkbox } from "@/components/ui/checkbox"
-import { formSchema, calculateCash } from "./cashMath"
+import { formSchema, calculateCash, useCustomForm } from "./cashMath"
+import ResultAlert from "./ResultAlert"
 import { useState } from "react"
 import { handleCurrencyInput } from './helper'
+import { formatCurrency } from '@/lib/formatter'
 
 export default function CachCalculator() {    
   const [resp, setResp] = useState<FlipResponse>()
+  const [openDialog, setOpenDialog] = useState(false)
 
-  const form = useForm<z.infer<typeof formSchema>>({
-      resolver: zodResolver(formSchema),
-      defaultValues: {
-          price: '',
-          sell: '',
-          rehab: '',
-          rehabTaxes: false,
-          hodingCosts: '',
-          hodingCostsTaxes: false,
-          otherCosts1: '',
-          otherCost1Taxes: false,
-          otherCosts2: '',
-          otherCost2Taxes: false,
-          timeToSell: '',
-          taxesOnProfit: '',
-      },
-  })
+  const form = useCustomForm()
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
-    const responseObj = calculateCash(
-        values.price,
-        values.sell,
-        values.rehab,
-        values.rehabTaxes as boolean,
-        values.hodingCosts,
-        values.hodingCostsTaxes as boolean,
-        values.otherCosts1 as string,
-        values.otherCost1Taxes as boolean,
-        values.otherCosts2 as string,
-        values.otherCost2Taxes as boolean,
-        values.timeToSell,
-        values.taxesOnProfit
-    )
-
-    setResp(responseObj)
+    setResp(calculateCash(values))
+    setOpenDialog(true)
   }
 
   return (
     <div>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-1">
-          <FormField
-            control={form.control}
-            name="price"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Purchansing Price: </FormLabel>
-                <FormControl>
-                  <Input placeholder="$200.000" { ...field } onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="sell"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Sell Price: </FormLabel>
-                <FormControl>
-                  <Input placeholder="$250.000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="rehab"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Rehab Cost: </FormLabel>
-                <FormControl>
-                  <Input placeholder="$50.000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="rehabTaxes"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Checkbox
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                </FormControl>
-                <FormLabel className="text-sm ml-2">
-                  can be deducted from tax
-                </FormLabel>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="hodingCosts"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>All Holding Cost (utilities, insurance, taxes, fees, etc) by Month: </FormLabel>
-                <FormControl>
-                  <Input placeholder="$50.000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="hodingCostsTaxes"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Checkbox
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                </FormControl>
-                <FormLabel className="text-sm ml-2">
-                  can be deducted from tax
-                </FormLabel>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField 
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+            <FormField
               control={form.control}
-              name="otherCosts1"
+              name="price"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Purchansing Price: </FormLabel>
+                  <FormControl>
+                    <Input placeholder="$200.000" { ...field } onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="sell"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Sell Price: </FormLabel>
+                  <FormControl>
+                    <Input placeholder="$250.000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+            <FormField
+              control={form.control}
+              name="rehab"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Rehab Cost: </FormLabel>
+                  <FormControl>
+                    <Input placeholder="$50.000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="documentation"
               render={({ field }) => (
                   <FormItem>
-                      <FormLabel>Optional Costs 1 (Selling Costs, more fees, more taxes): </FormLabel>
+                      <FormLabel>Documentation Cost: </FormLabel>
                       <FormControl>
-                          <Input placeholder="legal fees..." {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                      <Input placeholder="$50.000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                       </FormControl>
                       <FormMessage />
                   </FormItem>
               )}
-          />
-          <FormField 
+            />
+          </div>
+          <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+            <FormField
               control={form.control}
-              name="otherCost1Taxes"
+              name="hodingCosts"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>All Holding Cost (utilities, insurance, taxes, fees, etc) by Month: </FormLabel>
+                  <FormControl>
+                    <Input placeholder="$50.000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="leiloeiroComission"
               render={({ field }) => (
                   <FormItem>
+                      <FormLabel>Fees in for the leiloeiro (%): </FormLabel>
                       <FormControl>
-                          <Checkbox
-                              checked={field.value}
-                              onCheckedChange={field.onChange}
-                          />
+                      <Input placeholder="2%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                       </FormControl>
-                      <FormLabel className="text-sm ml-2">
-                          can be deducted from tax
-                      </FormLabel>
                       <FormMessage />
                   </FormItem>
               )}
-          />
-          <FormField 
+              />
+          </div>
+          <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+            <FormField 
+            control={form.control}
+            name="sellerComission"
+            render={({ field }) => (
+              <FormItem>
+                  <FormLabel>Seller Comission if applicable (%): </FormLabel>
+                  <FormControl>
+                      <Input placeholder="5%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                  </FormControl>
+                  <FormMessage />
+              </FormItem>
+            )}
+            />
+            <FormField 
+                control={form.control}
+                name="otherCosts1"
+                render={({ field }) => (
+                <FormItem>
+                    <FormLabel>Optional Costs 1 (Selling Costs, more fees, more taxes): </FormLabel>
+                    <FormControl>
+                        <Input placeholder="legal fees..." {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                    </FormControl>
+                    <FormMessage />
+                </FormItem>
+            )}
+            />
+          </div>
+          <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+            <FormField 
               control={form.control}
               name="otherCosts2"
               render={({ field }) => (
@@ -196,38 +159,22 @@ export default function CachCalculator() {
                       <FormMessage />
                   </FormItem>
               )}
-          />
-          <FormField 
+            />
+            <FormField
               control={form.control}
-              name="otherCost2Taxes"
+              name="timeToSell"
               render={({ field }) => (
-                  <FormItem>
-                      <FormControl>
-                          <Checkbox
-                              checked={field.value}
-                              onCheckedChange={field.onChange}
-                          />
-                      </FormControl>
-                      <FormLabel className="text-sm ml-2">
-                          can be deducted from tax
-                      </FormLabel>
-                      <FormMessage />
-                  </FormItem>
+                <FormItem>
+                  <FormLabel>Time to sell (in months): </FormLabel>
+                  <FormControl>
+                    <Input placeholder="12" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
               )}
-          />
-          <FormField
-            control={form.control}
-            name="timeToSell"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Time to sell (in months): </FormLabel>
-                <FormControl>
-                  <Input placeholder="12" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+            />
+          </div>
+          <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
           <FormField
             control={form.control}
             name="taxesOnProfit"
@@ -241,17 +188,20 @@ export default function CachCalculator() {
               </FormItem>
             )}
           />
-
-          <Button type="submit">Submit</Button>
+          </div>
+          <Button className="mt-3" type="submit">Submit</Button>
         </form>
       </Form>
     
-      { 
-        resp && 
-        <div>
-          the profit is ${ resp.netProfit } the ROI is { resp.roi.toFixed(4) }% and the monthly equivalent yield is { resp.monthlyRoi.toFixed(4) }%
-        </div> 
-      }
+        { resp && 
+          <ResultAlert 
+              openDialog={openDialog} 
+              setOpenDialog={setOpenDialog}
+              profit={formatCurrency(resp.netProfit)} 
+              roi={resp.roi} 
+              cashNeed={formatCurrency(resp.necessaryCash)} 
+          />
+        }
     </div>
   )
 }

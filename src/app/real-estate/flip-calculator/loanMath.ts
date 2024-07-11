@@ -86,7 +86,7 @@ export const calculateLoan = (data: z.infer<typeof formSchema>): FlipResponse =>
         netProfit: netProfit,
         necessaryCash: cashNeed,
         roi: (netProfit / cashNeed) * 100,
-        monthlyRoi: Math.pow(1, 1/12)
+        monthlyRoi: Math.pow((netProfit / cashNeed) * 100, 1/12)
     }
 }
 

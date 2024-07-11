@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 
 import CachCalculator from "./CashCalculator"
 import LoanCalculator from "./LoanCalculator"
+import { Separator } from "@/components/ui/separator"
 
 type cashOrLoan = 'cash' | 'loan' | undefined
 
@@ -19,6 +20,7 @@ export default function FlipForm() {
                 <Button onClick={() => setPaymentType('loan')}>Loan</Button>
             </div>
 
+            <Separator className="my-4" />
             <div>
                 { paymentType === 'cash' && <CachCalculator /> }
                 { paymentType === 'loan' && <LoanCalculator /> }

@@ -1,49 +1,68 @@
 import { FlipResponse } from "@/app/types";
 import { z } from "zod"
 import { parseCorrencyToNumber, validatePositiveCurrency } from "./helper";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 
 export const formSchema = z.object({
     price: z.string().refine((val) => validatePositiveCurrency(val), { message: "Price must be a positive number." }),
     sell: z.string().refine((val) => validatePositiveCurrency(val), { message: "Sell must be a positive number." }),
     rehab: z.string().refine((val) => validatePositiveCurrency(val), { message: "Rehab must be a positive number." }),
-    rehabTaxes: z.coerce.boolean().optional(),
+    documentation: z.string().refine((val) => validatePositiveCurrency(val), { message: "documentation must be a positive number." }),
     hodingCosts: z.string().refine((val) => validatePositiveCurrency(val), { message: "Other Costs must be positive." }),
-    hodingCostsTaxes: z.coerce.boolean().optional(),
-    otherCosts1: z.string().optional().refine((val) => validatePositiveCurrency(val), { message: "Other Costs must be positive." }),
-    otherCost1Taxes: z.coerce.boolean().optional(),
-    otherCosts2: z.string().optional().refine((val) => validatePositiveCurrency(val), { message: "Other Costs must be a positive number." }),
-    otherCost2Taxes: z.coerce.boolean().optional(),
+    leiloeiroComission: z.string().optional(),
+    sellerComission: z.string().optional(),
+    discountInSell: z.string().optional(),
+    otherCosts1: z.string().optional(),
+    otherCosts2: z.string().optional(),
     timeToSell: z.string().refine((val) => validatePositiveCurrency(val), { message: "Other Costs must be a positive number." }),
     taxesOnProfit: z.string().refine((val) => validatePositiveCurrency(val), { message: "Other Costs must be a positive number." }),
 })
 
-export const calculateCash = 
-    (price: string, sell: string, rehab: string, rehabTaxes: boolean, 
-    hodingCosts: string, hodingCostsTaxes: boolean, otherCosts1: string, otherCost1Taxes: boolean,
-    otherCosts2: string, otherCost2Taxes: boolean, timeToSell: string, taxesOnProfit: string): FlipResponse => {
+export const useCustomForm = () => {
+    return useForm<z.infer<typeof formSchema>>({
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+            price: '',
+            sell: '',
+            rehab: '',
+            documentation: '',
+            hodingCosts: '',
+            leiloeiroComission: '',
+            sellerComission: '',
+            discountInSell: '',
+            otherCosts1: '',
+            otherCosts2: '',
+            timeToSell: '',
+            taxesOnProfit: '',
+        },
+    })
+}
 
-    const priceNum = parseCorrencyToNumber(price)
-    const sellNum = parseCorrencyToNumber(sell)
-    const rehabNum = parseCorrencyToNumber(rehab)
-    const hodingCostsNum = parseCorrencyToNumber(hodingCosts)
-    const otherCosts1Num = parseCorrencyToNumber(otherCosts1)
-    const otherCosts2Num = parseCorrencyToNumber(otherCosts2)
-    const timeToSellNum = parseCorrencyToNumber(timeToSell)
-    const taxesOnProfitNum = parseCorrencyToNumber(taxesOnProfit)
+export const calculateCash = (data: z.infer<typeof formSchema>): FlipResponse => {
+    const price = parseCorrencyToNumber(data.price)
+    const sell = parseCorrencyToNumber(data.sell)
+    const rehab = parseCorrencyToNumber(data.rehab)
+    const documentation = parseCorrencyToNumber(data.documentation)
+    const holdingCosts = parseCorrencyToNumber(data.hodingCosts)
+    const leiloeiroComission = data.leiloeiroComission ? parseInt(data.leiloeiroComission) / 100 : 0
+    const sellerComission = data.sellerComission ? parseInt(data.sellerComission) / 100 : 0
+    const discountInSell = data.discountInSell ? parseInt(data.discountInSell) : 0
+    const otherCosts1 = parseCorrencyToNumber(data.otherCosts1 ? data.otherCosts1 : '0')
+    const otherCosts2 = parseCorrencyToNumber(data.otherCosts2 ? data.otherCosts2 : '0')
+    const timeToSell = parseInt(data.timeToSell) 
+    const taxes = parseInt(data.taxesOnProfit) / 100
 
-    const allHoldingCost = hodingCostsNum * timeToSellNum    
-    let deductibleCosts = (rehabTaxes ? rehabNum : 0) + (hodingCostsTaxes ? allHoldingCost : 0) + (otherCost1Taxes ? otherCosts1Num : 0)
-    let nonDeductibleCosts = (rehabTaxes ? 0 : rehabNum) + (hodingCostsTaxes ? 0 : allHoldingCost) + (otherCost1Taxes ? 0 : otherCosts1Num) + (otherCost2Taxes ? 0 : otherCosts2Num);
-
-    const taxes = (sellNum - (priceNum + deductibleCosts)) * (taxesOnProfitNum / 100)
-    const allCosts = priceNum + nonDeductibleCosts + deductibleCosts + taxes
-    const realProfit = sellNum - allCosts
-    const roi = (realProfit / allCosts) *100
+    const allCosts = price + rehab + documentation + (holdingCosts * timeToSell) + otherCosts1 + otherCosts2 
+                     + (price * leiloeiroComission) + (sellerComission * sell)
+    const profit = (sell - (1 - discountInSell)) - allCosts
+    const netProfit = profit - (profit * taxes)
 
     return {
-        netProfit: realProfit,
-        roi: roi,
-        monthlyRoi: Math.pow(roi, 1/12)
+        netProfit: netProfit,
+        necessaryCash: allCosts,
+        roi: (profit / allCosts) * 100,
+        monthlyRoi: Math.pow((profit / allCosts) * 100, 1/12)
     }
 }
 

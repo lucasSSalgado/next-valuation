@@ -1,56 +1,136 @@
 'use client'
 
 import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { useCustomForm, incomeValuation, formSchema, IncomeValuation } from "./incomeMath"
+import { z } from "zod"
+import { handleCurrencyInput } from "../flip-calculator/helper"
+import { Separator } from "@/components/ui/separator"
+import IncomeAlert from "./IncomeAlert"
+
 
 export default function IncomeForm() {
-    const [riskFree, setRiskFree] = useState(0)
-    const [riskPremium, setRiskPremium] = useState(0)
-    const [normalIncome, setNormalIncome] = useState(0)
-    const [vacancy, setVacancy] = useState(0)
-    const [years, setYears] = useState(0)
-    const [result, setResult] = useState(0) 
-    const [growthRate, setGrowthRate] = useState(0)
-    const [propertyPrice, setPropertyPrice] = useState(0)
+    const [fairValue, setFairValue] = useState<IncomeValuation>()
+    const [openDialog, setOpenDialog] = useState(false)
 
-    const handleCalculate = () => {
-        let value = 0
-        const discountRate = (riskFree + riskPremium) / 100
-        for (let i = 0; i < years; i++) {
-            const income = (normalIncome * (1 + growthRate) * (1 - (vacancy/100)))
-            const currentVal = income / Math.pow((1 + discountRate), i)
-            console.log(income, vacancy)
-            value += currentVal
-        }
-        setResult(value)
+    const form = useCustomForm()
+
+    const onSubmit = (data: z.infer<typeof formSchema>) => {
+        const resp = incomeValuation(data)
+        console.log(resp)
+        setFairValue(resp)
+        setOpenDialog(true)
     }
 
     return (
-        <div className="bg-zinc-200 p-4 mt-4 rounded-md">
-            <h1 className="text-2xl mb-2">Income Valuation From</h1>
-            <p>All data is yearly</p>
-            <form>
-                <label htmlFor="">Free Risk Rate (%): </label>
-                <input type="text" onChange={(e) => setRiskFree(Number(e.target.value))}/> <br />
-                <label htmlFor="">Risk Premium (%): </label>
-                <input type="text" onChange={(e) => setRiskPremium(Number(e.target.value))}/> <br />
-                <label htmlFor="">Growth Rate (%): </label>
-                <input type="text" onChange={(e) => setGrowthRate(Number(e.target.value))}/> <br />
-                <label htmlFor="">Annualy Vancacy (%):</label>
-                <input type="text" onChange={(e) => setVacancy(Number(e.target.value))}/> <br />
-                <label htmlFor="">Current Income: </label>
-                <input type="text" onChange={(e) => setNormalIncome(Number(e.target.value))}/> <br />
-                <label htmlFor="">Years: </label>
-                <input type="text" onChange={(e) => setYears(Number(e.target.value))}/> <br />
-                <label htmlFor="">Property Price: </label>
-                <input type="text" onChange={(e) => setPropertyPrice(Number(e.target.value))}/> <br />
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold p-1 rounded" type="button" onClick={ handleCalculate }>
-                    Calculate
-                </button>
+        <div>
+            <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)}>
+                <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                    <FormField
+                    control={form.control}
+                    name="anullyIncome"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Anually Real Income: </FormLabel>
+                        <FormControl>
+                            <Input placeholder="$200,000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                        </FormControl>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                    <FormField
+                    control={form.control}
+                    name="riskFreeRate"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Risk Free Rate (%): </FormLabel>
+                        <FormControl>
+                            <Input placeholder="10%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                        </FormControl>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                </div>
+                <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                    <FormField
+                        control={form.control}
+                        name="riskPremiun"
+                        render={({ field }) => (
+                            <FormItem>
+                            <FormLabel>Risk Premiun (%): </FormLabel>
+                            <FormControl>
+                                <Input placeholder="3%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                            </FormControl>
+                            <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="expectedGrowth"
+                        render={({ field }) => (
+                            <FormItem>
+                            <FormLabel>Expected Growth (%): </FormLabel>
+                            <FormControl>
+                                <Input placeholder="5%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                            </FormControl>
+                            <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                </div>
+                <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                    <FormField
+                        control={form.control}
+                        name="vacancyRate"
+                        render={({ field }) => (
+                            <FormItem>
+                            <FormLabel>Anually Vacancy (%): </FormLabel>
+                            <FormControl>
+                                <Input placeholder="7%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                            </FormControl>
+                            <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="price"
+                        render={({ field }) => (
+                            <FormItem>
+                            <FormLabel>Property Price: </FormLabel>
+                            <FormControl>
+                                <Input placeholder="$200,000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                            </FormControl>
+                            <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                </div>
+                <Button className="mt-3" type="submit">Submit</Button>
             </form>
+            </Form>
+
             {
-                propertyPrice === 0 ? 
-                <p> The fair value of this property is: ${result.toFixed(2)}</p> :
-                <p> The fair value of this property is: ${result.toFixed(2)} and the discount you pay is { (((propertyPrice / result) -1) * -100).toFixed(2)}%</p>
+                openDialog && fairValue &&
+                <IncomeAlert 
+                    openDialog={openDialog} 
+                    setOpenDialog={setOpenDialog} 
+                    fairPrice={fairValue?.fairValue} 
+                    price={fairValue?.price} 
+                    discount={fairValue?.discount} />
             }
         </div>
     )

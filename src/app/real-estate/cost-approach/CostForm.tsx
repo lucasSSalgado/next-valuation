@@ -1,50 +1,162 @@
 'use client'
 
 import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { formSchema, useCustomForm, costCalculator, CostValuation } from "./costMath"
+import { z } from "zod"
+import CostDialog from "./CostDialog"
+import { handleCurrencyInput } from "../flip-calculator/helper"
 
 export default function CostForm() {
-    const [landCost, setLandCost] = useState(0)
-    const [costBuild, setCostBuild] = useState(0)
-    const [squareFoot, setSquareFoot] = useState(0)
-    const [propertyAge, setPropertyAge] = useState(0)
-    const [propertyLifetime, setPropertyLifetime] = useState(0)
-    const [buildTime, setBuildTime] = useState(0)
-    const [opportunityCost, setOpportunityCost] = useState(0)
-    const [fairValue, setfairValue] = useState(0)
+    const [fairValue, setfairValue] = useState<CostValuation>()
+    const [openDialog, setOpenDialog] = useState(false)
 
-    const handleCalculate = () => {
-        const depreciationPercent = 1 - (propertyAge / propertyLifetime)
-        const buildTotalCost = costBuild * squareFoot 
-        const mothRate = Math.pow((1 + (opportunityCost/100)), 1/12)  - 1
-        const value = landCost + (buildTotalCost * (depreciationPercent))
-        const opportunityVal = value * Math.pow((1 + mothRate), buildTime)
-        setfairValue(opportunityVal)
+    const form = useCustomForm()
+    const onSubmit = (data: z.infer<typeof formSchema>) => {
+        const resp = costCalculator(data)
+        setfairValue(resp)
+        setOpenDialog(true)
     }
 
     return (
-        <div className="bg-zinc-200 p-4 mt-4 rounded-md">
-            <h1 className="text-2xl mb-2">Cost Valuation From</h1>
-            <p>All data is yearly</p>
-            <form>
-                <label htmlFor="land-cost">Land Cost: </label>
-                <input type="text" id="land-cost" onChange={(e) => setLandCost(Number(e.target.value))} /> <br />
-                <label htmlFor="cost-build">Cost of Square Foot: </label>
-                <input type="text" id="cost-build" onChange={(e) => setCostBuild(Number(e.target.value))} /> <br />
-                <label htmlFor="sqtrFoot">Number of Square Foot: </label>
-                <input type="text" id="sqtrFoot" onChange={(e) => setSquareFoot(Number(e.target.value))} /> <br />
-                <label htmlFor="age">Property Age: </label>
-                <input type="text" id="age" onChange={(e) => setPropertyAge(Number(e.target.value))} /> <br />
-                <label htmlFor="lifetime">Property Usefull Lifetime: </label>
-                <input type="text" id="lifetime" onChange={(e) => setPropertyLifetime(Number(e.target.value))} /> <br />
-                <label htmlFor="build-time">Time to build (in months): </label>
-                <input type="text" id="build-time" onChange={(e) => setBuildTime(Number(e.target.value))} /> <br />
-                <label htmlFor="opportunity-cost">Opportunity Cost (% yearly): </label>
-                <input type="text" id="opportunity-cost" onChange={(e) => setOpportunityCost(Number(e.target.value))} /> <br />
-                <button className="bg-green-500 p-1 rounded-md" type="button" onClick={ handleCalculate }>
-                    Calculate
-                </button>
+        <div>
+            <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)}>
+                <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                <FormField
+                control={form.control}
+                name="landCost"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Land Cost: </FormLabel>
+                    <FormControl>
+                        <Input placeholder="$50,000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                    </FormControl>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                <FormField
+                control={form.control}
+                name="costBuild"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Build Cost Per Square Foot: </FormLabel>
+                    <FormControl>
+                        <Input placeholder="$5,000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                    </FormControl>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                </div>
+                <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                <FormField
+                control={form.control}
+                name="squareFoot"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Property Square Foot: </FormLabel>
+                    <FormControl>
+                        <Input placeholder="70" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                <FormField
+                control={form.control}
+                name="buildTime"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Build Time in Months: </FormLabel>
+                    <FormControl>
+                        <Input placeholder="6" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                </div>
+                <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                <FormField
+                control={form.control}
+                name="propertyAge"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Property Age (in years): </FormLabel>
+                    <FormControl>
+                        <Input placeholder="10" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                <FormField
+                control={form.control}
+                name="propertyLifetime"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Property Lifetime (genarally 50 years): </FormLabel>
+                    <FormControl>
+                        <Input placeholder="50" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                </div>
+                <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                <FormField
+                control={form.control}
+                name="opportunityCost"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Opportunity Cost (%): </FormLabel>
+                    <FormControl>
+                        <Input placeholder="6%" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                <FormField
+                control={form.control}
+                name="price"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Property Requested Price:  </FormLabel>
+                    <FormControl>
+                        <Input placeholder="$200,000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                    </FormControl>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                </div>
+                <Button className="mt-3" type="submit">Calculate</Button>
             </form>
-            <p>The fair value of this property is: ${ fairValue.toFixed(2) } </p>
+            </Form>
+
+            {
+                fairValue && 
+                openDialog &&
+                <CostDialog 
+                    openDialog={openDialog}
+                    setOpenDialog={setOpenDialog}
+                    fairValue={fairValue.fairValue}
+                    discont={fairValue.discount}
+                />
+            }
         </div>
     )
 }

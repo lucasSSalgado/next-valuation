@@ -18,7 +18,6 @@ import { handleCurrencyInput } from "./helper"
 import { useState } from "react"
 import { FlipResponse } from "@/app/types"
 import { formatCurrency } from "@/lib/formatter"
-import { Separator } from "@/components/ui/separator"
 import ResultAlert from "./ResultAlert"
 
 export default function LoanCalculator() {     
@@ -34,9 +33,7 @@ export default function LoanCalculator() {
     return (
         <div>
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="py-2">
-                    <Separator className="mt-4 mb-5" />
-
+                <form onSubmit={form.handleSubmit(onSubmit)}>
                     <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto">
                         <FormField
                         control={form.control}

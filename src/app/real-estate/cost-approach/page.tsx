@@ -1,3 +1,4 @@
+import { Separator } from "@/components/ui/separator"
 import CostForm from "./CostForm"
 
 export default function CostApproachPage() {
@@ -19,14 +20,16 @@ export default function CostApproachPage() {
                     constructor in the region or apply a bigger margin of safety.
                 </p>
                 <p className="leading-7 [&:not(:first-child)]:mt-2">
-                    The formula is the follow: Land value + Cost of Construction - Depreciation + opportunity cost. In general is used the cost per square foot
-                    and for the matter of this calculator we will use the Straight Line Depreciation method, that consider the age of the 
-                    property and the useful lifetime. We also need to consider the opportunity cost and the time take to construct the new house, because
-                    a property today value more then a property tomorrow
+                    The formula is the follow: <span className="font-semibold">Land Value + Cost of Construction - Depreciation + Opportunity Cost</span>.
+                    In general is used the cost per square foot and for the matter of this calculator we will use the Straight Line Depreciation method, 
+                    that consider the age of the property and the useful lifetime. We also need to consider the opportunity cost and the time take to construct 
+                    the new house, because a property today value more then a property tomorrow.
                 </p>
             </div>
-
+            <Separator className="my-4" />
             <CostForm />
+            <Separator className="my-4" />
+            
             <div>
                 Usefull links: 
                 <ul>
