@@ -5,109 +5,103 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
+import {
+    Table,
+    TableBody,
+    TableCaption,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@/components/ui/table"
+import { propertyStatus } from "./salesMath"
+import { formatCurrency } from "@/lib/formatter"
+import { handleCurrencyInput, parseCorrencyToNumber } from "../flip-calculator/helper"
+  
 
-export default function SalesForm() {
-    let initialInputs: propertyStatus[] = [
-        { sqtrFeets: 0, price: 0 },
-        { sqtrFeets: 0, price: 0 },
+export default function SalesForm() {  
+    const initialList = [
+        { id: 0, price: '', sqtrFeets: 0 },
+        { id: 1, price: '', sqtrFeets: 0 },
+        { id: 2, price: '', sqtrFeets: 0 },
     ]
 
-    const [propertyList, setPropertyList] = useState<propertyStatus[]>(initialInputs)
-    const [mean, setMean] = useState(0)
-    const [targetProperty, setTargetProperty] = useState(0)
+    const [propertyList, setPropertyList] = useState<propertyStatus[]>(initialList)
+    const [meanPrice, setMeanPrice] = useState(0)
 
-    const addNewInput = () => {
-        setPropertyList([...propertyList, { sqtrFeets: 0, price: 0 }])
+    const addNewProperty = () => {
+        const newId = propertyList.length + 1
+        setPropertyList([...propertyList, { id: newId, sqtrFeets: 0, price: '' }])
     }
-    const removeInput = (index: number) => {
-        setPropertyList(propertyList.filter((_, i) => i !== index))
-    }
+
     const calculateMean = () => {
-        console.log(propertyList)
-        let mean = 0
-        let priceTotal = 0
-        let totalArea = 0
-        propertyList.forEach(val => {
-            priceTotal += val.price
-            totalArea += val.sqtrFeets
-        })
-        mean = priceTotal / totalArea
-        setMean(mean)
+        let sumPrice = 0
+        let sumSqtrFeets = 0
+
+        for (let i = 0; i < propertyList.length; i++) {
+            sumPrice += parseCorrencyToNumber(propertyList[i].price) 
+            sumSqtrFeets += propertyList[i].sqtrFeets
+        }
+
+        setMeanPrice(sumPrice / sumSqtrFeets)
     }
-    
 
     return (
         <div>
             <Separator className="my-4" />
-            <Label htmlFor="sqtrFeetsTarget">Square feet of target property: </Label>
-            <Input type="text" name="sqtrFeets" id="sqtrFeetsTarget" onChange={(e) => setTargetProperty(Number(e.target.value))} />
-            <form>
-                {
-                    propertyList.map((property, index) => {
-                    // Only render a new row for each pair
-                    if (index % 2 === 0) {
-                        return (
-                            <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4" key={index}>
-                                <div className="border-gray-950 p-4">
-                                <Label htmlFor={`sqtrFeets-${index}`}>Area: </Label>
-                                <Input
-                                    type="text"
-                                    name={`sqtrFeets-${index}`}
-                                    id={`sqtrFeets-${index}`}
-                                    onChange={(e) => propertyList[index].sqtrFeets = Number(e.target.value)}
-                                />
-                                <Label htmlFor={`price-${index}`}>Price: </Label>
-                                <Input
-                                    type="text"
-                                    name={`price-${index}`}
-                                    id={`price-${index}`}
-                                    onChange={(e) => propertyList[index].price = Number(e.target.value)}
-                                />
-                                <Button className="mt-2" variant="destructive" type="button" onClick={() => removeInput(index)}>Remove</Button>
-                                </div>
-
-                                {/* Check if the next item exists before rendering */}
-                                {propertyList[index + 1] && (
-                                <div className="border-gray-950 p-4">
-                                    <Label htmlFor={`sqtrFeets-${index + 1}`}>Area: </Label>
-                                    <Input
-                                    type="text"
-                                    name={`sqtrFeets-${index + 1}`}
-                                    id={`sqtrFeets-${index + 1}`}
-                                    onChange={(e) => propertyList[index + 1].sqtrFeets = Number(e.target.value)}
-                                    />
-                                    <Label htmlFor={`price-${index + 1}`}>Price: </Label>
-                                    <Input
-                                    type="text"
-                                    name={`price-${index + 1}`}
-                                    id={`price-${index + 1}`}
-                                    onChange={(e) => propertyList[index + 1].price = Number(e.target.value)}
-                                    />
-                                    <Button className="mt-2" variant="destructive" type="button" onClick={() => removeInput(index + 1)}>Remove</Button>
-                                </div>
-                                )}
-                            </div>
-                            );
+            <Table>
+                <TableHeader>
+                    <TableRow>
+                        <TableHead className="text-center">Price: </TableHead>
+                        <TableHead className="text-center">Squared Feets: </TableHead>
+                    </TableRow>
+                </TableHeader>
+                <TableBody>
+                        {
+                            propertyList.map((property, index) => (
+                                <TableRow key={ property.id }>
+                                    <TableCell className="text-center">
+                                        <Input
+                                            type="text"
+                                            placeholder="$200,000"
+                                            value={ property.price }
+                                            onChange={(e) => {
+                                                const newPropertyList = [...propertyList]
+                                                newPropertyList[index].price = handleCurrencyInput(e.target.value)
+                                                setPropertyList(newPropertyList)
+                                            } }
+                                        />
+                                    </TableCell>
+                                    <TableCell className="text-center">
+                                        <Input
+                                            type="text"
+                                            placeholder="65"
+                                            value={ property.sqtrFeets }
+                                            onChange={ (e) => {
+                                                const newPropertyList = [...propertyList]
+                                                newPropertyList[index].sqtrFeets = Number(e.target.value)
+                                                setPropertyList(newPropertyList)
+                                            } }
+                                        />
+                                    </TableCell>    
+                                </TableRow>
+                            ))
                         }
-                    return null;
-                    })
-                }
-            </form>
+                </TableBody>
+            </Table>
 
-            <Button className="" onClick={ addNewInput }>
-                add new input
-            </Button>
-            <br />
-            <Button variant="outline" className="mt-2" onClick={ calculateMean }>
-                Calculate
-            </Button>
+            <div className="flex justify-evenly">
+                <Button className="" onClick={ addNewProperty }>Add Property</Button>
+                <Button className="" variant="outline" onClick={ calculateMean }>Calculate</Button>        
+            </div>  
 
-            <p className="mt-4"> The mean square feet price in the region is $ { mean.toFixed(2) } and your target property value is $ { (targetProperty * mean).toFixed(2) } </p>
+            {
+                meanPrice !== 0 && 
+                meanPrice > 0 &&
+                    <p className="text-center mt-6 bg-slate-600 rounded-sm p-4 w-9/12 mx-auto text-white text-lg">
+                        Squared Feets Mean Price: { formatCurrency(meanPrice) }
+                    </p>
+            }
         </div>
     )
-}
-
-type propertyStatus = {
-    sqtrFeets: number
-    price: number
 }

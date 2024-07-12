@@ -1,3 +1,4 @@
+import { Separator } from "@/components/ui/separator";
 import DiscountedForm from "./DiscountedForm";
 
 export default function DiscoutedCashPage() {
@@ -26,6 +27,7 @@ export default function DiscoutedCashPage() {
                     and a final growth rate for perpertuity. If you want .......
                 </p>
             </div>
+            <Separator className="my-4" />
             <DiscountedForm />
         </div>
     )

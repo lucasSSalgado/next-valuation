@@ -31,7 +31,7 @@ export default function InvestorFrameworkPage() {
                     <TableHeader>
                         <TableRow>
                             <TableHead className="font-medium">Investor</TableHead>
-                            <TableHead>Strategy</TableHead>
+                            <TableHead>Style</TableHead>
                             <TableHead className="text-right">Performance</TableHead>
                         </TableRow>
                     </TableHeader>
@@ -48,7 +48,7 @@ export default function InvestorFrameworkPage() {
                         </TableRow>
                         <TableRow>
                             <TableCell className="font-medium"><Link className="hover:underline" href="/investor-framework/peter-lynch">Peter Lynch</Link></TableCell>
-                            <TableCell>Universal Style</TableCell>
+                            <TableCell>Universal</TableCell>
                             <TableCell className="text-right">29.2% annualize between 1977 and 1990</TableCell>
                         </TableRow>
                         <TableRow>

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Lateralnav() {
     return (
-        <div className="flex flex-col bg-slate-500 p-6 text-secondary">
+        <div className="flex flex-col bg-slate-700 p-10 text-secondary">
             <Button variant="link">
                 <Link className="text-secondary" href="/general">Home</Link>
             </Button> 

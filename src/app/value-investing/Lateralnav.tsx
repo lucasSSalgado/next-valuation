@@ -3,12 +3,9 @@ import Link from "next/link"
 
 export default function Lateralnav() {
     return (
-        <div className="flex flex-col bg-slate-500 p-6">
+        <div className="flex flex-col bg-slate-700 p-10">
             <Button variant="link">
                 <Link className="text-secondary" href="/value-investing">Home</Link>
-            </Button>
-            <Button variant="link">
-                <Link className="text-secondary" href="/value-investing/all-in-one">All in One</Link>
             </Button>
             <Button variant="link">
                 <Link className="text-secondary" href="/value-investing/discounted-cash-flow">Discouted Cash Flow</Link>

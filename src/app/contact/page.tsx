@@ -1,3 +1,7 @@
 export default function ContactPage() {
-    return <p>Contact page</p>
+    return (
+        <div className="min-h-screen">
+            TESTE
+        </div>
+    )
 }

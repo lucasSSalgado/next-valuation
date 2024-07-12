@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google"
+import { Inter } from "next/font/google"
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import { cn } from "@/lib/utils"
+import Footer from "./components/Footer";
  
-const fontSans = FontSans({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
 })
@@ -21,9 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn("min-h-screen bg-gray-100 font-sans antialiased", fontSans.variable)}>
+      <body className={cn("min-h-screen bg-gray-100 font-sans antialiased", inter.variable)}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -1,67 +1,148 @@
 'use client'
 
 import { useState } from "react"
+import { DcfResponse, useCustomForm, dcfCalculator } from "./dcfMath"
+
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
-import { Form } from "@/components/ui/form"
+import { handleCurrencyInput } from "@/app/real-estate/flip-calculator/helper"
+import DcfDialog from "./DcfDialog"
 
 export default function DiscountedForm() {
-    const [eps, setEps] = useState(0)
-    const [firstYears, setFirstYears] = useState(0)
-    const [firstRate, setFirstRate] = useState(0)
-    const [secondYears, setSecondYears] = useState(0)
-    const [secondRate, setSecondRate] = useState(0)
-    const [fairValue, setFairValue] = useState(0)
-    const [discountedRate, setDiscountedRate] = useState(0)
+    const [resp, setResp] = useState<DcfResponse>()
+    const [openDialog, setOpenDialog] = useState(false)
 
-    const [stockPrice, setStockPrice] = useState(0)
+    const form = useCustomForm()
 
-    const handleCalculator = () => {
-        let value = 0
-        const rate1 = firstRate / 100
-        const rate2 = secondRate / 100
-        const discoutedPercent = discountedRate / 100
-        const totalYears = firstYears + secondYears
-
-        for (let i = 1; i <= firstYears; i++) {
-            value += (eps * Math.pow((1 + rate1), i)) / Math.pow((1 + discoutedPercent), i)
-        }
-        for (let j = (totalYears - firstYears + 1); j <= totalYears; j++) {
-            value += (eps * Math.pow((1 + rate2), j)) / Math.pow((1 + discoutedPercent), j)
-        }
-        setFairValue(value)
+    const onSubmit = () => {
+        const resp = dcfCalculator(form.getValues())
+        setResp(resp)
+        setOpenDialog(true)
     }
 
     return (
-        <div className="bg-zinc-200 p-4 mt-4 rounded-md">
-            <h1 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">Discounted Cash Flow From</h1>
-            <p className="text-sm font-medium leading-none italic mb-3">All data is yearly</p>
-            <Label htmlFor="stockPrice">Actual Stock Price: </Label>
-            <Input type="text" name="stockPrice" id="stockPrice" onChange={(e) => setStockPrice(Number(e.target.value))}/>
-
-            <form>
-                <Label htmlFor="eps">Earning Per Share: </Label>
-                <Input type="text" id="eps" onChange={(e) => setEps(Number(e.target.value))} /> <br />
-                <Label htmlFor="firstY">Years of first growth rate: </Label>
-                <Input type="text" id="firstY" onChange={(e) => setFirstYears(Number(e.target.value))} /> <br />
-                <Label htmlFor="rateF">First growth rate (% yearly): </Label>
-                <Input type="text" id="rateF" onChange={(e) => setFirstRate(Number(e.target.value))} /> <br />
-                <Label htmlFor="secondY">Years of second growth rate: </Label>
-                <Input type="text" id="secondY" onChange={(e) => setSecondYears(Number(e.target.value))} /> <br />
-                <Label htmlFor="rateS">Second growth rate: </Label>
-                <Input type="text" id="rateS" onChange={(e) => setSecondRate(Number(e.target.value))} /> <br />
-                <Label htmlFor="perp">Discouted rate: </Label>
-                <Input type="text" id="perp" onChange={(e) => setDiscountedRate(Number(e.target.value))} /> <br />
-                <Button type="button" onClick={ handleCalculator }>
-                    Calculator
-                </Button>
+        <div>
+            <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} >
+                <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                    <FormField
+                    control={form.control}
+                    name="stockPrice"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Stock Price: </FormLabel>
+                        <FormControl>
+                            <Input placeholder="$20.50" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                        </FormControl>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                    <FormField
+                    control={form.control}
+                    name="eps"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Earning Per Share: </FormLabel>
+                        <FormControl>
+                            <Input placeholder="$2.50" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                </div>
+                <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                    <FormField
+                    control={form.control}
+                    name="firstRate"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Gowth rate in the first period (%): </FormLabel>
+                        <FormControl>
+                            <Input placeholder="8%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                        </FormControl>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                    <FormField
+                    control={form.control}
+                    name="firstYears"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Number of years of the first growth rate: </FormLabel>
+                        <FormControl>
+                            <Input placeholder="4" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                </div>
+                <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                    <FormField
+                    control={form.control}
+                    name="secondRate"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Gowth rate in the second period (%): </FormLabel>
+                        <FormControl>
+                            <Input placeholder="3%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                        </FormControl>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                    <FormField
+                    control={form.control}
+                    name="secondYears"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Number of years of the second growth rate: </FormLabel>
+                        <FormControl>
+                            <Input placeholder="8" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                </div>
+                <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                    <FormField
+                    control={form.control}
+                    name="discountedRate"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Discounted rate (%): </FormLabel>
+                        <FormControl>
+                            <Input placeholder="5%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                        </FormControl>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                </div>
+                <Button className="mt-4" type="submit">Submit</Button>
             </form>
+            </Form>
 
             {
-                fairValue === 0 
-                ? null :
-                <p> The fair value of this stock is ${ fairValue.toFixed(2) } the margin of safety is { (((fairValue - stockPrice) / stockPrice)*100).toFixed(2) }%</p>
+                resp && 
+                    <DcfDialog
+                        openDialog={openDialog}
+                        setOpenDialog={setOpenDialog}
+                        fairValue={resp.fairValue}
+                        discount={resp.discount}
+                    />
             }
         </div>
     )
