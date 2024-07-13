@@ -1,46 +1,136 @@
 'use client'
 
 import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { LiquidationResponse, useCustomForm, liquidationCalculator } from "./liquidationMath"
+import { handleCurrencyInput } from "@/app/real-estate/flip-calculator/helper"
+import BasicDialog from "../BasicDialog"
 
 export default function LiquidationForm() {
-    const [price, setPrice] = useState(0)
-    const [cash, setCash] = useState(0)
-    const [discount, setDiscount] = useState(0)
-    const [bookValue, setBookValue] = useState(0)
-    const [liabilities, setLliabilities] =  useState(0)
-    const [fairValue, setFairValue] = useState(0)
+    const [fairValue, setFairValue] = useState<LiquidationResponse>()
+    const [openDialog, setOpenDialog] = useState(false)
 
-    const handleCalculator = () => {
-        let value = cash + (bookValue * (1 - discount/100)) - liabilities
-        setFairValue(value)
+    const form = useCustomForm()
+
+    const onSubmit = () => {
+        const resp = liquidationCalculator(form.getValues())
+        setFairValue(resp)
+        setOpenDialog(true)
     }
 
     return (
-        <div className="bg-zinc-200 p-4 mt-4 rounded-md">
-            <h1 className="text-2xl mb-2">Liquidation From</h1>
-            <form>
-                <label htmlFor="price">Actual Stock Price: </label>
-                <input type="text" id="price" onChange={(e) => setPrice(Number(e.target.value))} /> <br />   
-                <label htmlFor="cash">Cash and availabilities: </label>
-                <input type="text" id="cash" onChange={(e) => setCash(Number(e.target.value))} /> <br />    
-                <label htmlFor="discount">Discount on sell of book value (%): </label>
-                <input type="text" id="cash" onChange={(e) => setDiscount(Number(e.target.value))} /> <br />   
-                <label htmlFor="bookValue">Value of Book Values: </label>
-                <input type="text" id="bookValue" onChange={(e) => setBookValue(Number(e.target.value))} /> <br /> 
-                <label htmlFor="bookValue">Total Liabilities: </label>
-                <input type="text" id="bookValue" onChange={(e) => setLliabilities(Number(e.target.value))} /> <br /> 
-                <button className="bg-green-500 p-1 rounded-md" type="button" onClick={handleCalculator}>
-                    calculator    
-                </button> 
+        <div className="">
+            <Form {...form}>
+            
+            <form onSubmit={form.handleSubmit(onSubmit)}>
+                <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                    <FormField
+                    control={form.control}
+                    name="price"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Price per Share: </FormLabel>
+                        <FormControl>
+                            <Input placeholder="$10" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                        </FormControl>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                    <FormField
+                    control={form.control}
+                    name="numberOfShares"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Number of Share: </FormLabel>
+                        <FormControl>
+                            <Input placeholder="658,883,304" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                        </FormControl>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                </div>
+                <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                    <FormField
+                    control={form.control}
+                    name="cash"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Cash and Equivalent: </FormLabel>
+                        <FormControl>
+                            <Input placeholder="$100,000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                        </FormControl>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                    <FormField
+                    control={form.control}
+                    name="bookValue"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Book Value of Assets: </FormLabel>
+                        <FormControl>
+                            <Input placeholder="$50,000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                        </FormControl>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                </div>
+                <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                    <FormField
+                    control={form.control}
+                    name="discount"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Discount on Book Value (%): </FormLabel>
+                        <FormControl>
+                            <Input placeholder="35%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                        </FormControl>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                    <FormField
+                    control={form.control}
+                    name="liabilities"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>All Liabilities: </FormLabel>
+                        <FormControl>
+                            <Input placeholder="$80,000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                        </FormControl>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                </div>
+                <Button className="mt-4" type="submit">Submit</Button>
             </form>
-            <p>
-                The fair value is ${ fairValue.toFixed(2) } 
-                { 
-                    fairValue !== 0 
-                    ? ` and the discout is ${((fairValue-price) / price *100).toFixed(2)}% `
-                    : ''
-                }
-            </p>
+            </Form>
+
+            {
+                openDialog && 
+                fairValue &&
+                <BasicDialog 
+                    openDialog={openDialog}
+                    setOpenDialog={setOpenDialog}
+                    fairValue={fairValue.fairValue}
+                    discount={fairValue.discount}
+                    title="Liquidation Value"
+                />
+            }
         </div>
     )
 }

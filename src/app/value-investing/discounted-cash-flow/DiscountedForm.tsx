@@ -14,7 +14,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { handleCurrencyInput } from "@/app/real-estate/flip-calculator/helper"
-import DcfDialog from "./DcfDialog"
+import BasicDialog from "../BasicDialog"
 
 export default function DiscountedForm() {
     const [resp, setResp] = useState<DcfResponse>()
@@ -137,11 +137,12 @@ export default function DiscountedForm() {
 
             {
                 resp && 
-                    <DcfDialog
+                    <BasicDialog
                         openDialog={openDialog}
                         setOpenDialog={setOpenDialog}
                         fairValue={resp.fairValue}
                         discount={resp.discount}
+                        title="Discounted Cash Flow"
                     />
             }
         </div>

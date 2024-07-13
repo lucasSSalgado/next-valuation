@@ -3,9 +3,14 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from 'next/navigation'
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+
+    const pathname = usePathname();
+
+    console.log('path: ', pathname)
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -28,19 +33,19 @@ export default function Navbar() {
                 </div>
                 <nav className={`flex-col md:flex-row md:flex ${isOpen ? 'flex' : 'hidden'}`}>
                     <Button variant="link">
-                        <Link className="text-secondary font-bold" href="/general">Geral</Link>
+                        <Link className={`text-secondary ${pathname === '/general' ? 'font-bold text-yellow-400 underline' : ''}`} href="/general">Geral</Link>
                     </Button>
                     <Button variant="link">
-                        <Link className="text-secondary font-bold" href="/value-investing">Value Investing</Link>
+                        <Link className={`text-secondary ${pathname === '/value-investing' ? 'font-bold text-yellow-400 underline' : ''}`} href="/value-investing">Value Investing</Link>
                     </Button>
                     <Button variant="link">
-                        <Link className="text-secondary font-bold" href="/real-estate">Real Estate</Link>
+                        <Link className={`text-secondary ${pathname === '/real-estate' ? 'font-bold text-yellow-400 underline' : ''}`} href="/real-estate">Real Estate</Link>
                     </Button>
                     <Button variant="link">
-                        <Link className="text-secondary font-bold" href="/investor-framework">Investors Framework</Link>
+                        <Link className={`text-secondary ${pathname === '/investor-framework' ? 'font-bold text-yellow-400 underline' : ''}`} href="/investor-framework">Investors Framework</Link>
                     </Button>
                     <Button variant="link">
-                        <Link className="text-secondary font-bold" href="/contact">Contact</Link>
+                        <Link className={`text-secondary ${pathname === '/contact' ? 'font-bold text-yellow-400 underline' : ''}`} href="/contact">Contact</Link>
                     </Button>
                 </nav>
             </nav>

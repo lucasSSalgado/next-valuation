@@ -11,10 +11,10 @@ import {
 } from "@/components/ui/dialog"
 import { formatCurrency } from "@/lib/formatter"
 
-export default function DcfDialog(
-    { openDialog, setOpenDialog, fairValue, discount }
+export default function BasicDialog(
+    { openDialog, setOpenDialog, fairValue, discount, title }
     : 
-    { openDialog: boolean, setOpenDialog: React.Dispatch<React.SetStateAction<boolean>>, fairValue: number, discount: number }) {
+    { openDialog: boolean, setOpenDialog: React.Dispatch<React.SetStateAction<boolean>>, fairValue: number, discount: number, title: string }) {
     
     let quality: string
     if (discount < 0) {
@@ -31,7 +31,9 @@ export default function DcfDialog(
         <Dialog open={openDialog} onOpenChange={setOpenDialog}>
             <DialogContent>
                 <DialogHeader>
-                <DialogTitle className="text-center p-2 scroll-m-20 text-2xl font-semibold tracking-tight">Discounted Cash Flow</DialogTitle>
+                <DialogTitle className="text-center p-2 scroll-m-20 text-2xl font-semibold tracking-tight">
+                    { title }
+                </DialogTitle>
                 <DialogDescription className="p-2 leading-7 [&:not(:first-child)]:mt-6 text-black text-lg italic">
                     Fair Value: {formatCurrency(fairValue)} <br/>
                     Discount: {discount.toFixed(2)}% <br/>

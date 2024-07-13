@@ -1,3 +1,4 @@
+import { Separator } from "@/components/ui/separator";
 import GordonForm from "./GordonForm";
 
 export default function GordonModelPage() {
@@ -14,7 +15,7 @@ export default function GordonModelPage() {
                     The formula is the follow: <span className="font-semibold">Fair Price = Future Dividend / ( rate of return - growth in perpertuty)</span> 
                 </p>
             </div>
-            
+            <Separator className="my-4" />
             <GordonForm />
         </div>
     )

@@ -1,33 +1,96 @@
 'use client'
 
 import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { GrahamResponse, grahamCalculator, useCustomForm } from "./grahamMath"
+import { handleCurrencyInput } from "@/app/real-estate/flip-calculator/helper"
+import BasicDialog from "../BasicDialog"
 
 export default function GrahamForm() {
-    const [price, setPrice] = useState(0)
-    const [btv, setBtn] = useState(0)
-    const [eps, setEps] = useState(0)
-    const [fairValue, setfairValue] = useState(0)
+    const [openDialog, setOpenDialog] = useState(false)
+    const [fairValue, setfairValue] = useState<GrahamResponse>()
 
-    const handleCalculate = () => {
-        const value =  Math.pow((btv * eps * 22.5), 0.5)
-        setfairValue(value)
+    const form = useCustomForm()
+
+    const onSubmit = () => {
+        const resp = grahamCalculator(form.getValues())
+        setfairValue(resp)
+        setOpenDialog(true)
     }
 
     return (
-        <div className="bg-zinc-200 p-4 mt-4 rounded-md">
-            <h1 className="text-2xl mb-2">Graham Model From</h1>
-            <label htmlFor="price">Actual Stock Price: </label>
-            <input type="text" id="price" onChange={(e) => setPrice(Number(e.target.value))} />
-            <form>
-                <label htmlFor="eps">Earing per Share: </label>
-                <input type="text" id="eps" onChange={(e) => setEps(Number(e.target.value))} /> <br />
-                <label htmlFor="btv">Boot Value per share: </label>
-                <input type="text" id="btv" onChange={(e) => setBtn(Number(e.target.value))} /> <br />
-                <button onClick={handleCalculate} className="bg-green-500 p-1 rounded-md" type="button">
-                    Calculate
-                </button>
+        <div className="">
+            <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                <FormField
+                control={form.control}
+                name="price"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Stock Price: </FormLabel>
+                    <FormControl>
+                        <Input placeholder="$20.50" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                    </FormControl>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                <FormField
+                control={form.control}
+                name="eps"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Earning per Share: </FormLabel>
+                    <FormControl>
+                        <Input placeholder="$2.50" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                    </FormControl>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                </div>
+                <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                <FormField
+                control={form.control}
+                name="btv"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Book Value per Share: </FormLabel>
+                    <FormControl>
+                        <Input placeholder="$10.50" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                    </FormControl>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />  
+                </div>
+                
+                <Button type="submit">Submit</Button>
             </form>
-            <p>The fair price is: ${ fairValue.toFixed(2) } { price !== 0 ? `and the discout is ${((fairValue-price) / price *100).toFixed(2)}% ` : "" }</p>
+            </Form>
+
+            {
+                openDialog &&
+                fairValue &&
+                <BasicDialog 
+                    openDialog={openDialog} 
+                    setOpenDialog={setOpenDialog} 
+                    fairValue={fairValue.fairValue} 
+                    discount={fairValue.discount} 
+                    title="Graham Model"
+                />
+            }
         </div>
     )
 }

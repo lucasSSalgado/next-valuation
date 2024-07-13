@@ -1,3 +1,4 @@
+import { Separator } from "@/components/ui/separator";
 import LiquidationForm from "./LiquidationForm";
 
 export default function LiquidationValuePage() {
@@ -31,7 +32,7 @@ export default function LiquidationValuePage() {
                     and with a lesser discounted then a very specific machine.
                 </p>
             </div>
-
+            <Separator className="my-4" />
             <LiquidationForm />
         </div>
     )

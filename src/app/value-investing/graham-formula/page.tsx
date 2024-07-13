@@ -1,3 +1,4 @@
+import { Separator } from "@/components/ui/separator";
 import GrahamForm from "./GrahamForm";
 
 export default function GrahamFormulaPAge() {
@@ -22,7 +23,7 @@ export default function GrahamFormulaPAge() {
                     The formula is the follow: <span className="font-semibold">square root of [(earning per share * 15) + (book value per share * 1,5)]</span>
                 </p>
             </div>
-
+            <Separator className="my-4" />
             <GrahamForm />
         </div>
     )
