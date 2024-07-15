@@ -7,7 +7,7 @@ export default function GordonModelPage() {
         <div className="p-8 w-3/4">
             <ValuationDescription
                 title="Gordon Growth Model Valuation"
-                useCase="Dividend payers with stable growth"
+                useCase="Dividend payer with stable growth"
                 formula="Next Dividend / ( rate of return - growth in perpertuty)"
                 description={[
                     `The gordon growth model is a variation of the dividend discount model. It consider the future series of dividend payed

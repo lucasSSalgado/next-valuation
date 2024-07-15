@@ -7,7 +7,7 @@ export default function LiquidationValuePage() {
         <div className="p-8 w-3/4">
             <ValuationDescription 
                 title="Liquidation Value"
-                useCase="bankruptcies and companies in great difficulties"
+                useCase="Bankruptcies and Liquidations"
                 formula="Cash + Book value of Hard assets * (1 - discount) - total liabilities"
                 description={[
                     `Liquidation value refers to the estimated amount that would be received if all of a company's assets were sold off and its liabilities paid.

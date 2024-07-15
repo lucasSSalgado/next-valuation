@@ -17,7 +17,7 @@ export default function Lateralnav() {
                 <Link className="text-secondary" href="/real-estate/income-valuation">Income valuation</Link>
             </Button>
             <Button variant="link">
-                <Link className="text-secondary" href="/real-estate/flip-calculator">flip calculator</Link>
+                <Link className="text-secondary" href="/real-estate/flip-calculator">Flip Calculator</Link>
             </Button>
         </div>
     )
