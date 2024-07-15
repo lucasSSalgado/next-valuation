@@ -39,7 +39,7 @@ export default function InvestorFrameworkPage() {
                         <TableRow>
                             <TableCell className="font-medium"><Link className="hover:underline" href="/investor-framework/waffen-buffet">Waffen Buffet</Link></TableCell>
                             <TableCell>75% Value / 25% Quality</TableCell>
-                            <TableCell className="text-right">19.8% annualize between 1965 and 2023</TableCell>
+                            <TableCell className="text-right">19.8% annualised between 1965 and 2023</TableCell>
                         </TableRow>
                         <TableRow>
                             <TableCell className="font-medium"><Link className="hover:underline" href="/investor-framework/philip-fisher">Philip A. Fisher</Link></TableCell>
@@ -49,12 +49,12 @@ export default function InvestorFrameworkPage() {
                         <TableRow>
                             <TableCell className="font-medium"><Link className="hover:underline" href="/investor-framework/peter-lynch">Peter Lynch</Link></TableCell>
                             <TableCell>Universal</TableCell>
-                            <TableCell className="text-right">29.2% annualize between 1977 and 1990</TableCell>
+                            <TableCell className="text-right">29.2% annualised between 1977 and 1990</TableCell>
                         </TableRow>
                         <TableRow>
                             <TableCell className="font-medium"><Link className="hover:underline" href="/investor-framework/terry-smith">Terry Smith</Link></TableCell>
                             <TableCell>Quality Investment</TableCell>
-                            <TableCell className="text-right">17% annualize between 2006 and 2023</TableCell>
+                            <TableCell className="text-right">15.4% annualised between 2011 and 2024</TableCell>
                         </TableRow>
                     </TableBody>
                 </Table>

@@ -1,5 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import IncomeForm from "./IncomeForm";
+import UsefulLinks from "@/app/components/UsefulLinks";
 
 export default function IncameValuationPage() {
     return (
@@ -29,16 +30,16 @@ export default function IncameValuationPage() {
             <Separator className="my-4" />
             <IncomeForm />
             <Separator className="my-4" />
-            <div>
-                Usefull links: 
-                <ul>
-                    <li>
-                        <a className="text-blue-500" href="https://www.investopedia.com/terms/i/income-approach.asp" target="_blank">
-                            Cost Approach Investopidia
-                        </a>
-                    </li>
-                </ul>
-            </div>
+
+            <UsefulLinks 
+                articles={[
+                    {
+                        name: "Income Approach Investopidia",
+                        url: "https://www.investopedia.com/terms/i/income-approach.asp"
+                    },
+                ]}
+
+            />
         </div>
     )
 }

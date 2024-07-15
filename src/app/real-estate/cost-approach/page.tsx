@@ -1,5 +1,6 @@
 import { Separator } from "@/components/ui/separator"
 import CostForm from "./CostForm"
+import UsefulLinks from "@/app/components/UsefulLinks"
 
 export default function CostApproachPage() {
     return (
@@ -29,17 +30,20 @@ export default function CostApproachPage() {
             <Separator className="my-4" />
             <CostForm />
             <Separator className="my-4" />
-            
-            <div>
-                Usefull links: 
-                <ul>
-                    <li>
-                        <a className="text-blue-500" href="https://www.investopedia.com/terms/c/cost-approach.asp" target="_blank">
-                            Cost Approach Investopidia
-                        </a>
-                    </li>
-                </ul>
-            </div>
+
+            <UsefulLinks 
+                articles={[
+                    {
+                        name: "Cost Approach Investopidia",
+                        url: "https://www.investopedia.com/terms/c/cost-approach.asp"
+                    },
+                    {
+                        name: "Cost Approach CFI",
+                        url: "https://corporatefinanceinstitute.com/resources/valuation/cost-approach-real-estate/"
+                    }
+                ]}
+
+            />
         </div>
     )
 }

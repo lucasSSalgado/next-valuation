@@ -3,8 +3,6 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Separator } from "@/components/ui/separator"
 import {
     Table,
     TableBody,
@@ -47,8 +45,7 @@ export default function SalesForm() {
     }
 
     return (
-        <div>
-            <Separator className="my-4" />
+        <div>            
             <Table>
                 <TableHeader>
                     <TableRow>

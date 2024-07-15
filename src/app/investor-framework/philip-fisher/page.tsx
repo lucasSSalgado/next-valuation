@@ -1,3 +1,4 @@
+import UsefulLinks from "@/app/components/UsefulLinks"
 import { Button } from "@/components/ui/button"
 import {
     Card,
@@ -7,6 +8,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import { Separator } from "@/components/ui/separator"
   
 
 export default function PhilipFisher() {
@@ -56,11 +58,11 @@ export default function PhilipFisher() {
             </Card>   
 
             <div>
-                <div>
+                <div className="p-2">
                     <h2 className="scroll-m-20 border-b pb-3 text-3xl font-semibold tracking-tight first:mt-8">The Fifteen Points to Look for in a Common Stock: </h2>
-                    <ul className="list-decimal mt-2">
+                    <ul className="list-decimal mt-2 p-2">
                         <li>
-                            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
+                            <h4 className="scroll-m-20 text-base font-semibold tracking-tight">
                                 Does the company have products or services with sufficient market potential to make 
                                 possible a sizable increase in sales for at least several years?
                             </h4>
@@ -84,7 +86,7 @@ export default function PhilipFisher() {
                             </blockquote>
                         </li>
                         <li>
-                            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight mt-3">
+                            <h4 className="scroll-m-20 text-base font-semibold tracking-tight mt-3">
                                 Does the management have a determination to continue to develop products or processes that will still
                                 further increase total sales potentials when the growth potentials of currently attractive product
                                 lines have largely been exploited?
@@ -99,7 +101,7 @@ export default function PhilipFisher() {
                             </blockquote>
                         </li>
                         <li>
-                            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight mt-3">How effective are the company’s research and development efforts in relation to its size?</h4>
+                            <h4 className="scroll-m-20 text-base font-semibold tracking-tight mt-3">How effective are the company’s research and development efforts in relation to its size?</h4>
                             <blockquote className="mt-3 border-l-2 pl-6 italic">&quot;For a large number of publicly-owned companies it is not too difficult
                             to get a figure showing the number of dollars being spent each year on
                             research and development. Since virtually all such companies report
@@ -117,14 +119,14 @@ export default function PhilipFisher() {
                             a particular span, such as the prior ten years.&quot;</blockquote>
                         </li>
                         <li>
-                            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight mt-3">Does the company have an above-average sales organization?</h4>
+                            <h4 className="scroll-m-20 text-base font-semibold tracking-tight mt-3">Does the company have an above-average sales organization?</h4>
                             <blockquote className="mt-3 border-l-2 pl-6 italic">&quot;In this competitive age, the products or services of few companies are
                             so outstanding that they will sell to their maximum potentialities if they
                             are not expertly merchandised. It is the making of a sale that is the most
                             basic single activity of any business.Without sales, survival is impossible.&quot;</blockquote>
                             </li>
                         <li>
-                            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight mt-3">Does the company have a worthwhile profit margin?</h4>
+                            <h4 className="scroll-m-20 text-base font-semibold tracking-tight mt-3">Does the company have a worthwhile profit margin?</h4>
                             <blockquote className="mt-3 border-l-2 pl-6 italic">&quot;All the sales growth in the world won’t produce the right type
                             of investment vehicle if, over the years, profits do not grow correspondingly.
                             The first step in examining profits is to study a company’s profit
@@ -132,7 +134,7 @@ export default function PhilipFisher() {
                             that is brought down to operating profit.&quot;</blockquote>
                         </li>
                         <li>
-                            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight mt-3">What is the company doing to maintain or improve profit margins?</h4>
+                            <h4 className="scroll-m-20 text-base font-semibold tracking-tight mt-3">What is the company doing to maintain or improve profit margins?</h4>
                             <blockquote className="mt-3 border-l-2 pl-6 italic">
                                 &quot;In contrast, certain other companies, including some within these
                                 same industries, manage to improve profit margins by far more ingenious
@@ -158,7 +160,7 @@ export default function PhilipFisher() {
                             </blockquote>
                         </li>
                         <li>
-                            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight mt-3">Does the company have outstanding labor and personnel relations?</h4>
+                            <h4 className="scroll-m-20 text-base font-semibold tracking-tight mt-3">Does the company have outstanding labor and personnel relations?</h4>
                             <blockquote className="mt-3 border-l-2 pl-6 italic">
                                 &quot;The difference in the degree of profitability between a
                                 company with good personnel relations and one with mediocre personnel
@@ -187,7 +189,7 @@ export default function PhilipFisher() {
                             </blockquote>
                         </li>
                         <li>
-                            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight mt-3">Does the company have outstanding executive relations?</h4>
+                            <h4 className="scroll-m-20 text-base font-semibold tracking-tight mt-3">Does the company have outstanding executive relations?</h4>
                             <blockquote className="mt-3 border-l-2 pl-6 italic">
                                 &quot;The company offering greatest investment opportunities will be
                                 one in which there is a good executive climate. Executives will have
@@ -204,7 +206,7 @@ export default function PhilipFisher() {
                             </blockquote>
                         </li>
                         <li>
-                            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight mt-3">Does the company have outstanding executive relations?</h4>
+                            <h4 className="scroll-m-20 text-base font-semibold tracking-tight mt-3">Does the company have outstanding executive relations?</h4>
                             <blockquote className="mt-3 border-l-2 pl-6 italic">
                                 &quot;Most important of these is the delegation of authority. If from the very top on
                                 down, each level of executives is not given real authority to carry out
@@ -217,7 +219,7 @@ export default function PhilipFisher() {
                         </li>
    
                         <li>
-                            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight mt-3">How good are the company’s cost analysis and accounting controls?</h4>
+                            <h4 className="scroll-m-20 text-base font-semibold tracking-tight mt-3">How good are the company’s cost analysis and accounting controls?</h4>
                             <blockquote className="mt-3 border-l-2 pl-6 italic">
                                 &quot;No company is going to continue to have outstanding success for a
                                 long period of time if it cannot break down its over-all costs with sufficient
@@ -229,7 +231,7 @@ export default function PhilipFisher() {
                             </blockquote>
                         </li>
                         <li>
-                            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight mt-3">
+                            <h4 className="scroll-m-20 text-base font-semibold tracking-tight mt-3">
                                 Are there other aspects of the business, somewhat peculiar to the industry involved, which will
                                 give the investor important clues as to how outstanding the company may be in relation to its competition?
                             </h4>
@@ -256,7 +258,7 @@ export default function PhilipFisher() {
                             </blockquote>
                         </li>
                         <li>
-                            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight mt-3">Does the company have a short-range or long-range outlook in regard to profits?</h4>
+                            <h4 className="scroll-m-20 text-base font-semibold tracking-tight mt-3">Does the company have a short-range or long-range outlook in regard to profits?</h4>
                             <blockquote className="mt-3 border-l-2 pl-6 italic">
                                 &quot;One company will constantly make
                                 the sharpest possible deals with suppliers. Another will at times pay
@@ -272,7 +274,7 @@ export default function PhilipFisher() {
                             </blockquote>
                         </li>
                         <li>
-                            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight mt-3">
+                            <h4 className="scroll-m-20 text-base font-semibold tracking-tight mt-3">
                                 In the foreseeable future will the growth of the company require sufficient equity financing so that the
                                 larger number of shares then outstanding will largely cancel the existing stockholders’ benefit from this
                                 anticipated growth?
@@ -289,7 +291,7 @@ export default function PhilipFisher() {
                             </blockquote>
                         </li>
                         <li>
-                            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight mt-3">
+                            <h4 className="scroll-m-20 text-base font-semibold tracking-tight mt-3">
                                 Does the management talk freely to investors about its affairs when things are going well but “clam
                                 up” when troubles and disappointments occur?
                             </h4>
@@ -303,7 +305,7 @@ export default function PhilipFisher() {
                             </blockquote>
                         </li>
                         <li>
-                            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight mt-3">Does the company have a management of unquestionable integrity?</h4>
+                            <h4 className="scroll-m-20 text-base font-semibold tracking-tight mt-3">Does the company have a management of unquestionable integrity?</h4>
                             <blockquote className="mt-3 border-l-2 pl-6 italic">
                                 &quot;Any investment may still be considered interesting
                                 if it falls down in regard to almost any other one of the fifteen points
@@ -348,20 +350,21 @@ export default function PhilipFisher() {
             </CardContent>
             </Card>   
 
-            <div className="flex flex-col justify-center mt-8">
-                <h6 className="scroll-m-20 border-b pb-3 text-xl font-semibold tracking-tight">Usefull Links: </h6>
-                <div className="flex justify-evenly">
-                    <Button variant="link">
-                        <a href="https://www.compoundingquality.net/p/how-philip-fisher-selects-the-best" target="_blank">article english</a> <br />
-                    </Button>
-                    <Button variant="link">
-                        <a href="https://varos.com.br/blog/artigo/quem-foi-philip-fisher" target="_blank">article ptbr</a>
-                    </Button>
-                    <Button variant="link">
-                        <a href="https://www.youtube.com/watch?v=hyG6moy4LBA" target="_blank">Video Sumary</a>
-                    </Button>
-                </div>
-            </div>
+            <Separator className="my-4"/>
+            <UsefulLinks 
+                articles={[
+                    {
+                        name: "Compounding Quality Article",
+                        url: "https://www.compoundingquality.net/p/how-philip-fisher-selects-the-best"
+                    },
+                ]}
+                videos={[
+                    {
+                        name: "The Swedish Investor Sumary",
+                        url: "https://www.youtube.com/watch?v=hyG6moy4LBA"
+                    }
+                ]}
+            />
         </div>
     )
 }

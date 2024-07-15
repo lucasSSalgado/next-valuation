@@ -1,3 +1,4 @@
+import UsefulLinks from "@/app/components/UsefulLinks"
 import { Button } from "@/components/ui/button"
 import {
     Card,
@@ -7,6 +8,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import { Separator } from "@/components/ui/separator"
 
 export default function TerrySmithPage() {
     return (
@@ -15,8 +17,8 @@ export default function TerrySmithPage() {
             <CardHeader>
                 <CardTitle>Terry Smith</CardTitle>
                 <CardDescription className="hover:underline">
-                    <a href="https://finance.yahoo.com/news/warren-buffett-shares-earn-whopping-102900347.html">
-                        Track Record: 29.2% annualize between 1977 and 1990
+                    <a href="https://www.fundsmith.co.uk/factsheet/" target="_blank">
+                        Track Record: 15.4% annualised between 2011 and 2024
                     </a>
                 </CardDescription>
             </CardHeader>
@@ -42,7 +44,31 @@ export default function TerrySmithPage() {
                     </div>
                 </div>
             </CardFooter>
-            </Card>   
+            </Card>  
+
+            <Separator className="my-4"/>
+            <UsefulLinks 
+                articles={[
+                    {
+                        name: "Ten Golden Rules of Investment - Fundsmith",
+                        url: "https://www.fundsmith.co.uk/news/2013/2070-financial-times-ten-golden-rules-of-investment/"
+                    }
+                ]}
+                videos={[
+                    {
+                        name: "The Swedish Investor Sumary",
+                        url: "https://www.youtube.com/watch?v=16OTs9Tql7Y"
+                    },
+                    {
+                        name: "Terry Smith on YouTube",
+                        url: "https://www.youtube.com/watch?v=B_-YBTI_EYw"
+                    },
+                    {
+                        name: "We Study Billionaires Sumary",
+                        url: "https://www.youtube.com/watch?v=rc9EiTNlEmo"
+                    }
+                ]}
+            /> 
         </div>
     )
 }

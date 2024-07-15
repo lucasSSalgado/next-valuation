@@ -1,4 +1,6 @@
+import UsefulLinks from "@/app/components/UsefulLinks";
 import SalesForm from "./SalesForm";
+import { Separator } from "@/components/ui/separator";
 
 export default function SalesComparationPage() {
     return (
@@ -19,16 +21,19 @@ export default function SalesComparationPage() {
             </div>
 
             <SalesForm />
-            <div>
-                Usefull links: 
-                <ul>
-                    <li>
-                        <a className="text-blue-500" href="https://www.investopedia.com/terms/s/sales-comparison-approach.asp" target="_blank">
-                            Sales Comparation Investopidia
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <Separator className="my-4" />
+            <UsefulLinks 
+                articles={[
+                    {
+                        name: "Sales Comparation Investopidia",
+                        url: "https://www.investopedia.com/terms/s/sales-comparison-approach.asp"
+                    },
+                    {
+                       name: "Sales Comparation The Balance",
+                       url: "https://www.thebalancemoney.com/sales-comparison-approach-in-real-estate-appraisal-2867363"
+                    }
+                ]}
+            />
         </div>
     )
 }
