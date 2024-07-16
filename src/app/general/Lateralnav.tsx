@@ -8,6 +8,9 @@ export default function Lateralnav() {
                 <Link className="text-secondary" href="/general">Home</Link>
             </Button> 
             <Button variant="link">
+                <Link className="text-secondary" href="/general/compound-interest">compound interest calculator</Link>
+            </Button>
+            <Button variant="link">
                 <Link className="text-secondary" href="/general/porter-forces">Porters Five Forces</Link>
             </Button>
             <Button variant="link">
