@@ -184,7 +184,7 @@ export default function LoanCalculator() {
                         name="leiloeiroComission"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Fees in for the leiloeiro (%): </FormLabel>
+                                <FormLabel>Comisson to the Buyer (%): </FormLabel>
                                 <FormControl>
                                 <Input placeholder="2%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                                 </FormControl>

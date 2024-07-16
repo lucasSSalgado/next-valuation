@@ -7,6 +7,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import { Separator } from "@/components/ui/separator"
   
 
 export default function WaffenBuffetPage() {
@@ -44,7 +45,9 @@ export default function WaffenBuffetPage() {
                 </div>
             </CardFooter>
             </Card>   
-
+            <Separator className="my-4"/>
+            <h4 className="scroll-m-20 text-base font-semibold tracking-tight">Sumary comming soon....</h4>
+            <Separator className="my-4"/>
         </div>
     )
 }

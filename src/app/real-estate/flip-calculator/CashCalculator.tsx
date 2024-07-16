@@ -109,7 +109,7 @@ export default function CachCalculator() {
               name="leiloeiroComission"
               render={({ field }) => (
                   <FormItem>
-                      <FormLabel>Fees in for the leiloeiro (%): </FormLabel>
+                      <FormLabel>Comission to the Buyer (%): </FormLabel>
                       <FormControl>
                       <Input placeholder="2%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                       </FormControl>

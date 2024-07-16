@@ -39,7 +39,7 @@ export default function TerrySmithPage() {
                     <p className="italic p-1">Book by Terry: </p>
                     <div className="flex gap-2">
                         <Button variant="outline">
-                            <a href="#">Accounting for Growth</a>
+                            <a href="#">Investing for Growth</a>
                         </Button>
                     </div>
                 </div>
@@ -47,6 +47,9 @@ export default function TerrySmithPage() {
             </Card>  
 
             <Separator className="my-4"/>
+            <h4 className="scroll-m-20 text-base font-semibold tracking-tight">Sumary comming soon....</h4>
+            <Separator className="my-4"/>
+
             <UsefulLinks 
                 articles={[
                     {
@@ -60,12 +63,20 @@ export default function TerrySmithPage() {
                         url: "https://www.youtube.com/watch?v=16OTs9Tql7Y"
                     },
                     {
-                        name: "Terry Smith on YouTube",
+                        name: "Terry Smith on Quality Companies",
                         url: "https://www.youtube.com/watch?v=B_-YBTI_EYw"
                     },
                     {
                         name: "We Study Billionaires Sumary",
                         url: "https://www.youtube.com/watch?v=rc9EiTNlEmo"
+                    },
+                    {
+                        name: "Terry Smith on Analyzing Stocks",
+                        url: "https://www.youtube.com/watch?v=VfqMytX4bpY&list=WL&index=15"
+                    },
+                    {
+                        name: "Terry Smith on How Much to Pay",
+                        url: "https://www.youtube.com/watch?v=GqKcrtKDF8g&list=WL&index=16"
                     }
                 ]}
             /> 

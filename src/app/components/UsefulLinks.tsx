@@ -26,10 +26,9 @@ export default function UsefulLinks(links: props) {
 
 function Articles({ articles }: { articles: link[] }) {
     if (!articles) return <></>
-
-    return <div>
+    return <div className="w-auto">
         <h5>Articles: </h5>
-        <div className="flex">
+        <div className="flex flex-wrap justify-center">
             {
                 articles.map((article) => {
                     return (
@@ -48,9 +47,9 @@ function Articles({ articles }: { articles: link[] }) {
 function Videos({ videos }: { videos: link[] }) {
     if (!videos) return <></>
 
-    return <div>
+    return <div className="w-auto">
         <h5>Videos: </h5>
-        <div className="flex">
+        <div className="flex flex-wrap justify-center">
             {
                 videos.map((video) => {
                     return (
