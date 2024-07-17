@@ -1,3 +1,5 @@
+import UsefulLinks from "../components/UsefulLinks";
+
 export default function RealEstatePAge() {
     return (
         <div className="p-8 w-3/4">
@@ -29,6 +31,15 @@ export default function RealEstatePAge() {
                 to help you accurately assess potential investments. Our flip calculator is an invaluable tool for investors looking to buy, renovate, and sell 
                 properties for profit. It helps you estimate costs, potential returns, and ensure you make informed, profitable decisions.
             </p>
+
+            <UsefulLinks 
+                articles={[
+                    { name: "Bigger Pockets Site", url: "https://www.biggerpockets.com/"}
+                ]}
+                videos={[
+                    { name: "Bigger Pockets Channel", url: "https://www.youtube.com/@biggerpockets" },
+                ]}
+            />
         </div>
     )
 }
