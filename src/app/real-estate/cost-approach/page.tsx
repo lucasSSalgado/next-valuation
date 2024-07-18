@@ -4,7 +4,7 @@ import UsefulLinks from "@/app/components/UsefulLinks"
 
 export default function CostApproachPage() {
     return (
-        <div className="p-8 w-3/4">
+        <div className="p-4 md:p-8 text-center">
             <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">Cost Approach Method</h2>
             <div className="mt-4">
                 <p className="leading-7 [&:not(:first-child)]:mt-2">

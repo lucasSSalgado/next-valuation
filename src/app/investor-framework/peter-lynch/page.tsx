@@ -12,7 +12,7 @@ import { Separator } from "@/components/ui/separator"
 
 export default function PeterLynchPage() {
     return (
-        <div className="p-8 w-3/4 mx-auto">
+        <div className="md:p-8 p-2 mx-auto">
             <Card>
             <CardHeader>
                 <CardTitle>Peter Lynch</CardTitle>
@@ -38,12 +38,12 @@ export default function PeterLynchPage() {
             <CardFooter>
                 <div className="">
                     <p className="italic p-1">Book by Lynch: </p>
-                    <div className="flex gap-2">
+                    <div className="flex flex-col gap-2 md:flex-row">
                         <Button variant="outline">
-                            <a href="#">One Up On Wall Street</a>
+                            <a className="text-wrap" href="#">One Up On Wall Street</a>
                         </Button>
                         <Button variant="outline">
-                            <a href="#">Beating the Street</a>
+                            <a className="text-wrap" href="#">Beating the Street</a>
                         </Button>
                     </div>
                 </div>

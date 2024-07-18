@@ -32,7 +32,7 @@ export default function DiscountedForm() {
         <div>
             <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} >
-                <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
                     <FormField
                     control={form.control}
                     name="stockPrice"
@@ -60,7 +60,7 @@ export default function DiscountedForm() {
                     )}
                     />
                 </div>
-                <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
                     <FormField
                     control={form.control}
                     name="firstRate"
@@ -88,7 +88,7 @@ export default function DiscountedForm() {
                     )}
                     />
                 </div>
-                <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
                     <FormField
                     control={form.control}
                     name="secondRate"
@@ -116,7 +116,7 @@ export default function DiscountedForm() {
                     )}
                     />
                 </div>
-                <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
                     <FormField
                     control={form.control}
                     name="discountedRate"

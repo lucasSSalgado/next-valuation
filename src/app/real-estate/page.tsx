@@ -38,6 +38,7 @@ export default function RealEstatePAge() {
                 ]}
                 videos={[
                     { name: "Bigger Pockets Channel", url: "https://www.youtube.com/@biggerpockets" },
+                    { name: "Chad Carson Channel", url: "https://www.youtube.com/@CoachChadCarson"}
                 ]}
             />
         </div>

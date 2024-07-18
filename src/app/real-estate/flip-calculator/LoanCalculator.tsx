@@ -34,7 +34,7 @@ export default function LoanCalculator() {
         <div>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}>
-                    <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto">
+                    <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto">
                         <FormField
                         control={form.control}
                         name="price"
@@ -62,7 +62,7 @@ export default function LoanCalculator() {
                         )}
                         />
                     </div>
-                    <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                    <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
                         <FormField
                         control={form.control}
                         name="downPayment"
@@ -91,7 +91,7 @@ export default function LoanCalculator() {
                         />
                     </div>
 
-                    <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                    <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
                         <FormField
                         control={form.control}
                         name="financingYears"
@@ -120,7 +120,7 @@ export default function LoanCalculator() {
                         />
                     </div>
                     
-                    <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                    <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
                         <FormField
                         control={form.control}
                         name="hodingCosts"
@@ -149,7 +149,7 @@ export default function LoanCalculator() {
                         />
                     </div>
                     
-                    <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                    <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
                         <FormField
                         control={form.control}
                         name="discountInSell"
@@ -178,7 +178,7 @@ export default function LoanCalculator() {
                         />
                     </div>
 
-                    <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                    <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
                         <FormField
                         control={form.control}
                         name="leiloeiroComission"
@@ -207,7 +207,7 @@ export default function LoanCalculator() {
                         />
                     </div>
                     
-                    <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                    <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
                         <FormField 
                         control={form.control}
                         name="otherCosts1"
@@ -236,7 +236,7 @@ export default function LoanCalculator() {
                         />
                     </div>
                     
-                    <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                    <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
                         <FormField
                         control={form.control}
                             name="timeToSell"

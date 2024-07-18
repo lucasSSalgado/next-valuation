@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button"
 import {
     Card,
     CardContent,
-    CardDescription,
     CardFooter,
     CardHeader,
     CardTitle,
@@ -10,7 +9,7 @@ import {
 import { Separator } from "@/components/ui/separator"
 
 export default function CryptoPage() {
-    return <div className="p-8 w-3/4 mx-auto">
+    return <div className="p-8 md:w-8/12 mx-auto w-11/12">
         <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">Investing in Crypto</h2>
         <p className="leading-7 [&:not(:first-child)]:mt-2">
             If someone tells you that they know how to properly value cryptocurrency assets, they are lying. If someone else tells you that assets without 
@@ -29,7 +28,7 @@ export default function CryptoPage() {
 
         <Separator className="my-4" />
 
-        <div className="flex gap-4 mt-5">
+        <div className="flex gap-4 mt-5 flex-wrap">
             <Card className="flex-1">
                 <CardHeader>
                     <CardTitle>Nakamoto Portfolio</CardTitle>

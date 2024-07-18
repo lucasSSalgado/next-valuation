@@ -12,7 +12,7 @@ import { Separator } from "@/components/ui/separator"
 
 export default function TerrySmithPage() {
     return (
-        <div className="p-8 w-3/4 mx-auto">
+        <div className="md:p-8 p-2 mx-auto">
         <Card>
             <CardHeader>
                 <CardTitle>Terry Smith</CardTitle>

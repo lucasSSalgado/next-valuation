@@ -10,7 +10,7 @@ import {
 
 export default function FlipCalculatorPage() {
     return (
-        <div className="p-5 w-3/4 mx-auto mt-10">
+        <div className="p-4 md:p-8 text-center">
             <Card>
                 <CardHeader>
                     <CardTitle>Your All in One Flip Calculator</CardTitle>

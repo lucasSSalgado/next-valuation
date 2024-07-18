@@ -12,7 +12,7 @@ import { Separator } from "@/components/ui/separator"
 
 export default function WaffenBuffetPage() {
     return (
-        <div className="p-8 w-3/4 mx-auto">
+        <div className="md:p-8 p-2 mx-auto">
             <Card>
             <CardHeader>
                 <CardTitle>Warren Edward Buffett</CardTitle>
@@ -34,12 +34,12 @@ export default function WaffenBuffetPage() {
             <CardFooter>
                 <div className="">
                     <p className="italic p-1">Book by Buffett (kind of): </p>
-                    <div className="flex gap-2">
+                    <div className="flex flex-col gap-2 md:flex-row">
                         <Button variant="outline">
-                            <a href="#">The Essays of Warren Buffett</a>
+                            <a className="text-wrap" href="#">The Essays of Warren Buffett</a>
                         </Button>
-                        <Button variant="outline">
-                            <a href="#">The Snowball: Warren Buffett and the Business of Life</a>
+                        <Button variant="outline" className="p-1">
+                            <a className="text-wrap" href="#">The Snowball</a>
                         </Button>
                     </div>
                 </div>

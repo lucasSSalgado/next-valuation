@@ -13,7 +13,7 @@ import { Separator } from "@/components/ui/separator"
 
 export default function PhilipFisher() {
     return (
-        <div className="p-8 w-3/4 mx-auto">
+        <div className="md:p-8 p-2 mx-auto">
             <Card>
             <CardHeader>
                 <CardTitle>Philip Arthur Fisher</CardTitle>
@@ -45,12 +45,12 @@ export default function PhilipFisher() {
             <CardFooter>
                 <div className="">
                     <p className="italic p-1">Book by Fisher: </p>
-                    <div className="flex gap-2">
-                        <Button variant="outline">
-                            <a href="#">commom stocks uncommon profits</a>
+                    <div className="flex flex-col gap-2 md:flex-row">
+                        <Button variant="outline" className="w-full">
+                            <a className="text-wrap" href="#">commom stocks uncommon profits</a>
                         </Button>
                         <Button variant="outline">
-                            <a href="#">conservative investors sleep well</a>
+                            <a className="text-wrap" href="#">conservative investors sleep well</a>
                         </Button>
                     </div>
                 </div>
@@ -58,7 +58,7 @@ export default function PhilipFisher() {
             </Card>   
 
             <div>
-                <div className="p-2">
+                <div className="p-2 text-center md:text-left">
                     <h2 className="scroll-m-20 border-b pb-3 text-3xl font-semibold tracking-tight first:mt-8">The Fifteen Points to Look for in a Common Stock: </h2>
                     <ul className="list-decimal mt-2 p-2">
                         <li>
@@ -320,13 +320,13 @@ export default function PhilipFisher() {
                 </div>
             </div>
 
-            <h2 className="scroll-m-20 border-b pb-3 text-3xl font-semibold tracking-tight mt-8">Additional Knowledge: </h2>
+            <h2 className="scroll-m-20 border-b pb-3 text-3xl font-semibold tracking-tight mt-8 text-center">Additional Knowledge: </h2>
             <Card className="mt-5">
             <CardHeader>
-                <CardTitle>Dividends: </CardTitle>
+                <CardTitle className="text-center">Dividends: </CardTitle>
             </CardHeader>
             <CardContent>
-                <blockquote className="mt-3 border-l-2 pl-6 italic">
+                <blockquote className="mt-3 border-l-2 pl-6 italic text-center md:text-left">
                     &quot;It is possible that by spending earnings not
                     as dividends but to build a new plant, to launch a new product line, or
                     to install some major cost-saving equipment in an old plant, the management
@@ -335,10 +335,10 @@ export default function PhilipFisher() {
                 </blockquote>
             </CardContent>
             <CardHeader>
-                <CardTitle>Diversification: </CardTitle>
+                <CardTitle className="text-center">Diversification: </CardTitle>
             </CardHeader>
             <CardContent>
-                <blockquote className="mt-3 border-l-2 pl-6 italic">
+                <blockquote className="mt-3 border-l-2 pl-6 italic text-center md:text-left">
                     &quot;The horrors of what can happen to those who
                     “put all their eggs in one basket” are too constantly being expounded.
                     Too few people, however, give sufficient thought to the evils of the

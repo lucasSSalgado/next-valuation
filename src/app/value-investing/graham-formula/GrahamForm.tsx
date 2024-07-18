@@ -32,7 +32,7 @@ export default function GrahamForm() {
         <div className="">
             <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
                 <FormField
                 control={form.control}
                 name="price"
@@ -60,7 +60,7 @@ export default function GrahamForm() {
                 )}
                 />
                 </div>
-                <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
                 <FormField
                 control={form.control}
                 name="btv"

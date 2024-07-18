@@ -34,7 +34,7 @@ export default function CachCalculator() {
     <div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
-          <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+          <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
             <FormField
               control={form.control}
               name="price"
@@ -62,7 +62,7 @@ export default function CachCalculator() {
               )}
             />
           </div>
-          <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+          <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
             <FormField
               control={form.control}
               name="rehab"
@@ -90,7 +90,7 @@ export default function CachCalculator() {
               )}
             />
           </div>
-          <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+          <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
             <FormField
               control={form.control}
               name="hodingCosts"
@@ -118,7 +118,7 @@ export default function CachCalculator() {
               )}
               />
           </div>
-          <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+          <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
             <FormField 
             control={form.control}
             name="sellerComission"
@@ -146,7 +146,7 @@ export default function CachCalculator() {
             )}
             />
           </div>
-          <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+          <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
             <FormField 
               control={form.control}
               name="otherCosts2"
@@ -174,7 +174,7 @@ export default function CachCalculator() {
               )}
             />
           </div>
-          <div className="grid grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+          <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
           <FormField
             control={form.control}
             name="taxesOnProfit"
