@@ -27,14 +27,14 @@ export default function UsefulLinks(links: props) {
 function Articles({ articles }: { articles: link[] }) {
     if (!articles) return <></>
     return <div className="w-auto">
-        <h5>Articles: </h5>
-        <div className="flex flex-wrap justify-center text-wrap">
+        <h5 className="text-sm">Articles: </h5>
+        <div className="flex flex-wrap text-wrap">
             {
                 articles.map((article) => {
                     return (
                         <div key={article.name}>
                             <Button variant='link'>
-                                <a className="text-blue-700 text-wrap" href={article.url} target="_blank">{article.name}</a>
+                                <a className="text-blue-700 text-wrap text-sm" href={article.url} target="_blank">{article.name}</a>
                             </Button>
                         </div>
                     )
@@ -48,14 +48,14 @@ function Videos({ videos }: { videos: link[] }) {
     if (!videos) return <></>
 
     return <div className="w-auto">
-        <h5>Videos: </h5>
-        <div className="flex flex-wrap justify-center">
+        <h5 className="text-sm">Videos: </h5>
+        <div className="flex flex-wrap text-wrap">
             {
                 videos.map((video) => {
                     return (
                         <div key={video.name}>
                             <Button variant='link' className="mt-2">
-                                <a className="text-blue-700 text-wrap" href={video.url} target="_blank">{video.name}</a>
+                                <a className="text-blue-700 text-wrap text-sm" href={video.url} target="_blank">{video.name}</a>
                             </Button>
                         </div>
                     )

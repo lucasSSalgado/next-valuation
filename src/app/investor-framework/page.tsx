@@ -12,8 +12,8 @@ import Link from "next/link";
 
 export default function InvestorFrameworkPage() {
     return (
-        <div className="md:p-8 p-4 text-center md:text-left">
-            <h2 className="text-center scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">Investor Framework</h2>
+        <div className="p-8 md:w-8/12 mx-auto w-11/12 text-center md:text-left">
+            <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">Investor Framework</h2>
             <div className="mt-4">
                 <p className="leading-7 [&:not(:first-child)]:mt-6">
                     Welcome to our comprehensive guide on the investment frameworks used by some of the worlds most renowned investors. 

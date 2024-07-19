@@ -2,7 +2,7 @@ import UsefulLinks from "../components/UsefulLinks";
 
 export default function RealEstatePAge() {
     return (
-        <div className="p-8 w-3/4">
+        <div className="p-8 md:w-8/12 mx-auto w-11/12 text-center md:text-left">
             <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">Investing in Real Estate</h2>
             <p className="leading-7 [&:not(:first-child)]:mt-2">
                 Real estate investing involves the purchase, ownership, management, rental, and sale of real estate for 
