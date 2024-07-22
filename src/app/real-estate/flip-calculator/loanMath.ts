@@ -59,12 +59,16 @@ export const calculateLoan = (data: z.infer<typeof formSchema>): FlipResponse =>
     const discountInSell = parseFloat(data.discountInSell as string);
     const localFees = parseFloat(data.localFees as string);
     const leiloeiroComission = parseFloat(data.leiloeiroComission as string)
-    const sellerComission = parseFloat(data.sellerComission as string);
+    let sellerComission = parseFloat(data.sellerComission as string);
     const otherCosts1 = parseCorrencyToNumber(data.otherCosts1 as string);
     const otherCosts2 = parseCorrencyToNumber(data.otherCosts2 as string);
     const timeToSell = parseCorrencyToNumber(data.timeToSell);
     const taxesOnProfit = parseCorrencyToNumber(data.taxesOnProfit);
 
+    if (sellerComission === undefined) {
+        sellerComission = 0
+    }
+    
     const { quota, restOfLoan } = priceMonthQuota(price * (1 - downPayment / 100), interatesRate/100, financingYears, timeToSell);
 
     const sellingPrice = value * (1 - discountInSell/100)
