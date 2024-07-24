@@ -285,6 +285,21 @@ export default function TerrySmithPage() {
                     that would deliver superior returns than the buyback.&quot;
                 </blockquote>
             </CardContent>
+            <CardHeader>
+                <CardTitle className="text-center">Forecast and Macroeconomics: </CardTitle>
+            </CardHeader>
+            <CardContent>
+                <blockquote className="mt-3 border-l-2 pl-6 italic text-center md:text-left">
+                    &quot;The only function of economic forecasting is to make astrology look
+                    respectable.&quot; <br />
+
+                    &quot;One thing I have observed is the obsession of market commentators,
+                    investors and advisers with macroeconomics, interest rates, quantitative
+                    easing, asset allocation, regional geographic allocation, currencies,
+                    developed markets versus emerging markets – whereas they almost never
+                    talk about investing in good companies.&quot;
+                </blockquote>
+            </CardContent>
             </Card>
 
             <UsefulLinks 
