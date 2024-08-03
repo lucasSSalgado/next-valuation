@@ -1,0 +1,16 @@
+{
+    "100bagger": {
+        "title": "100 Bagger Calculator",
+        "p1": "A 100 bagger calculator aims to estimate the potential of an investment to multiply 100-fold over time. While intriguing, such calculations have inherent limitations. Predicting future performance is inherently uncertain due to varios factors.",
+        "p2": "Despite these uncertainties, certain traits are common among companies that achieve 100 bagger status. Typically, these companies exhibit robust growth potential, high return on investment, and are often led by owner-operators who are deeply invested in the businesss success. Strong competitive advantages, innovative products or services, and effective management practices also contribute to their extraordinary growth. While the calculator can provide a rough estimate, its essential to conduct thorough research and consider a comprehensive range of factors before making investment decisions.",
+        "p3_p1": "And even if you have all in your favor, you need time and patience, lots of patience. This calculator was made inspired by the book: ",
+        "p3_link1": "https://www.amazon.com.br/100-Baggers-Stocks-100-1/dp/1621291650",
+        "p3_link1_text": "100 Baggers: Stocks That Return 100-to-1 and How To Find Them",
+        "p3_p2": "by Christopher W Mayer and his intelectual predecessor Thomas W. Phelps how write",
+        "p3_link2_text": "100 to 1 in the Stock Market: A Distinguished Security Analyst Tells How to Make More of Your Investment Opportunities.",
+        "p3_link2": "https://www.amazon.com.br/100-Stock-Market-Distinguished-Opportunities-ebook/dp/B09BNRXZJ4/ref=sr_1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&sr=8-1",
+        "p3_p3": "In Christopher the average time a stock need to become a 100 baggers was 26 years, even thouth the time needed is swiking. If there is a secrete, is it to have patience.",
+        "p4": "If is possible to give a quick sumary of what is need to a stock be a 100 bagger it usually need: Growth in sales and earning, expantion of multiples, ability to invest at high rates (which usually means: high return of capital invested, high margins), a good management team (prefer ownors operatiors), the ability to maintain this growth above average for many years (a durable moat).",
+        "p5": "This calculator gives you the probability of have a 100 bagger. If the stars are align and you have a very good company at your hands, nothing garantee a sucessfull investment, no one can see into the future. But to be easy to understand the calculators give you 100% if all things are align and this number divided by 5, to give you the true change of find a 100 bagger, this number 5 is totaly arbitrary."
+    }
+}

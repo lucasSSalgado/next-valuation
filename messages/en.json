@@ -1,0 +1,13 @@
+{
+    "HomePage": {
+      "title": "Hello world!"
+    },
+    "general": {
+      "home": {
+        "title": "Hello world!"
+      },
+      "compound-interest": {
+        "title": "Compound Interest Calculator"
+      }
+    }
+}
