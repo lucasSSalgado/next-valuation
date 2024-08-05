@@ -128,7 +128,9 @@ export default function LiquidationForm() {
                     setOpenDialog={setOpenDialog}
                     fairValue={fairValue.fairValue}
                     discount={fairValue.discount}
-                    title="Liquidation Value"
+                    dialog_title="Liquidation Value"
+                    dialog_value="Liquidation Value: "
+                    dialog_discount="Discount: "
                 />
             }
         </div>

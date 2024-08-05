@@ -99,7 +99,9 @@ export default function GordonForm() {
                     setOpenDialog={setOpenDialog}
                     fairValue={fairValue.fairValue}
                     discount={fairValue.discount}
-                    title="Gordon Growth Model"
+                    dialog_title="Gordon Growth Model"
+                    dialog_value="dialog value"
+                    dialog_discount="dialog discount"
                 />
             }
         </div>

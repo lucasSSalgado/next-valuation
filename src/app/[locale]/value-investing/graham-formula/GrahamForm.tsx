@@ -88,7 +88,9 @@ export default function GrahamForm() {
                     setOpenDialog={setOpenDialog} 
                     fairValue={fairValue.fairValue} 
                     discount={fairValue.discount} 
-                    title="Graham Model"
+                    dialog_title="Graham Model"
+                    dialog_value="Fair Value: "
+                    dialog_discount="Discount: "
                 />
             }
         </div>
