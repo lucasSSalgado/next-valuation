@@ -7,27 +7,24 @@ import {
     CardTitle,
   } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { useTranslations } from "next-intl";
 import {unstable_setRequestLocale} from 'next-intl/server';
 
 
 export default function CryptoPage({params: {locale}} : {params: {locale: string}}) {
     unstable_setRequestLocale(locale);
+    const t = useTranslations('crypto')
 
     return <div className="p-8 md:w-8/12 mx-auto w-11/12">
-        <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">Investing in Crypto</h2>
+        <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">{ t('title') }</h2>
         <p className="leading-7 [&:not(:first-child)]:mt-2">
-            If someone tells you that they know how to properly value cryptocurrency assets, they are lying. If someone else tells you that assets without 
-            cash flows have no value, they are lying too. It’s pretty obvious that some Germans in the Weimar Republic would have had a good reason to invest in 
-            crypto, or my neighbors in Venezuela. The less property rights matter in a society, the more virtual scarcity matters for your well-being. In this scenario, 
-            I would prefer an unconfiscable asset over the best cash flow in the world.
+            { t('p1') }
         </p>
         <p className="leading-7 [&:not(:first-child)]:mt-2">
-            Some people argue that crypto is good for failed states and criminals, but think about what it means to be a criminal now, what it meant to be a criminal in 
-            the 1700s, or what it meant to be a criminal for the Soviets. The power to make monetary transactions without government permission is a legitimate demand. 
-            Government control of currency, as practiced today, never existed before.
+            { t('p2') }
         </p>
         <p className="leading-7 [&:not(:first-child)]:mt-2">
-            Anyway, if you think crypto can be of some utility, it has value. Here are some materials that can help you properly try to value them.
+            { t('p3') }
         </p>
 
         <Separator className="my-4" />
@@ -39,8 +36,7 @@ export default function CryptoPage({params: {locale}} : {params: {locale: string
                 </CardHeader>
                 <CardContent>
                     <p className="italic text-sm">
-                        Offer a set of tools and models, everthing open source, to &quot;value&quot; bitcoin.
-                        Some of them are: Bitcoins Schrödinger Model, The Nakamoto Gauntlet and many others. 
+                        { t('link1') } 
                     </p>
                 </CardContent>
                 <CardFooter>
@@ -55,8 +51,7 @@ export default function CryptoPage({params: {locale}} : {params: {locale: string
                 </CardHeader>
                 <CardContent>
                     <p className="italic text-sm">
-                        News, articles, podcasts and many other resources available in this site. 
-                        Listen to one of the most evangeliser of bicoin today, Michael Saylor.
+                        { t('link2') }
                     </p>
                 </CardContent>
                 <CardFooter>

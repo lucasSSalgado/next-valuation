@@ -17,7 +17,51 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { useState } from "react"
 import ResultDialog from "./ResultDialog"
 
-export default function BaggerCalculator() {
+interface Props {
+    time_label: string
+    growth_label: string
+    pe_label: string,
+    owner_label: string,
+    track_label: string,
+    roe_label: string,
+    average_growth_label: string,
+    peg_label: string,
+    buyback_label: string,
+    delute_label: string,
+    moat_label: string,
+    change_label: string,
+    margin_label: string
+    yes: string
+    no: string
+    for_some_time: string
+    buyback_option: string
+    nomuch_option: string
+    more_less: string
+    equivalent: string
+    no_aplicable: string
+    company_label: string
+    undertand_label: string
+    sales_roe_label: string
+    submit: string
+    dialog_title: string
+    dialog_result: string
+    dialog_realistc: string
+    good_lock: string
+    dialog_messages_1: string
+    dialog_messages_2: string
+    dialog_messages_3: string
+    dialog_messages_4: string
+}
+
+export default function BaggerCalculator(
+        { 
+            time_label, growth_label, pe_label, owner_label, track_label, roe_label, 
+            average_growth_label, peg_label, buyback_label, moat_label, yes, no, for_some_time,
+            buyback_option, delute_label, nomuch_option, change_label, more_less, margin_label,
+            equivalent, no_aplicable, company_label, undertand_label, sales_roe_label, submit,
+            dialog_result, dialog_realistc, dialog_title, good_lock, dialog_messages_1,dialog_messages_2,
+            dialog_messages_3, dialog_messages_4 
+        } : Props) {
     const [result, setResult] = useState(0)
     const [dialog, setDialog] = useState(false)
     const formSchema = z.object({
@@ -43,7 +87,6 @@ export default function BaggerCalculator() {
         undestand: z.string().refine((val) => val === 'true' || val === 'false' || val === 'any'),
         salesWithRoe: z.string().refine((val) => val === 'true' || val === 'false' || val === 'any'),
     })
-
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -65,7 +108,6 @@ export default function BaggerCalculator() {
             salesWithRoe: 'false'
         },
     })
-
     function onSubmit(values: z.infer<typeof formSchema>) {
         let change = 100
         if (values.time === 'false' || values.growthPossibility === 'false' || values.undestand === 'false') {
@@ -178,7 +220,7 @@ export default function BaggerCalculator() {
                     name="time"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>Can you hold the stock for at least 10 years, even when it faces bad times?</FormLabel>
+                        <FormLabel>{time_label}</FormLabel>
                         <FormControl>
                             <RadioGroup
                                 onValueChange={field.onChange}
@@ -190,7 +232,7 @@ export default function BaggerCalculator() {
                                         <RadioGroupItem value="true" />
                                     </FormControl>
                                     <FormLabel className="font-normal">
-                                        Yes
+                                        { yes }
                                     </FormLabel>
                                 </FormItem>
                                 <FormItem className="flex items-center space-x-3 space-y-0">
@@ -198,7 +240,7 @@ export default function BaggerCalculator() {
                                         <RadioGroupItem value="false" />
                                     </FormControl>
                                     <FormLabel className="font-normal">
-                                        No
+                                        { no }
                                     </FormLabel>
                                 </FormItem>
                             </RadioGroup>
@@ -210,7 +252,7 @@ export default function BaggerCalculator() {
                     name="growthPossibility"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>The company can growth in its market for many years to come?</FormLabel>
+                        <FormLabel>{ growth_label }</FormLabel>
                         <FormControl>
                             <RadioGroup
                                 onValueChange={field.onChange}
@@ -222,7 +264,7 @@ export default function BaggerCalculator() {
                                         <RadioGroupItem value="true" />
                                     </FormControl>
                                     <FormLabel className="font-normal">
-                                        Yes
+                                        { yes }
                                     </FormLabel>
                                 </FormItem>
                                 <FormItem className="flex items-center space-x-3 space-y-0">
@@ -230,7 +272,7 @@ export default function BaggerCalculator() {
                                         <RadioGroupItem value="fst" />
                                     </FormControl>
                                     <FormLabel className="font-normal">
-                                        For some time
+                                        { for_some_time }
                                     </FormLabel>
                                 </FormItem>
                                 <FormItem className="flex items-center space-x-3 space-y-0">
@@ -238,7 +280,7 @@ export default function BaggerCalculator() {
                                         <RadioGroupItem value="false" />
                                     </FormControl>
                                     <FormLabel className="font-normal">
-                                        No
+                                        { no }
                                     </FormLabel>
                                 </FormItem>
                             </RadioGroup>
@@ -252,7 +294,7 @@ export default function BaggerCalculator() {
                         name="pe"
                         render={({ field }) => (
                             <FormItem>
-                            <FormLabel>Current P/E ratio:</FormLabel>
+                            <FormLabel>{ pe_label }</FormLabel>
                             <FormControl>
                                 <Input placeholder="15" {...field} />
                             </FormControl>
@@ -265,7 +307,7 @@ export default function BaggerCalculator() {
                     name="owner"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>The CEO and board staff have lots of stocks in the company?</FormLabel>
+                        <FormLabel> { owner_label }</FormLabel>
                         <FormControl>
                             <RadioGroup
                                 onValueChange={field.onChange}
@@ -277,7 +319,7 @@ export default function BaggerCalculator() {
                                         <RadioGroupItem value="true" />
                                     </FormControl>
                                     <FormLabel className="font-normal">
-                                        Yes
+                                        { yes }
                                     </FormLabel>
                                 </FormItem>
                                 <FormItem className="flex items-center space-x-3 space-y-0">
@@ -285,7 +327,7 @@ export default function BaggerCalculator() {
                                         <RadioGroupItem value="false" />
                                     </FormControl>
                                     <FormLabel className="font-normal">
-                                        No
+                                        { no }
                                     </FormLabel>
                                 </FormItem>
                             </RadioGroup>
@@ -299,7 +341,7 @@ export default function BaggerCalculator() {
                     name="managerRecord"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>The manegent team already have a good track record?</FormLabel>
+                        <FormLabel> { track_label } </FormLabel>
                         <FormControl>
                             <RadioGroup
                                 onValueChange={field.onChange}
@@ -311,7 +353,7 @@ export default function BaggerCalculator() {
                                         <RadioGroupItem value="true" />
                                     </FormControl>
                                     <FormLabel className="font-normal">
-                                        Yes
+                                        { yes }
                                     </FormLabel>
                                 </FormItem>
                                 <FormItem className="flex items-center space-x-3 space-y-0">
@@ -319,7 +361,7 @@ export default function BaggerCalculator() {
                                         <RadioGroupItem value="false" />
                                     </FormControl>
                                     <FormLabel className="font-normal">
-                                        No
+                                        { no }
                                     </FormLabel>
                                 </FormItem>
                             </RadioGroup>
@@ -331,7 +373,7 @@ export default function BaggerCalculator() {
                         name="roe"
                         render={({ field }) => (
                             <FormItem>
-                            <FormLabel>Mean ROE in the last four years (%):</FormLabel>
+                            <FormLabel> { roe_label } </FormLabel>
                             <FormControl>
                                 <Input placeholder="20%" {...field} />
                             </FormControl>
@@ -346,7 +388,7 @@ export default function BaggerCalculator() {
                         name="sallesGrowth"
                         render={({ field }) => (
                             <FormItem>
-                            <FormLabel>The average sales growth for the last four years:</FormLabel>
+                            <FormLabel>{ average_growth_label }</FormLabel>
                             <FormControl>
                                 <Input placeholder="10%" {...field} />
                             </FormControl>
@@ -359,7 +401,7 @@ export default function BaggerCalculator() {
                         name="pegRatio"
                         render={({ field }) => (
                             <FormItem>
-                            <FormLabel>The average Peg Ratio for the last four years:</FormLabel>
+                            <FormLabel>{ peg_label }</FormLabel>
                             <FormControl>
                                 <Input placeholder="1" {...field} />
                             </FormControl>
@@ -374,7 +416,7 @@ export default function BaggerCalculator() {
                         name="buyBackStocks"
                         render={({ field }) => (
                             <FormItem>
-                            <FormLabel>At some time is the past the company buy it own stock at a good price?</FormLabel>
+                            <FormLabel>{ buyback_label }</FormLabel>
                             <FormControl>
                                 <RadioGroup
                                     onValueChange={field.onChange}
@@ -386,7 +428,7 @@ export default function BaggerCalculator() {
                                             <RadioGroupItem value="true" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            Yes
+                                            { yes }
                                         </FormLabel>
                                     </FormItem>
                                     <FormItem className="flex items-center space-x-3 space-y-0">
@@ -394,7 +436,7 @@ export default function BaggerCalculator() {
                                             <RadioGroupItem value="false" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            No
+                                            { no }
                                         </FormLabel>
                                     </FormItem>
                                     <FormItem className="flex items-center space-x-3 space-y-0">
@@ -402,7 +444,7 @@ export default function BaggerCalculator() {
                                             <RadioGroupItem value="any" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            They buyback at any time
+                                            { buyback_option }
                                         </FormLabel>
                                     </FormItem>
                                 </RadioGroup>
@@ -414,7 +456,7 @@ export default function BaggerCalculator() {
                         name="deluteOwner"
                         render={({ field }) => (
                             <FormItem>
-                            <FormLabel>The company is deluting owner via stock option and stock incentives?</FormLabel>
+                            <FormLabel>{ delute_label }</FormLabel>
                             <FormControl>
                                 <RadioGroup
                                     onValueChange={field.onChange}
@@ -426,7 +468,7 @@ export default function BaggerCalculator() {
                                             <RadioGroupItem value="true" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            Yes
+                                            { yes }
                                         </FormLabel>
                                     </FormItem>
                                     <FormItem className="flex items-center space-x-3 space-y-0">
@@ -434,7 +476,7 @@ export default function BaggerCalculator() {
                                             <RadioGroupItem value="false" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            No
+                                            { no }
                                         </FormLabel>
                                     </FormItem>
                                     <FormItem className="flex items-center space-x-3 space-y-0">
@@ -442,7 +484,7 @@ export default function BaggerCalculator() {
                                             <RadioGroupItem value="any" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            Pero no much
+                                            { nomuch_option }
                                         </FormLabel>
                                     </FormItem>
                                 </RadioGroup>
@@ -456,7 +498,7 @@ export default function BaggerCalculator() {
                         name="moat"
                         render={({ field }) => (
                             <FormItem>
-                            <FormLabel>In a scale of 1 - 10, how strong is the competitive advantage of this company (moat):</FormLabel>
+                            <FormLabel>{ moat_label }</FormLabel>
                             <FormControl>
                                 <Input placeholder="5" {...field} />
                             </FormControl>
@@ -469,7 +511,7 @@ export default function BaggerCalculator() {
                         name="changeIndustry"
                         render={({ field }) => (
                         <FormItem>
-                            <FormLabel>The company is in a fast changing industry?</FormLabel>
+                            <FormLabel>{ change_label }</FormLabel>
                             <FormControl>
                                 <RadioGroup
                                     onValueChange={field.onChange}
@@ -481,7 +523,7 @@ export default function BaggerCalculator() {
                                             <RadioGroupItem value="true" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            Yes
+                                            { yes }
                                         </FormLabel>
                                     </FormItem>
                                     <FormItem className="flex items-center space-x-3 space-y-0">
@@ -489,7 +531,7 @@ export default function BaggerCalculator() {
                                             <RadioGroupItem value="false" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            No
+                                            { no }
                                         </FormLabel>
                                     </FormItem>
                                     <FormItem className="flex items-center space-x-3 space-y-0">
@@ -497,7 +539,7 @@ export default function BaggerCalculator() {
                                             <RadioGroupItem value="any" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            More or Less
+                                            { more_less }
                                         </FormLabel>
                                     </FormItem>
                                 </RadioGroup>
@@ -511,7 +553,7 @@ export default function BaggerCalculator() {
                         name="grossMargin"
                         render={({ field }) => (
                         <FormItem>
-                            <FormLabel>In the last four years the company present a high gross margin relative to the industry?</FormLabel>
+                            <FormLabel>{ margin_label }</FormLabel>
                             <FormControl>
                                 <RadioGroup
                                     onValueChange={field.onChange}
@@ -523,7 +565,7 @@ export default function BaggerCalculator() {
                                             <RadioGroupItem value="true" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            Yes
+                                            { yes }
                                         </FormLabel>
                                     </FormItem>
                                     <FormItem className="flex items-center space-x-3 space-y-0">
@@ -531,7 +573,7 @@ export default function BaggerCalculator() {
                                             <RadioGroupItem value="false" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            No
+                                            { no }
                                         </FormLabel>
                                     </FormItem>
                                     <FormItem className="flex items-center space-x-3 space-y-0">
@@ -539,7 +581,7 @@ export default function BaggerCalculator() {
                                             <RadioGroupItem value="any" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            Equivalent to the indstry
+                                            { equivalent }
                                         </FormLabel>
                                     </FormItem>
                                 </RadioGroup>
@@ -551,7 +593,7 @@ export default function BaggerCalculator() {
                         name="companyTrackRecord"
                         render={({ field }) => (
                         <FormItem>
-                            <FormLabel>The company is showing incrise in it finances in the last four years (growth eps, profitability, margins, etc)   ?</FormLabel>
+                            <FormLabel>{ company_label }</FormLabel>
                             <FormControl>
                                 <RadioGroup
                                     onValueChange={field.onChange}
@@ -563,7 +605,7 @@ export default function BaggerCalculator() {
                                             <RadioGroupItem value="true" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            Yes
+                                            { yes }
                                         </FormLabel>
                                     </FormItem>
                                     <FormItem className="flex items-center space-x-3 space-y-0">
@@ -571,7 +613,7 @@ export default function BaggerCalculator() {
                                             <RadioGroupItem value="false" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            No
+                                            { no }
                                         </FormLabel>
                                     </FormItem>
                                     <FormItem className="flex items-center space-x-3 space-y-0">
@@ -579,7 +621,7 @@ export default function BaggerCalculator() {
                                             <RadioGroupItem value="any" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            Equivalent to the indstry
+                                            { equivalent }
                                         </FormLabel>
                                     </FormItem>
                                 </RadioGroup>
@@ -593,7 +635,7 @@ export default function BaggerCalculator() {
                         name="undestand"
                         render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Do you undestand how the company make money, can you explain it to someone alse?</FormLabel>
+                            <FormLabel>{ undertand_label }</FormLabel>
                             <FormControl>
                                 <RadioGroup
                                     onValueChange={field.onChange}
@@ -605,7 +647,7 @@ export default function BaggerCalculator() {
                                             <RadioGroupItem value="true" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            Yes
+                                            { yes }
                                         </FormLabel>
                                     </FormItem>
                                     <FormItem className="flex items-center space-x-3 space-y-0">
@@ -613,7 +655,7 @@ export default function BaggerCalculator() {
                                             <RadioGroupItem value="false" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            No
+                                            { no }
                                         </FormLabel>
                                     </FormItem>
                                     <FormItem className="flex items-center space-x-3 space-y-0">
@@ -621,7 +663,7 @@ export default function BaggerCalculator() {
                                             <RadioGroupItem value="any" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            More or Less
+                                            { more_less }
                                         </FormLabel>
                                     </FormItem>
                                 </RadioGroup>
@@ -633,7 +675,7 @@ export default function BaggerCalculator() {
                         name="salesWithRoe"
                         render={({ field }) => (
                         <FormItem>
-                            <FormLabel>When the sales growth incrise, the ROE and gross margin remain high?</FormLabel>
+                            <FormLabel>{ sales_roe_label }</FormLabel>
                             <FormControl>
                                 <RadioGroup
                                     onValueChange={field.onChange}
@@ -645,7 +687,7 @@ export default function BaggerCalculator() {
                                             <RadioGroupItem value="true" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            Yes
+                                            { yes }
                                         </FormLabel>
                                     </FormItem>
                                     <FormItem className="flex items-center space-x-3 space-y-0">
@@ -653,7 +695,7 @@ export default function BaggerCalculator() {
                                             <RadioGroupItem value="false" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            No
+                                            { no }
                                         </FormLabel>
                                     </FormItem>
                                     <FormItem className="flex items-center space-x-3 space-y-0">
@@ -661,7 +703,7 @@ export default function BaggerCalculator() {
                                             <RadioGroupItem value="any" />
                                         </FormControl>
                                         <FormLabel className="font-normal">
-                                            No applicable
+                                            { no_aplicable }
                                         </FormLabel>
                                     </FormItem>
                                 </RadioGroup>
@@ -669,12 +711,26 @@ export default function BaggerCalculator() {
                         </FormItem>
                     )}/>
                 </div>
-                <Button type="submit">Submit</Button>              
+                <Button type="submit">{ submit }</Button>              
             </form>
             </Form>
 
             {
-                result > 0 && dialog && <ResultDialog change={result} openDialog={dialog} setOpenDialog={setDialog} />
+                result > 0 && 
+                dialog && 
+                <ResultDialog 
+                    change={result} 
+                    openDialog={dialog} 
+                    setOpenDialog={setDialog} 
+                    dialog_result={dialog_result}
+                    dialog_realistc={dialog_realistc}
+                    dialog_title={dialog_title}
+                    good_lock={good_lock}
+                    dialog_messages_1={dialog_messages_1}
+                    dialog_messages_2={dialog_messages_2}
+                    dialog_messages_3={dialog_messages_3}
+                    dialog_messages_4={dialog_messages_4}
+                />
             }
         </div>
     )

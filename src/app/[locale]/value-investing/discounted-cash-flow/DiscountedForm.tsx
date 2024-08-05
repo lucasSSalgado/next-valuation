@@ -16,12 +16,28 @@ import { Button } from "@/components/ui/button"
 import { handleCurrencyInput } from "@/app/[locale]/real-estate/flip-calculator/helper"
 import BasicDialog from "../BasicDialog"
 
-export default function DiscountedForm() {
+interface Props {
+    stock_label: string
+    eps_label: string
+    fgrowth_label: string
+    fyears_label: string
+    sgrowth_label: string
+    syears_label: string
+    discount_label: string
+    btn: string
+    dialog_title: string
+    dialog_value: string
+    dialog_discount: string
+}
+
+export default function DiscountedForm({
+    stock_label, eps_label, fgrowth_label, fyears_label, 
+    sgrowth_label, syears_label, discount_label, btn,
+    dialog_title, dialog_value, dialog_discount
+}: Props) {
     const [resp, setResp] = useState<DcfResponse>()
     const [openDialog, setOpenDialog] = useState(false)
-
     const form = useCustomForm()
-
     const onSubmit = () => {
         const resp = dcfCalculator(form.getValues())
         setResp(resp)
@@ -38,7 +54,7 @@ export default function DiscountedForm() {
                     name="stockPrice"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>Stock Price: </FormLabel>
+                        <FormLabel>{ stock_label }</FormLabel>
                         <FormControl>
                             <Input placeholder="$20.50" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                         </FormControl>
@@ -51,7 +67,7 @@ export default function DiscountedForm() {
                     name="eps"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>Earning Per Share: </FormLabel>
+                        <FormLabel>{ eps_label }</FormLabel>
                         <FormControl>
                             <Input placeholder="$2.50" {...field} />
                         </FormControl>
@@ -66,7 +82,7 @@ export default function DiscountedForm() {
                     name="firstRate"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>Gowth rate in the first period (%): </FormLabel>
+                        <FormLabel>{ fgrowth_label }</FormLabel>
                         <FormControl>
                             <Input placeholder="8%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                         </FormControl>
@@ -79,7 +95,7 @@ export default function DiscountedForm() {
                     name="firstYears"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>Number of years of the first growth rate: </FormLabel>
+                        <FormLabel>{ fyears_label }</FormLabel>
                         <FormControl>
                             <Input placeholder="4" {...field} />
                         </FormControl>
@@ -94,7 +110,7 @@ export default function DiscountedForm() {
                     name="secondRate"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>Gowth rate in the second period (%): </FormLabel>
+                        <FormLabel>{ sgrowth_label }</FormLabel>
                         <FormControl>
                             <Input placeholder="3%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                         </FormControl>
@@ -107,7 +123,7 @@ export default function DiscountedForm() {
                     name="secondYears"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>Number of years of the second growth rate: </FormLabel>
+                        <FormLabel>{ syears_label }</FormLabel>
                         <FormControl>
                             <Input placeholder="8" {...field} />
                         </FormControl>
@@ -122,7 +138,7 @@ export default function DiscountedForm() {
                     name="discountedRate"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>Discounted rate (%): </FormLabel>
+                        <FormLabel>{ discount_label }</FormLabel>
                         <FormControl>
                             <Input placeholder="5%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                         </FormControl>
@@ -131,7 +147,7 @@ export default function DiscountedForm() {
                     )}
                     />
                 </div>
-                <Button className="mt-4" type="submit">Submit</Button>
+                <Button className="mt-4" type="submit">{ btn }</Button>
             </form>
             </Form>
 
@@ -142,7 +158,9 @@ export default function DiscountedForm() {
                         setOpenDialog={setOpenDialog}
                         fairValue={resp.fairValue}
                         discount={resp.discount}
-                        title="Discounted Cash Flow"
+                        dialog_title={ dialog_title }
+                        dialog_value={ dialog_value }
+                        dialog_discount={ dialog_discount }
                     />
             }
         </div>

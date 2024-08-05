@@ -1,0 +1,16 @@
+{
+    "compound": {
+        "title": "Compound Interest Calculator",
+        "month_label": "Monthly Payment:",
+        "interest_label": "Interest Rate (%):",
+        "time_label": "Choose the time interval:",
+        "monthly": "Monthly",
+        "annually": "Annually",
+        "times_label": "Times: ",
+        "calcular_btn": "Calculate",
+        "dialog_title": "Results",
+        "final_value": "Final Value: ",
+        "total_interest": "Total Interest: ",
+        "total_cost": "Total Cost: "
+    }
+}

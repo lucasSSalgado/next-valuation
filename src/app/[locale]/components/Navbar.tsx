@@ -5,7 +5,14 @@ import { Link } from "@/navigation";
 import { useEffect, useState } from "react";
 import { usePathname } from 'next/navigation';
 
-export default function Navbar() {
+interface Props {
+    value: string
+    real_estate: string
+    framework: string
+    contact:  string
+}
+
+export default function Navbar({ value, real_estate, framework, contact }: Props) {
     const pathname = usePathname();
 
     const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +25,7 @@ export default function Navbar() {
 
     const getOnlyFirstPath = (path: string) => {
         const paths = path.split('/');
-        return paths[1];
+        return paths[2];
     };
 
     const toggleMenu = () => {
@@ -49,27 +56,38 @@ export default function Navbar() {
                         <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
                             <li>
                                 <Button variant="link">
-                                    <Link href="/general" className={`text-secondary ${path === 'general' ? 'font-bold text-yellow-400 underline' : ''}`} aria-current="page">Geral</Link>
+                                    <Link 
+                                        href="/general" 
+                                        className={`text-secondary ${path === 'general' ? 'font-bold text-yellow-400 underline' : ''}`} 
+                                        aria-current="page">Geral</Link>
                                 </Button>
                             </li>
                             <li>    
                                 <Button variant="link">
-                                <Link className={`text-secondary ${path === 'value-investing' ? 'font-bold text-yellow-400 underline' : ''}`} href="/value-investing">Value Investing</Link>
+                                    <Link 
+                                        className={`text-secondary ${path === 'value-investing' ? 'font-bold text-yellow-400 underline' : ''}`} 
+                                        href="/value-investing">{ value }</Link>
                                 </Button>
                             </li>
                             <li>
                                 <Button variant="link">
-                                <Link className={`text-secondary ${path === 'real-estate' ? 'font-bold text-yellow-400 underline' : ''}`} href="/real-estate">Real Estate</Link>
+                                    <Link 
+                                        className={`text-secondary ${path === 'real-estate' ? 'font-bold text-yellow-400 underline' : ''}`} 
+                                        href="/real-estate">{ real_estate }</Link>
                                 </Button>
                             </li>
                             <li>
                                 <Button variant="link">
-                                <Link className={`text-secondary ${path === 'investor-framework' ? 'font-bold text-yellow-400 underline' : ''}`} href="/investor-framework">Investors Framework</Link>
+                                    <Link 
+                                        className={`text-secondary ${path === 'investor-framework' ? 'font-bold text-yellow-400 underline' : ''}`} 
+                                        href="/investor-framework">{ framework }</Link>
                                 </Button>
                             </li>
                             <li>
                                 <Button variant="link">
-                                <Link className={`text-secondary ${path === 'contact' ? 'font-bold text-yellow-400 underline' : ''}`} href="/contact">Contact</Link>
+                                    <Link 
+                                        className={`text-secondary ${path === 'contact' ? 'font-bold text-yellow-400 underline' : ''}`} 
+                                        href="/contact">{ contact }</Link>
                                 </Button>
                             </li>
                         </ul>

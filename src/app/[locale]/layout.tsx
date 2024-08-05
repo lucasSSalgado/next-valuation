@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google"
-import {useLocale} from 'next-intl';
+import {useLocale, useTranslations} from 'next-intl';
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import { cn } from "@/lib/utils"
@@ -36,11 +36,18 @@ export default function RootLayout({children, params}: Props) {
   if (params.locale !== locale) {
     notFound();
   }
+
+  const t = useTranslations('navbar');
   
   return (
     <html lang={locale}>
       <body className={cn("min-h-screen bg-gray-100 font-sans antialiased", inter.variable)}>
-        <Navbar />
+        <Navbar 
+          value={t('value')}
+          real_estate={t('real_estate')}
+          framework={t('framework')}
+          contact={t('contact')}
+        />
         {children}
         <Footer />
       </body>

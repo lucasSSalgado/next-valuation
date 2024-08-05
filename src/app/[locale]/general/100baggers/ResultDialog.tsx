@@ -10,36 +10,51 @@ import {
     DialogTitle,
 } from "@/components/ui/dialog"
 
+interface Props {
+    openDialog: boolean
+    setOpenDialog: React.Dispatch<React.SetStateAction<boolean>>
+    change: number
+    dialog_title: string
+    dialog_result: string
+    dialog_realistc: string
+    good_lock: string
+    dialog_messages_1: string
+    dialog_messages_2: string
+    dialog_messages_3: string
+    dialog_messages_4: string
+}
+
 export default function ResultDialog(
-    { openDialog, setOpenDialog, change }
-    : 
-    { openDialog: boolean, setOpenDialog: React.Dispatch<React.SetStateAction<boolean>>, change: number }) {
+    {   
+        openDialog, setOpenDialog, change,
+        dialog_title, dialog_result, dialog_realistc,
+        good_lock, dialog_messages_1, dialog_messages_2,
+        dialog_messages_3, dialog_messages_4 
+    }:  Props) {
     
     let message: string = ''
     if (change === 100) {
-        message = 'You have a treasure in your hands! This company is go to the moon.'
+        message = dialog_messages_1
     } else if (change < 100 && change >= 80) {
-        message = 'This company have high changes of success, go for it!'
+        message = dialog_messages_2
     } else if (change < 80 && change >= 65) {
-        message = 'Is a good company, could be better, but have its changes'
-    } else if (change < 65 && change >= 50) {
-        message = 'Is problaby a good stock, but handly will be a 100 bagger'
-    } else if (change < 50 && change >= 30) {
-        message = 'Thare is always hope, but we will need tons of luck'
+        message = dialog_messages_3
     } else {
-        message = 'There is always hope, but I the odds are agaist you'
+        message = dialog_messages_4
     }
 
     return (
         <Dialog open={openDialog} onOpenChange={setOpenDialog}>
             <DialogContent>
                 <DialogHeader>
-                <DialogTitle className="text-center p-2 scroll-m-20 text-2xl font-semibold tracking-tight">100 Bagger Result</DialogTitle>
+                <DialogTitle className="text-center p-2 scroll-m-20 text-2xl font-semibold tracking-tight">
+                    { dialog_title }
+                </DialogTitle>
                 <DialogDescription className="p-2 leading-7 [&:not(:first-child)]:mt-6 text-black text-lg italic">
                     {message} <br />
-                    Calculator Result: {change.toFixed(2)}% <br />
-                    Realistic Expectations: {(change / 5).toFixed(2)}% <br />
-                    Good Luck
+                    { dialog_result } {change.toFixed(2)}% <br />
+                    { dialog_realistc } {(change / 5).toFixed(2)}% <br />
+                    { good_lock }
                 </DialogDescription>
                 </DialogHeader>
                 <DialogFooter>

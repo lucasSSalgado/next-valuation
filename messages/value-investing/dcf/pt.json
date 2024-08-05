@@ -1,0 +1,27 @@
+{
+    "dcf": {
+        "title": "Fluxo de caixa descontado",
+        "formula": "Σ[(LPA * (1 + taxa crescimento))^ anos / (1 + taxa desconto)^ anos]",
+        "use": "Caso de uso: Geral",
+        "description": {
+            "p1": "O Fluxo de Caixa Descontado (FCD) é um dos métodos de avaliação mais renomados e versáteis. Ele avalia um negócio estimando os fluxos de caixa futuros e trazendo-os ao valor presente. Existem infinitas maneiras de realizar uma análise DCF e, como muitos outros métodos de avaliação, suas estimativas determinam o sucesso da sua análise. Tipicamente, o Custo Médio Ponderado de Capital (WACC) é usado para descontar os valores futuros ao seu valor presente.",
+            "p2": "O WACC representa o custo de capital de uma empresa, refletindo quão caro é financiar o negócio dado a proporção atual entre capital próprio e dívidas no balanço patrimonial da empresa. Este site não pretende ensinar esses conceitos em profundidade nem fornecer qualquer conselho financeiro. Se você quiser aprender mais sobre o WACC, pode encontrar links úteis no final da página.",
+            "p3": "Neste calculador, usamos valores por ação (valorizando assim o capital próprio), mas se você souber o que está fazendo, sinta-se à vontade para usar o método que preferir. Lembre-se de que suas suposições podem estar incorretas e podem impactar significativamente o valor final, portanto, sempre permita-se uma margem de segurança ao usar este método."
+        },
+        "form": {
+            "stock_label": "Preço da ação: ",
+            "eps_label": "Lucro por ação: ",
+            "fgrowth_label": "Taxa de crescimento no primeiro perído (%): ",
+            "fyears_label": "Número de anos para a primeira taxa: ",
+            "sgrowth_label": "Taxa de crescimento no segundo perído (%): ",
+            "syears_label": "Número de anos para a segunda taxa: ",
+            "discount_label": "Taxa de desconto (%): ",
+            "btn": "Calculate"
+        },
+        "dialog": {
+            "dialog_title": "Resultados FCD",
+            "dialog_value": "Valor Justo: ",
+            "dialog_discount": "Desconto: "
+        }
+    }
+}

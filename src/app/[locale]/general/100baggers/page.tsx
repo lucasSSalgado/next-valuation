@@ -28,6 +28,40 @@ export default function BaggerPage({params: {locale}} : {params: {locale: string
             { t('p5') }
         </p>
 
-        <BaggerCalculator />
+        <BaggerCalculator 
+            time_label={t('time_label')} 
+            growth_label={t('growth_label')}
+            pe_label={t('pe_label')}
+            owner_label={t('owner_label')}
+            track_label={t('track_label')}
+            roe_label={t('roe_label')}
+            average_growth_label={t('average_growth_label')}
+            peg_label={t('peg_label')}
+            buyback_label={t('buyback_label')}
+            delute_label={t('delute_label')}
+            moat_label={t('moat_label')}
+            change_label={t('change_label')}
+            margin_label={t('margin_label')}
+            yes={t('yes')}
+            no={t('no')}
+            for_some_time={t('for_some_time')}
+            buyback_option={t('buyback_option')}
+            nomuch_option={t('nomuch_option')}
+            more_less={t('more_less')}
+            equivalent={t('equivalent')}
+            no_aplicable={t('no_aplicable')}
+            company_label={t('company_label')}
+            undertand_label={t('undertand_label')}
+            sales_roe_label={t('sales_roe_label')}
+            submit={t('submit')}
+            dialog_title={t('dialog_title')}
+            dialog_result={t('dialog_result')}
+            dialog_realistc={t('dialog_realistc')}
+            good_lock={t('good_lock')}
+            dialog_messages_1={t('dialog_messages_1')} 
+            dialog_messages_2={t('dialog_messages_2')}
+            dialog_messages_3={t('dialog_messages_3')}
+            dialog_messages_4={t('dialog_messages_4')} 
+        />
     </div>
 }

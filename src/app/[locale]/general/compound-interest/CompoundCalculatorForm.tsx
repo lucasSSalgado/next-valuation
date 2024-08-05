@@ -15,9 +15,28 @@ import { compoundCalculator, CompoundResult, useCustomForm } from "./compountMat
 import { handleCurrencyInput } from "@/app/[locale]/real-estate/flip-calculator/helper"
 import { useState } from "react"
 import { formatCurrency } from "@/lib/formatter"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
-export default function CompoundCalculatorForm() {
+interface Props {
+    month_label: string
+    interest_label: string
+    time_label: string
+    monthly: string
+    annually: string
+    times_label: string
+    calcular_btn: string
+    dialog_title: string
+    final_value: string
+    total_interest: string
+    total_cost: string
+}
+
+export default function CompoundCalculatorForm
+    ({ 
+        month_label, interest_label, time_label, monthly, annually, 
+        times_label, calcular_btn, dialog_title, final_value, total_interest,
+        total_cost 
+    }: Props) {
     const [result, setResult] = useState<CompoundResult>()
     const form = useCustomForm()
     const onSubmit = () => {
@@ -48,7 +67,7 @@ export default function CompoundCalculatorForm() {
                         name="monthlyPayment"
                         render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Monthly Payment: </FormLabel>
+                            <FormLabel>{ month_label } </FormLabel>
                             <FormControl>
                             <Input placeholder="$10,000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                             </FormControl>
@@ -63,7 +82,7 @@ export default function CompoundCalculatorForm() {
                         name="rate"
                         render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Interest Rate (%): </FormLabel>
+                            <FormLabel>{ interest_label} </FormLabel>
                             <FormControl>
                             <Input placeholder="10%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                             </FormControl>
@@ -76,7 +95,7 @@ export default function CompoundCalculatorForm() {
                     name="rateType"
                     render={({ field }) => (
                         <FormItem className="space-y-3">
-                            <FormLabel>choose the time interval:</FormLabel>
+                            <FormLabel>{ time_label }</FormLabel>
                             <FormControl>
                                 <RadioGroup
                                 onValueChange={field.onChange}
@@ -88,7 +107,7 @@ export default function CompoundCalculatorForm() {
                                     <RadioGroupItem value="monthly" />
                                     </FormControl>
                                     <FormLabel className="font-normal">
-                                    Monthly
+                                    { monthly }
                                     </FormLabel>
                                 </FormItem>
                                 <FormItem className="flex items-center space-x-3 space-y-0">
@@ -96,7 +115,7 @@ export default function CompoundCalculatorForm() {
                                     <RadioGroupItem value="annually" />
                                     </FormControl>
                                     <FormLabel className="font-normal">
-                                    Annually
+                                    { annually }
                                     </FormLabel>
                                 </FormItem>
                             </RadioGroup>
@@ -111,7 +130,7 @@ export default function CompoundCalculatorForm() {
                         name="time"
                         render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Times: </FormLabel>
+                            <FormLabel>{ times_label } </FormLabel>
                             <FormControl>
                             <Input placeholder="15" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                             </FormControl>
@@ -120,20 +139,21 @@ export default function CompoundCalculatorForm() {
                     )}
                     />
                 </div>
-                <Button type="submit">Submit</Button>
+                <Button type="submit">{ calcular_btn }</Button>
                 </form>
             </Form>
+            
             {
                 result &&
                     <>
                         <Card className="mt-8">
                             <CardHeader>
-                                <CardTitle>Results</CardTitle>
+                                <CardTitle>{ dialog_title }</CardTitle>
                             </CardHeader>
                             <CardContent>
-                                <p>Final Value: { formatCurrency(result.finalValue)  }</p>
-                                <p>Total Interest: { formatCurrency(result.interest) }</p>
-                                <p>Total Cost: { formatCurrency(result.investment) }</p>
+                                <p>{  final_value } { formatCurrency(result.finalValue)  }</p>
+                                <p>{ total_interest } { formatCurrency(result.interest) }</p>
+                                <p>{ total_cost } { formatCurrency(result.investment) }</p>
                             </CardContent>
                         </Card> 
                     </>

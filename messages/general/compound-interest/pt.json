@@ -1,0 +1,16 @@
+{
+    "compound": {
+        "title": "Calculadora de Juros Compostos",
+        "month_label": "Pagamento mensal:",
+        "interest_label": "Taxa de Juros (%):",
+        "time_label": "Escolha o intervalo:",
+        "monthly": "Mensal",
+        "annually": "Anual",
+        "times_label": "Intervalo: ",
+        "calcular_btn": "Calcular",
+        "dialog_title": "Resultado",
+        "final_value": "Valor Final: ",
+        "total_interest": "Total de Juros: ",
+        "total_cost": "Custo Total: "
+    }
+}
