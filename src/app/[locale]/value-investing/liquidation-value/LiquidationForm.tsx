@@ -15,12 +15,28 @@ import { LiquidationResponse, useCustomForm, liquidationCalculator } from "./liq
 import { handleCurrencyInput } from "@/app/[locale]/real-estate/flip-calculator/helper"
 import BasicDialog from "../BasicDialog"
 
-export default function LiquidationForm() {
+interface Props {
+    price_label: string
+    number_label: string
+    cash_label: string
+    book_label: string
+    discount_label: string
+    liabilities_label: string
+    submit: string
+
+    dialog_title: string
+    dialog_value: string
+    dialog_discount: string
+}
+
+export default function LiquidationForm({
+    price_label, number_label, cash_label, book_label, discount_label, liabilities_label, submit,
+    dialog_title, dialog_value, dialog_discount
+}: Props) {
     const [fairValue, setFairValue] = useState<LiquidationResponse>()
     const [openDialog, setOpenDialog] = useState(false)
 
     const form = useCustomForm()
-
     const onSubmit = () => {
         const resp = liquidationCalculator(form.getValues())
         setFairValue(resp)
@@ -38,7 +54,7 @@ export default function LiquidationForm() {
                     name="price"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>Price per Share: </FormLabel>
+                        <FormLabel>{ price_label }</FormLabel>
                         <FormControl>
                             <Input placeholder="$10" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                         </FormControl>
@@ -51,7 +67,7 @@ export default function LiquidationForm() {
                     name="numberOfShares"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>Number of Share: </FormLabel>
+                        <FormLabel>{ number_label }</FormLabel>
                         <FormControl>
                             <Input placeholder="658,883,304" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                         </FormControl>
@@ -66,7 +82,7 @@ export default function LiquidationForm() {
                     name="cash"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>Cash and Equivalent: </FormLabel>
+                        <FormLabel>{ cash_label }</FormLabel>
                         <FormControl>
                             <Input placeholder="$100,000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                         </FormControl>
@@ -79,7 +95,7 @@ export default function LiquidationForm() {
                     name="bookValue"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>Book Value of Assets: </FormLabel>
+                        <FormLabel>{ book_label }</FormLabel>
                         <FormControl>
                             <Input placeholder="$50,000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                         </FormControl>
@@ -94,7 +110,7 @@ export default function LiquidationForm() {
                     name="discount"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>Discount on Book Value (%): </FormLabel>
+                        <FormLabel>{ discount_label }</FormLabel>
                         <FormControl>
                             <Input placeholder="35%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                         </FormControl>
@@ -107,7 +123,7 @@ export default function LiquidationForm() {
                     name="liabilities"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>All Liabilities: </FormLabel>
+                        <FormLabel>{ liabilities_label }</FormLabel>
                         <FormControl>
                             <Input placeholder="$80,000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                         </FormControl>
@@ -116,7 +132,7 @@ export default function LiquidationForm() {
                     )}
                     />
                 </div>
-                <Button className="mt-4" type="submit">Submit</Button>
+                <Button className="mt-4" type="submit">{ submit }</Button>
             </form>
             </Form>
 
@@ -128,9 +144,9 @@ export default function LiquidationForm() {
                     setOpenDialog={setOpenDialog}
                     fairValue={fairValue.fairValue}
                     discount={fairValue.discount}
-                    dialog_title="Liquidation Value"
-                    dialog_value="Liquidation Value: "
-                    dialog_discount="Discount: "
+                    dialog_title={dialog_title}
+                    dialog_value={dialog_value}
+                    dialog_discount={dialog_discount}
                 />
             }
         </div>

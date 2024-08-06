@@ -16,12 +16,25 @@ import { GrahamResponse, grahamCalculator, useCustomForm } from "./grahamMath"
 import { handleCurrencyInput } from "@/app/[locale]/real-estate/flip-calculator/helper"
 import BasicDialog from "../BasicDialog"
 
-export default function GrahamForm() {
+interface Props {
+    price_label: string
+    eps_label: string
+    btv_label: string
+    submit: string
+
+    dialog_title: string
+    dialog_value: string
+    dialog_discount:string
+}
+
+export default function GrahamForm({
+    price_label, eps_label, btv_label, submit,
+    dialog_title, dialog_value, dialog_discount
+}: Props) {
     const [openDialog, setOpenDialog] = useState(false)
     const [fairValue, setfairValue] = useState<GrahamResponse>()
 
     const form = useCustomForm()
-
     const onSubmit = () => {
         const resp = grahamCalculator(form.getValues())
         setfairValue(resp)
@@ -38,7 +51,7 @@ export default function GrahamForm() {
                 name="price"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel>Stock Price: </FormLabel>
+                    <FormLabel>{ price_label }</FormLabel>
                     <FormControl>
                         <Input placeholder="$20.50" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                     </FormControl>
@@ -51,7 +64,7 @@ export default function GrahamForm() {
                 name="eps"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel>Earning per Share: </FormLabel>
+                    <FormLabel>{ eps_label }</FormLabel>
                     <FormControl>
                         <Input placeholder="$2.50" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                     </FormControl>
@@ -66,7 +79,7 @@ export default function GrahamForm() {
                 name="btv"
                 render={({ field }) => (
                     <FormItem>
-                    <FormLabel>Book Value per Share: </FormLabel>
+                    <FormLabel>{ btv_label }</FormLabel>
                     <FormControl>
                         <Input placeholder="$10.50" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                     </FormControl>
@@ -76,7 +89,7 @@ export default function GrahamForm() {
                 />  
                 </div>
                 
-                <Button type="submit">Submit</Button>
+                <Button type="submit">{ submit }</Button>
             </form>
             </Form>
 
@@ -88,9 +101,9 @@ export default function GrahamForm() {
                     setOpenDialog={setOpenDialog} 
                     fairValue={fairValue.fairValue} 
                     discount={fairValue.discount} 
-                    dialog_title="Graham Model"
-                    dialog_value="Fair Value: "
-                    dialog_discount="Discount: "
+                    dialog_title={dialog_title}
+                    dialog_value={dialog_value}
+                    dialog_discount={dialog_discount}
                 />
             }
         </div>

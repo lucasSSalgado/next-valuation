@@ -3,5 +3,8 @@
       "home": {
           "title": "teste em portugues"
       }
+  },
+  "test": {
+    "message": "teste"
   }
 }

@@ -16,7 +16,22 @@ import { GordonResponse, useCustomForm, gordonCalculator } from "./gordonMath"
 import { handleCurrencyInput } from "@/app/[locale]/real-estate/flip-calculator/helper"
 import BasicDialog from "../BasicDialog"
 
-export default function GordonForm() {
+interface Props {
+    stock_label: string
+    dividend_label: string
+    growth_label: string
+    discount_label: string
+    submit: string
+
+    dialog_title: string
+    dialog_value: string
+    dialog_discount: string
+}
+
+export default function GordonForm({
+    stock_label, dividend_label, growth_label, discount_label, submit,
+    dialog_title, dialog_value, dialog_discount
+}: Props) {
     const [openDialog, setOpenDialog] = useState(false)
     const [fairValue, setFairValue] = useState<GordonResponse>()
     const form = useCustomForm()
@@ -37,7 +52,7 @@ export default function GordonForm() {
                     name="price"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>Stock Price: </FormLabel>
+                        <FormLabel>{ stock_label }</FormLabel>
                         <FormControl>
                             <Input placeholder="$20.50" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                         </FormControl>
@@ -50,7 +65,7 @@ export default function GordonForm() {
                     name="dividend"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>Expected Dividend Pay in the next year: </FormLabel>
+                        <FormLabel>{ dividend_label }</FormLabel>
                         <FormControl>
                             <Input placeholder="$25.00" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                         </FormControl>
@@ -65,7 +80,7 @@ export default function GordonForm() {
                     name="divGrowth"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>Growth in Dividend Rate To The Next Years (%): </FormLabel>
+                        <FormLabel>{ growth_label }</FormLabel>
                         <FormControl>
                             <Input placeholder="5%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                         </FormControl>
@@ -78,7 +93,7 @@ export default function GordonForm() {
                     name="basicRate"
                     render={({ field }) => (
                         <FormItem>
-                        <FormLabel>Discounted Basic Rate (%): </FormLabel>
+                        <FormLabel>{ discount_label }</FormLabel>
                         <FormControl>
                             <Input placeholder="12%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                         </FormControl>
@@ -87,7 +102,7 @@ export default function GordonForm() {
                     )}
                     />
                 </div>
-                <Button className="mt-4" type="submit">Submit</Button>
+                <Button className="mt-4" type="submit">{ submit }</Button>
             </form>
             </Form>
 
@@ -99,9 +114,9 @@ export default function GordonForm() {
                     setOpenDialog={setOpenDialog}
                     fairValue={fairValue.fairValue}
                     discount={fairValue.discount}
-                    dialog_title="Gordon Growth Model"
-                    dialog_value="dialog value"
-                    dialog_discount="dialog discount"
+                    dialog_title={dialog_title}
+                    dialog_value={dialog_value}
+                    dialog_discount={dialog_discount}
                 />
             }
         </div>

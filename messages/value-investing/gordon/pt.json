@@ -1,0 +1,22 @@
+{
+    "gordon": {
+        "title": "Modelo de crescimento de Gordon",
+        "useCase": "Pagadora de dividendos com crescimento estável",
+        "formula": "Proximo Dividendo / ( taxa de retorno - crescimento na perpetuidade )",
+        "description": {
+            "p1": "O modelo de crescimento de Gordon é uma variação do modelo de desconto de dividendos. Ele considera a série futura de dividendos pagos a uma taxa de desconto. A taxa de desconto considera a taxa de retorno e o crescimento do dividendo para encontrar o preço justo. É ideal para empresas grandes e estáveis ​​com crescimento constante (geralmente um pequeno), como uma Coca-Cola, um Bank of America, etc."
+        },
+        "form": {
+            "stock_label": "Preço da ação: ",
+            "dividend_label": "Dividendo esperado para o proximo ano: ",
+            "growth_label": "Taxa de cresicmento dos dívidendo para os próximos anos (%): ",
+            "discount_label": "Taxa de desconto (%): ",
+            "submit": "Calcular"
+        },
+        "dialog": {
+            "dialog_title": "Modelo de Crescimento de Gordon",
+            "dialog_value": "Preço Justo: ",
+            "dialog_discount": "Desconto: "
+        }
+    }
+}

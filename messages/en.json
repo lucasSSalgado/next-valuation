@@ -9,5 +9,8 @@
       "compound-interest": {
         "title": "Compound Interest Calculator"
       }
+    },
+    "test": {
+      "message": "test"
     }
 }

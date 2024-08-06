@@ -2,24 +2,41 @@ import { Separator } from "@/components/ui/separator";
 import GordonForm from "./GordonForm";
 import ValuationDescription from "../ValuationDescription";
 import {unstable_setRequestLocale} from 'next-intl/server';
+import { useTranslations } from "next-intl";
 
 export default function GordonModelPage({params: {locale}} : {params: {locale: string}}) {
     unstable_setRequestLocale(locale);
+    const t = useTranslations('gordon');
 
     return (
         <div className="p-8 w-3/4">
             <ValuationDescription
-                title="Gordon Growth Model Valuation"
-                useCase="Dividend payer with stable growth"
-                formula="Next Dividend / ( rate of return - growth in perpertuty)"
+                title={t('title')}
+                useCase={t('useCase')}
+                formula={t('formula')}
                 description={[
-                    `The gordon growth model is a variation of the dividend discount model. It consider the future series of dividend payed
-                    at a discount rate. the discount rate consider the rate of return and the growth of the dividend to find the fair price.
-                    It is ideal for big and stable companies with constant growth (generally a small one), Like a coca-cola, a bank of America, etc.`
+                    t('description.p1'),
                 ]}
             />
             <Separator className="my-4" />
-            <GordonForm />
+            <GordonForm 
+                stock_label={t('form.stock_label')}
+                dividend_label={t('form.dividend_label')}
+                growth_label={t('form.growth_label')}
+                discount_label={t('form.discount_label')}
+                submit={t('form.submit')}
+
+                dialog_title={t('dialog.dialog_title')}
+                dialog_value={t('dialog.dialog_value')}
+                dialog_discount={t('dialog.dialog_discount')}
+            />
         </div>
     )
 }
+/*
+stock_label: string
+dividend_label: string
+growth_label: string
+discount_label: string
+submit: string
+    */

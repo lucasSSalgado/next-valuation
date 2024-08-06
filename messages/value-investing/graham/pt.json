@@ -1,0 +1,23 @@
+{
+    "graham": {
+        "title": "Formula de Graham",
+        "useCase": "Companhias com muitos ativos físicos e crescimento estável",
+        "formula": "√ [(Lucro por ação * 15) + (Valor patrimônial por ação * 1,5)]",
+        "description": {
+            "p1": "A Fórmula de Graham ou Número de Graham é uma maneira simplista e rápida de determinar o preço máximo de uma ação com base no lucro por ação e no valor contábil por ação. Não é uma forma sofisticada de avaliar ações e tem muitas limitações, sendo boa para empresas com muitos ativos tangíveis no balanço.",
+            "p2": "Ela é nomeada em homenagem ao lendário investidor em valor Benjamin Graham, mentor de Warren Buffett e pai do investimento em valor. Ele também é o inventor de conceitos muito importantes como a 'Margem de Segurança' e o 'Sr. Mercado'. Ele também foi um excelente escritor, seus dois livros mais famosos são 'O Investidor Inteligente' e a bíblia do investimento em valor 'Análise de Segurança'.",
+            "p3": "A ideia por trás da Fórmula de Graham é definir o máximo que um investidor deve pagar por uma ação. No máximo 15 vezes o lucro e no máximo 1,5 vezes o valor contábil. Pode ser usada para iniciar um processo de avaliação em uma empresa intensiva em ativos."
+        },
+        "form": {
+            "price_label": "Preço por ação: ",
+            "eps_label": "Lucro por ação: ",
+            "btv_label": "Valor patrimonial por ação: ",
+            "submit": "Calcular"
+        },
+        "dialog": {
+            "dialog_title": "Número mágico de graham",
+            "dialog_value": "preço justo: ",
+            "dialog_discount": "Desconto: "
+        }
+    }
+}

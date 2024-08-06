@@ -12,6 +12,9 @@ export default getRequestConfig(async ({locale}) => ({
     ...(await import(`../messages/value-investing/${locale}.json`)).default,
     ...(await import(`../messages/value-investing/lateralnav/${locale}.json`)).default,
     ...(await import(`../messages/value-investing/dcf/${locale}.json`)).default,
+    ...(await import(`../messages/value-investing/gordon/${locale}.json`)).default,
+    ...(await import(`../messages/value-investing/liquidation/${locale}.json`)).default,
+    ...(await import(`../messages/value-investing/graham/${locale}.json`)).default,
     ...(await import(`../messages/navbar/${locale}.json`)).default,
   }
 }));
