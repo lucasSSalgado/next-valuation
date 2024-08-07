@@ -1,0 +1,24 @@
+{
+    "income": {
+        "title": "Income valuation Method",
+        "p1": "The income valuation method is one of the three methods use to value a real estate investiment, is used to determined the fair price of a property based on the income it can generate for us compare with the available options in the market. The idea is that you can pay more for a property that generate more income then for a property that generate less.",
+        "p2": "The formula is the follow: Fair Price = (NOI - (NOI * Vancancy Rate))  / Market Cap Rate. Where NOI is the Net Operation Income, all the rent pay minus all the oprational costs, but do not consider taxes here. Market Cap rate is usually calculate by NOI  / Property Market value. But I dislike this way of calculate, for me look like a circular thinking. So here de denominator will be Free rate of return + Risk premium - Expected growth. So now the formula is using the market conditions to value the future cash flow of the income, and not the Market value of similar properties.",
+        "p3": "Additionally you can also add the price you want to pay for the given property to get the current discount.",
+        "form": {
+            "income_label": "Anually Real Income: ",
+            "risk_free_label": "Risk Free Rate (%): ",
+            "risk_premiun_label": "Risk Premiun (%): ",
+            "growth_label": "Expected Growth (%): ",
+            "vacancy_label": "Anually Vacancy (%): ",
+            "price_label": "Property Price: ",
+            "submit": "Calculate"
+        },
+        "dialog": {
+            "dialog_title": "Income valuation Expectations",
+            "dialog_fair_value": "Fair Price: ",
+            "dialog_price": "Price: ",
+            "dialog_discount": "Discount: ",
+            "dialog_quality": "Deal Quality: "
+        }
+    }
+}

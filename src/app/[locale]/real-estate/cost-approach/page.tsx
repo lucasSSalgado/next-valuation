@@ -2,36 +2,43 @@ import { Separator } from "@/components/ui/separator"
 import CostForm from "./CostForm"
 import UsefulLinks from "@/app/[locale]/components/UsefulLinks"
 import {unstable_setRequestLocale} from 'next-intl/server';
+import { useTranslations } from "next-intl";
 
 export default function CostApproachPage({params: {locale}} : {params: {locale: string}}) {
     unstable_setRequestLocale(locale);
+    const t = useTranslations('cost-approach');
 
     return (
-        <div className="p-4 md:p-8 text-center">
-            <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">Cost Approach Method</h2>
+        <div className="p-4 md:p-8 text-center md:text-left">
+            <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 text-center">{ t('title') }</h2>
             <div className="mt-4">
                 <p className="leading-7 [&:not(:first-child)]:mt-2">
-                    The Cost Approach method is one of the three methods used to value a real estate investiment, is less
-                    reliable then the other ones for most cases, but can be the alternative when the other two are no applicable.
-                    Like in scenarios when that is no data about the recent sales in the region, or when you cannot count on the 
-                    income for the property. For example, a holiday home in a small town or a very unique house in the neighborhood.
+                    { t('p1') }
                 </p>
                 <p className="leading-7 [&:not(:first-child)]:mt-2">
-                    The logic behind the cost approuch method is that the price of the property should not be higher then the cost to 
-                    by a new house in the same place, considering the opportunity costs, time and efford. Is good to have in mind that
-                    this method is the less pricese one, once the materials and the finishing cost, or even the land can differ when buinding
-                    a new house in the region. So when using the cost approach method is good to have a good knowledge of the region and 
-                    constructor in the region or apply a bigger margin of safety.
+                    { t('p2') }
                 </p>
                 <p className="leading-7 [&:not(:first-child)]:mt-2">
-                    The formula is the follow: <span className="font-semibold">Land Value + Cost of Construction - Depreciation + Opportunity Cost</span>.
-                    In general is used the cost per square foot and for the matter of this calculator we will use the Straight Line Depreciation method, 
-                    that consider the age of the property and the useful lifetime. We also need to consider the opportunity cost and the time take to construct 
-                    the new house, because a property today value more then a property tomorrow.
+                    { t('p3') }
                 </p>
             </div>
             <Separator className="my-4" />
-            <CostForm />
+            <CostForm 
+                land_label={ t('form.land_label') }
+                build_label={ t('form.build_label') }
+                property_label={ t('form.property_label') }
+                time_label={ t('form.time_label') }
+                age_label={ t('form.age_label') }
+                lifetime_label={ t('form.lifetime_label') }
+                opportunity_label={ t('form.opportunity_label') }
+                price_label={ t('form.price_label') }
+                submit={ t('form.submit') }
+
+                title={ t('dialog.title') }
+                fair_value={ t('dialog.fair_value') }
+                discount_label={ t('dialog.discount_label') }
+                quality_label={ t('dialog.quality_label') }
+            />
             <Separator className="my-4" />
 
             <UsefulLinks 

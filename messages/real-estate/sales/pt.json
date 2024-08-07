@@ -1,0 +1,16 @@
+{
+    "sales-comparation": {
+        "title": "Comparação de Vendas",
+        "p1": "O método de comparação de vendas é usado para determinar o preço justo de uma propriedade com base no preço de mercado de propriedades equivalentes na mesma região. Um investidor deve estar ciente do conceito de propriedade equivalente nesse sentido. Propriedades na mesma região têm tamanhos, idades e níveis de luxo diferentes. Alguns apartamentos têm duas vagas de garagem e outros têm apenas uma; é importante encontrar a propriedade mais similar possível para que a avaliação seja mais precisa.",
+        "p2": "Os fatores que o investidor deve estar ciente e que mais influenciam o preço de uma propriedade são: localização e vizinhança, características (quartos, banheiros, garagem, piscina, etc.), idade e condições. Tudo sendo igual, as diferenças em metros quadrados provavelmente diferenciarão o preço das propriedades.",
+        "form": {
+            "price_label": "Preço: ",
+            "square_label": "Metros Quadrados: ",
+            "add_btn": "Adicionar Propriedade",
+            "calculate_btn": "Calcular"
+        },
+        "dialog": {
+            "response": "Preço médio por metro quadrado:  "
+        }
+    }
+}

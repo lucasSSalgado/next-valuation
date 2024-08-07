@@ -15,6 +15,11 @@ export default getRequestConfig(async ({locale}) => ({
     ...(await import(`../messages/value-investing/gordon/${locale}.json`)).default,
     ...(await import(`../messages/value-investing/liquidation/${locale}.json`)).default,
     ...(await import(`../messages/value-investing/graham/${locale}.json`)).default,
+    ...(await import(`../messages/real-estate/${locale}.json`)).default,
+    ...(await import(`../messages/real-estate/lateralnav/${locale}.json`)).default,
+    ...(await import(`../messages/real-estate/sales/${locale}.json`)).default,
+    ...(await import(`../messages/real-estate/cost/${locale}.json`)).default,
+    ...(await import(`../messages/real-estate/income/${locale}.json`)).default,
     ...(await import(`../messages/navbar/${locale}.json`)).default,
   }
 }));

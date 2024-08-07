@@ -16,8 +16,17 @@ import { propertyStatus } from "./salesMath"
 import { formatCurrency } from "@/lib/formatter"
 import { handleCurrencyInput, parseCorrencyToNumber } from "../flip-calculator/helper"
   
+interface Props {
+    price_label: string
+    square_label: string
+    add_btn: string
+    calculate_btn: string
+    dialog_response: string
+}
 
-export default function SalesForm() {  
+export default function SalesForm({
+    price_label, square_label, add_btn, calculate_btn, dialog_response
+}: Props) {  
     const initialList = [
         { id: 0, price: '', sqtrFeets: 0 },
         { id: 1, price: '', sqtrFeets: 0 },
@@ -31,7 +40,6 @@ export default function SalesForm() {
         const newId = propertyList.length + 1
         setPropertyList([...propertyList, { id: newId, sqtrFeets: 0, price: '' }])
     }
-
     const calculateMean = () => {
         let sumPrice = 0
         let sumSqtrFeets = 0
@@ -49,8 +57,8 @@ export default function SalesForm() {
             <Table>
                 <TableHeader>
                     <TableRow>
-                        <TableHead className="text-center">Price: </TableHead>
-                        <TableHead className="text-center">Squared Feets: </TableHead>
+                        <TableHead className="text-center">{ price_label }</TableHead>
+                        <TableHead className="text-center">{ square_label }</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -88,15 +96,15 @@ export default function SalesForm() {
             </Table>
 
             <div className="flex justify-evenly">
-                <Button className="" onClick={ addNewProperty }>Add Property</Button>
-                <Button className="" variant="outline" onClick={ calculateMean }>Calculate</Button>        
+                <Button className="" onClick={ addNewProperty }>{ add_btn }</Button>
+                <Button className="" variant="outline" onClick={ calculateMean }>{ calculate_btn }</Button>        
             </div>  
 
             {
                 meanPrice !== 0 && 
                 meanPrice > 0 &&
                     <p className="text-center mt-6 bg-slate-600 rounded-sm p-4 w-9/12 mx-auto text-white text-lg">
-                        Squared Feets Mean Price: { formatCurrency(meanPrice) }
+                        { dialog_response } { formatCurrency(meanPrice) }
                     </p>
             }
         </div>

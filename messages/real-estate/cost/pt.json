@@ -1,0 +1,25 @@
+{
+    "cost-approach": {
+        "title": "Método do Custo De Reposição",
+        "p1": "O método de Abordagem de Custo é um dos três métodos usados para avaliar um investimento imobiliário, é menos confiável do que os outros na maioria dos casos, mas pode ser a alternativa quando os outros dois não são aplicáveis. Como em cenários em que não há dados sobre as vendas recentes na região, ou quando você não pode contar com a renda da propriedade. Por exemplo, uma casa de férias em uma pequena cidade ou uma casa muito única no bairro.",
+        "p2": "A lógica por trás do método de abordagem de custo é que o preço da propriedade não deve ser maior do que o custo de comprar uma nova casa no mesmo lugar, considerando os custos de oportunidade, tempo e esforço. É bom ter em mente que este método é o menos preciso, uma vez que os materiais e o custo do acabamento, ou até mesmo o terreno, podem diferir ao construir uma nova casa na região. Então, ao usar o método de abordagem de custo, é bom ter um bom conhecimento da região e do construtor na região ou aplicar uma margem de segurança maior.",
+        "p3": "A fórmula é a seguinte: Valor do Terreno + Custo de Construção - Depreciação + Custo de Oportunidade. Em geral, é usado o custo por metro quadrado e, para fins desta calculadora, usaremos o método de depreciação linear, que considera a idade da propriedade e a vida útil. Também precisamos considerar o custo de oportunidade e o tempo necessário para construir a nova casa, porque uma propriedade hoje vale mais do que uma propriedade amanhã.",
+        "form": {
+            "land_label": "Custo da terra: ",
+            "build_label": "Custo por metro quadrado: ",
+            "property_label": "Tamanho da propriedade em metros quadrados: ",
+            "time_label": "Tempo de construção em meses: ",
+            "age_label": "Idade da propriedade (em anos): ",
+            "lifetime_label": "Vida útil da propriedade (geralmento 50 anos): ",
+            "opportunity_label": "Custo de oportunidade (%): ",
+            "price_label": "Preço da propriedade pronta: ",
+            "submit": "Calcular"
+        },
+        "dialog": {
+            "title": "Expectativas Custos De Reposição",
+            "fair_value": "Valor justo: ",
+            "discount_label": "Desconto: ",
+            "quality_label": "Qualidade do acordo: "
+        }
+    }
+}

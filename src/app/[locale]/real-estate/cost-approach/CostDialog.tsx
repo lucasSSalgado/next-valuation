@@ -11,39 +11,53 @@ import {
 } from "@/components/ui/dialog"
 import { formatCurrency } from "@/lib/formatter"
 
+interface Props {
+    openDialog: boolean
+    setOpenDialog: React.Dispatch<React.SetStateAction<boolean>>
+    fairValue: number
+    discont: number | null
+
+    title: string
+    fair_value: string
+    discount_label: string
+    quality_label: string
+}
+ 
 export default function CostDialog(
-    { openDialog, setOpenDialog, fairValue, discont }
-    : 
-    { openDialog: boolean, setOpenDialog: React.Dispatch<React.SetStateAction<boolean>>, fairValue: number, discont: number | null }) {
+    { 
+        openDialog, setOpenDialog, fairValue, discont,
+        title, fair_value, discount_label, quality_label
+    }
+    : Props) {
     
     let quality: string
     if (discont === null) {
-        quality = 'Unknown'
+        quality = '?'
     } else if (discont < 0) {
-        quality = 'Is better to construct a new home from scratch.'
+        quality = '★'
     } else if (discont < 7) {
-        quality = 'Dangerous! There is no margin of safety.'
+        quality = '★★'
     } else if (discont >= 7 && discont < 20) {
-        quality = 'Good!'
+        quality = '★★★★'
     } else {
-        quality = 'Excellent!'
+        quality = '★★★★★'
     }
 
     return (
         <Dialog open={openDialog} onOpenChange={setOpenDialog}>
             <DialogContent>
                 <DialogHeader>
-                <DialogTitle className="text-center p-2 scroll-m-20 text-2xl font-semibold tracking-tight">Cost Approach Expectations</DialogTitle>
+                <DialogTitle className="text-center p-2 scroll-m-20 text-2xl font-semibold tracking-tight">{ title }</DialogTitle>
                 <DialogDescription className="p-2 leading-7 [&:not(:first-child)]:mt-6 text-black text-lg italic">
-                    Fair Value: {formatCurrency(fairValue)} <br/>
+                    { fair_value } {formatCurrency(fairValue)} <br/>
                     {
                         discont !== null ? 
-                            `Discount: ${discont.toFixed(2)}%` 
+                            `${ discount_label } ${discont.toFixed(2)}%` 
                             : '' 
                     } <br />
                     {
                         discont !== null ? 
-                            `Deal Quality: ${quality}` 
+                            `${ quality_label } ${ quality }` 
                             : ''
                     }
                 </DialogDescription>

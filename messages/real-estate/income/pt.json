@@ -1,0 +1,24 @@
+{
+    "income": {
+        "title": "Método de Avaliação de Renda",
+        "p1": "O método de avaliação de renda é um dos três métodos utilizados para avaliar um investimento imobiliário. Ele é usado para determinar o preço justo de uma propriedade com base na renda que ela pode gerar para nós em comparação com as opções disponíveis no mercado. A ideia é que você pode pagar mais por uma propriedade que gera mais renda do que por uma propriedade que gera menos.",
+        "p2": "A fórmula é a seguinte: Preço Justo = (NOI - (NOI * Taxa de Vacância)) / Taxa de Capitalização de Mercado. Onde NOI é a Renda Operacional Líquida, todo o aluguel pago menos todos os custos operacionais, mas não considere impostos aqui. A Taxa de Capitalização de Mercado é geralmente calculada pelo NOI / Valor de Mercado da Propriedade. Mas eu não gosto dessa maneira de calcular, para mim parece um pensamento circular. Então, aqui o denominador será Taxa Livre de Retorno + Prêmio de Risco - Crescimento Esperado. Assim, a fórmula agora usa as condições do mercado para avaliar o fluxo de caixa futuro da renda, e não o valor de mercado de propriedades semelhantes.",
+        "p3": "Além disso, você também pode adicionar o preço que deseja pagar pela propriedade dada para obter o desconto atual.",
+        "form": {
+            "income_label": "Renda Anual Esperada: ",
+            "risk_free_label": "Taxa livre de risco (%): ",
+            "risk_premiun_label": "Premio de Risco (%): ",
+            "growth_label": "Crescimento Esperado (%): ",
+            "vacancy_label": "Vacância Anual (%): ",
+            "price_label": "Preço do Propriedade: ",
+            "submit": "Calcular"
+        },
+        "dialog": {
+            "dialog_title": "Expectativas Método da Renda",
+            "dialog_fair_value": "Preço Justo: ",
+            "dialog_price": "Preço: ",
+            "dialog_discount": "Desconto: ",
+            "dialog_quality": "Qualidade: "
+        }
+    }
+}

@@ -2,28 +2,31 @@ import UsefulLinks from "@/app/[locale]/components/UsefulLinks";
 import SalesForm from "./SalesForm";
 import { Separator } from "@/components/ui/separator";
 import {unstable_setRequestLocale} from 'next-intl/server';
+import { useTranslations } from "next-intl";
 
 export default function SalesComparationPage({params: {locale}} : {params: {locale: string}}) {
     unstable_setRequestLocale(locale);
+    const t = useTranslations('sales-comparation')
 
     return (
-        <div className="p-4 md:p-8 text-center">
-            <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">Sales comparation method</h2>
+        <div className="p-4 md:p-8 text-center md:text-left">
+            <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 text-center">{ t('title') }</h2>
             <div className="mt-4">
                 <p className="leading-7 [&:not(:first-child)]:mt-2">
-                    The sales comparation method is used to determined the fair price of a property based on the market price of 
-                    equivalent property in the same region. A investor should be aware of the equivalent property concept in this sense,
-                    properties in the same region has different sizes, age, and luxury. Some apartements have two garage space and some 
-                    hava just one, is import to find the most similar property possible, to the valuation be more precise.
+                    { t('p1') }
                 </p>
                 <p className="leading-7 [&:not(:first-child)]:mt-2">
-                    The factor that the investor should be aware and that most influence the price of a property are: Location and neighborhood,
-                    features (bedrooms, bathrooms, garage, pool, etc.), age and conditions. All being equal the differences in square foot 
-                    problably will differenciat the price of the properties.
+                    { t('p2') }
                 </p>
             </div>
 
-            <SalesForm />
+            <SalesForm
+                price_label={ t('form.price_label') }
+                square_label={ t('form.square_label') }
+                add_btn={ t('form.add_btn') }
+                calculate_btn={ t('form.calculate_btn') }
+                dialog_response={ t('dialog.response') }
+            />
             <Separator className="my-4" />
             <UsefulLinks 
                 articles={[
