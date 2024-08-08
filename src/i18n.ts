@@ -20,6 +20,7 @@ export default getRequestConfig(async ({locale}) => ({
     ...(await import(`../messages/real-estate/sales/${locale}.json`)).default,
     ...(await import(`../messages/real-estate/cost/${locale}.json`)).default,
     ...(await import(`../messages/real-estate/income/${locale}.json`)).default,
+    ...(await import(`../messages/real-estate/flip/${locale}.json`)).default,
     ...(await import(`../messages/navbar/${locale}.json`)).default,
   }
 }));

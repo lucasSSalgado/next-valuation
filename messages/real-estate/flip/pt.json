@@ -1,0 +1,37 @@
+{
+    "flip" : {
+        "title": "Calculadora de Flip",
+        "description": "Esta é uma calculadora de conversão muito prática que possibilita seu uso em diferentes países, diferentes formas de pagamento, diferentes taxas de juros e diferentes sistemas de impostos, aproveite.",
+        "content": "Primeiro você precisa escolher se vai pagar à vista ou alavancar com um financiamento, isso muda tudo.",
+        "cash_label": "A vista",
+        "loan_label": "Financiamento",
+        "common_form": {
+            "price_label": "Preço de Compra:",
+            "sell_label": "Preço de Venda:",
+            "rehab_label": "Reforma:",
+            "documentation_label": "Documentação:",
+            "holding_label": "Todos os custos de Holding (luz, agua, seguro, taxas, etc) por mês:",
+            "buyer_comission_label": "Comissão ao Comprador/Leiloeiro se aplicável (%):",
+            "seller_comission_label": "Comissão de venda se aplicável (%):",
+            "option1_label": "Custo opicional 1 (Custos de venda, advogado, mais taxas, etc):",
+            "option2_label": "Custo opicional 2 (Mais impostos? Sério?):",
+            "time_label": "Tempo para vender (em meses):",
+            "profit_label": "Impostos sobre o lucro (%):",
+            "submit": "Calcular"
+        },
+        "loan_form": {
+            "down_label": "Entrada (%):",
+            "interest_label": "Taxa de Juros Anual (%):",
+            "years_label": "Anos de financiamento:",
+            "discount_label": "Desconto na Venda (%):",
+            "fees_label": "Impostos Locais (%):"
+        },
+        "dialog": {
+                "dialog_title": "Expectativas do Flip",
+                "dialog_profit": "Lucro Líquido: ",
+                "dialog_roi": "ROI: ",
+                "dialog_cash": "Dinheiro necessário: ",
+                "dialog_quality": "Qualidade: "
+            }
+    }
+}

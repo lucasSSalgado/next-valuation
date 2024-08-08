@@ -18,9 +18,41 @@ import { handleCurrencyInput } from "./helper"
 import { useState } from "react"
 import { FlipResponse } from "@/app/[locale]/types"
 import { formatCurrency } from "@/lib/formatter"
-import ResultAlert from "./ResultAlert"
+import ResultDialog from "./ResultDialog"
 
-export default function LoanCalculator() {     
+interface Props { 
+    price_label: string 
+    sell_label: string  
+    rehab_label: string 
+    documentation_label: string 
+    holding_label: string 
+    buyer_comission_label: string 
+    seller_comission_label: string 
+    option1_label: string 
+    option2_label: string 
+    time_label: string 
+    profit_label: string 
+    submit: string
+
+    down_label: string,
+    interest_label: string,
+    years_label: string,
+    discount_label: string,
+    fees_label: string
+
+    dialog_title: string
+    dialog_profit: string
+    dialog_roi: string
+    dialog_cash: string
+    dialog_quality: string
+  }
+
+export default function LoanCalculator({
+    price_label, sell_label, rehab_label, documentation_label, holding_label, buyer_comission_label, 
+    seller_comission_label, option1_label, option2_label, time_label, profit_label, submit,
+    dialog_title, dialog_profit, dialog_roi, dialog_cash, dialog_quality,
+    down_label, interest_label, years_label, discount_label, fees_label
+}: Props) {     
     const form = useCustomForm();
     const [resp, setResp] = useState<FlipResponse>()
     const [openDialog, setOpenDialog] = useState(false)
@@ -40,7 +72,7 @@ export default function LoanCalculator() {
                         name="price"
                         render={({ field }) => (
                             <FormItem>
-                            <FormLabel>Purchansing Price: </FormLabel>
+                            <FormLabel>{ price_label }</FormLabel>
                             <FormControl>
                                 <Input placeholder="$200,000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                             </FormControl>
@@ -53,7 +85,7 @@ export default function LoanCalculator() {
                         name="value"
                         render={({ field }) => (
                             <FormItem>
-                            <FormLabel>Sell Price: </FormLabel>
+                            <FormLabel>{ sell_label }</FormLabel>
                             <FormControl>
                                 <Input placeholder="$300,000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                             </FormControl>
@@ -68,7 +100,7 @@ export default function LoanCalculator() {
                         name="downPayment"
                         render={({ field }) => (
                             <FormItem>
-                            <FormLabel>Down Payment (%): </FormLabel>
+                            <FormLabel>{ down_label }</FormLabel>
                             <FormControl>
                                 <Input placeholder="10%" {...field} />
                             </FormControl>
@@ -81,7 +113,7 @@ export default function LoanCalculator() {
                         name="interatesRate"
                         render={({ field }) => (
                             <FormItem>
-                            <FormLabel>Interate Rates Anually (%): </FormLabel>
+                            <FormLabel>{ interest_label }</FormLabel>
                             <FormControl>
                                 <Input placeholder="7%" {...field} />
                             </FormControl>
@@ -97,7 +129,7 @@ export default function LoanCalculator() {
                         name="financingYears"
                         render={({ field }) => (
                             <FormItem>
-                            <FormLabel>Financing Years: </FormLabel>
+                            <FormLabel>{ years_label }</FormLabel>
                             <FormControl>
                                 <Input placeholder="30 years" {...field} />
                             </FormControl>
@@ -110,7 +142,7 @@ export default function LoanCalculator() {
                         name="rehab"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Rehab Cost: </FormLabel>
+                                <FormLabel>{ rehab_label }</FormLabel>
                                 <FormControl>
                                 <Input placeholder="$50.000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                                 </FormControl>
@@ -126,7 +158,7 @@ export default function LoanCalculator() {
                         name="hodingCosts"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>All Holding Cost (utilities, insurance, taxes, fees. Excluding loan payment) by Month: </FormLabel>
+                                <FormLabel>{ holding_label }</FormLabel>
                                 <FormControl>
                                 <Input placeholder="$50.000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                                 </FormControl>
@@ -139,7 +171,7 @@ export default function LoanCalculator() {
                         name="documentation"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Documentation Cost: </FormLabel>
+                                <FormLabel>{ documentation_label }</FormLabel>
                                 <FormControl>
                                 <Input placeholder="$50.000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                                 </FormControl>
@@ -155,7 +187,7 @@ export default function LoanCalculator() {
                         name="discountInSell"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Discount in sell (%): </FormLabel>
+                                <FormLabel>{ discount_label }</FormLabel>
                                 <FormControl>
                                 <Input placeholder="5%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                                 </FormControl>
@@ -168,7 +200,7 @@ export default function LoanCalculator() {
                         name="localFees"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Local Fees (%): </FormLabel>
+                                <FormLabel>{ fees_label }</FormLabel>
                                 <FormControl>
                                 <Input placeholder="2%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                                 </FormControl>
@@ -184,7 +216,7 @@ export default function LoanCalculator() {
                         name="leiloeiroComission"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Comisson to the Buyer (%): </FormLabel>
+                                <FormLabel>{ buyer_comission_label }</FormLabel>
                                 <FormControl>
                                 <Input placeholder="2%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                                 </FormControl>
@@ -197,7 +229,7 @@ export default function LoanCalculator() {
                         name="sellerComission"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Seller Comission if applicable (%): </FormLabel>
+                                <FormLabel>{ seller_comission_label }</FormLabel>
                                 <FormControl>
                                     <Input placeholder="5%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                                 </FormControl>
@@ -213,7 +245,7 @@ export default function LoanCalculator() {
                         name="otherCosts1"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Optional Costs 1 (specific taxes, loyer, bla bla): </FormLabel>
+                                <FormLabel>{ option1_label }</FormLabel>
                                 <FormControl>
                                     <Input placeholder="Loyer..." {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                                 </FormControl>
@@ -226,7 +258,7 @@ export default function LoanCalculator() {
                         name="otherCosts2"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Optional Costs 2 (More taxes? Really?): </FormLabel>
+                                <FormLabel>{ option2_label }</FormLabel>
                                 <FormControl>
                                     <Input placeholder="more legal fees..." {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                                 </FormControl>
@@ -242,7 +274,7 @@ export default function LoanCalculator() {
                             name="timeToSell"
                             render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Time to sell (in months): </FormLabel>
+                                <FormLabel>{ time_label }</FormLabel>
                                 <FormControl>
                                 <Input placeholder="12" {...field} />
                                 </FormControl>
@@ -255,7 +287,7 @@ export default function LoanCalculator() {
                             name="taxesOnProfit"
                             render={({ field }) => (
                             <FormItem>
-                                <FormLabel>Taxes on Profit (%): </FormLabel>
+                                <FormLabel>{ profit_label } </FormLabel>
                                 <FormControl>
                                 <Input placeholder="15%" {...field} />
                                 </FormControl>
@@ -265,17 +297,23 @@ export default function LoanCalculator() {
                         />
                     </div>
                     
-                    <Button className="mt-3" type="submit">Submit</Button>
+                    <Button className="mt-3" type="submit">{ submit }</Button>
                 </form>
             </Form>
 
             { resp && 
-                <ResultAlert 
+                <ResultDialog 
                     openDialog={openDialog} 
                     setOpenDialog={setOpenDialog}
                     profit={formatCurrency(resp.netProfit)} 
                     roi={resp.roi} 
                     cashNeed={formatCurrency(resp.necessaryCash)} 
+
+                    dialog_title={dialog_title}
+                    dialog_profit={dialog_profit}
+                    dialog_cash={dialog_cash}
+                    dialog_quality={dialog_quality}
+                    dialog_roi={dialog_roi}
                 />
             }
         </div>

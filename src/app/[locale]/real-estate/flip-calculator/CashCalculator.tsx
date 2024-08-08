@@ -14,12 +14,51 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { formSchema, calculateCash, useCustomForm } from "./cashMath"
-import ResultAlert from "./ResultAlert"
+import ResultDialog from "./ResultDialog"
 import { useState } from "react"
 import { handleCurrencyInput } from './helper'
 import { formatCurrency } from '@/lib/formatter'
 
-export default function CachCalculator() {    
+/*
+"price_label": "Preço de Compra:",
+"sell_label": "Preço de Venda:",
+"rehab_label": "Reforma:",
+" ": "Documentação:",
+"holding_label": "Todos os custos de Holding (luz, agua, seguro, taxas, etc)por mês:",
+"buyer_comission_label": "Comissão ao Comprador/Leiloeiro se aplicável (%):",
+"seller_comission_label": "Comissão de venda se aplicável (%):",
+"option1_label": "Custo opicional 1 (Custos de venda, advogado, mais taxas, etc):",
+"option2_label": "Custo opicional 2 (Mais impostos? Sério?):",
+"time_label": "Tempo para vender (em meses):",
+"profit_label": "Impostos sobre o lucro(%):"
+*/
+
+interface Props {
+  price_label: string 
+  sell_label: string  
+  rehab_label: string 
+  documentation_label: string 
+  holding_label: string 
+  buyer_comission_label: string 
+  seller_comission_label: string 
+  option1_label: string 
+  option2_label: string 
+  time_label: string 
+  profit_label: string 
+  submit: string
+
+  dialog_title: string
+  dialog_profit: string
+  dialog_roi: string
+  dialog_cash: string
+  dialog_quality: string
+}
+
+export default function CachCalculator({
+  price_label, sell_label, rehab_label, documentation_label, holding_label, buyer_comission_label, 
+  seller_comission_label, option1_label, option2_label, time_label, profit_label, submit,
+  dialog_title, dialog_profit, dialog_roi, dialog_cash, dialog_quality
+}: Props) {    
   const [resp, setResp] = useState<FlipResponse>()
   const [openDialog, setOpenDialog] = useState(false)
 
@@ -40,7 +79,7 @@ export default function CachCalculator() {
               name="price"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Purchansing Price: </FormLabel>
+                  <FormLabel>{ price_label }</FormLabel>
                   <FormControl>
                     <Input placeholder="$200.000" { ...field } onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                   </FormControl>
@@ -53,7 +92,7 @@ export default function CachCalculator() {
               name="sell"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Sell Price: </FormLabel>
+                  <FormLabel>{ sell_label }</FormLabel>
                   <FormControl>
                     <Input placeholder="$250.000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                   </FormControl>
@@ -68,7 +107,7 @@ export default function CachCalculator() {
               name="rehab"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Rehab Cost: </FormLabel>
+                  <FormLabel>{ rehab_label }</FormLabel>
                   <FormControl>
                     <Input placeholder="$50.000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                   </FormControl>
@@ -81,7 +120,7 @@ export default function CachCalculator() {
               name="documentation"
               render={({ field }) => (
                   <FormItem>
-                      <FormLabel>Documentation Cost: </FormLabel>
+                      <FormLabel>{ documentation_label }</FormLabel>
                       <FormControl>
                       <Input placeholder="$50.000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                       </FormControl>
@@ -96,7 +135,7 @@ export default function CachCalculator() {
               name="hodingCosts"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>All Holding Cost (utilities, insurance, taxes, fees, etc) by Month: </FormLabel>
+                  <FormLabel>{ holding_label }</FormLabel>
                   <FormControl>
                     <Input placeholder="$50.000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                   </FormControl>
@@ -109,7 +148,7 @@ export default function CachCalculator() {
               name="leiloeiroComission"
               render={({ field }) => (
                   <FormItem>
-                      <FormLabel>Comission to the Buyer (%): </FormLabel>
+                      <FormLabel>{ buyer_comission_label }</FormLabel>
                       <FormControl>
                       <Input placeholder="2%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                       </FormControl>
@@ -124,7 +163,7 @@ export default function CachCalculator() {
             name="sellerComission"
             render={({ field }) => (
               <FormItem>
-                  <FormLabel>Seller Comission if applicable (%): </FormLabel>
+                  <FormLabel>{ seller_comission_label }</FormLabel>
                   <FormControl>
                       <Input placeholder="5%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                   </FormControl>
@@ -137,7 +176,7 @@ export default function CachCalculator() {
                 name="otherCosts1"
                 render={({ field }) => (
                 <FormItem>
-                    <FormLabel>Optional Costs 1 (Selling Costs, more fees, more taxes): </FormLabel>
+                    <FormLabel>{ option1_label }</FormLabel>
                     <FormControl>
                         <Input placeholder="legal fees..." {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                     </FormControl>
@@ -152,7 +191,7 @@ export default function CachCalculator() {
               name="otherCosts2"
               render={({ field }) => (
                   <FormItem>
-                      <FormLabel>Optional Costs 2 (More taxes? Really?): </FormLabel>
+                      <FormLabel>{ option2_label }</FormLabel>
                       <FormControl>
                           <Input placeholder="legal fees..." {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                       </FormControl>
@@ -165,7 +204,7 @@ export default function CachCalculator() {
               name="timeToSell"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Time to sell (in months): </FormLabel>
+                  <FormLabel>{ time_label }</FormLabel>
                   <FormControl>
                     <Input placeholder="12" {...field} />
                   </FormControl>
@@ -180,7 +219,7 @@ export default function CachCalculator() {
             name="taxesOnProfit"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Taxes on Profit (%): </FormLabel>
+                <FormLabel>{ profit_label }</FormLabel>
                 <FormControl>
                   <Input placeholder="15%" {...field} />
                 </FormControl>
@@ -189,17 +228,23 @@ export default function CachCalculator() {
             )}
           />
           </div>
-          <Button className="mt-3" type="submit">Submit</Button>
+          <Button className="mt-3" type="submit">{ submit }</Button>
         </form>
       </Form>
     
         { resp && 
-          <ResultAlert 
+          <ResultDialog 
               openDialog={openDialog} 
               setOpenDialog={setOpenDialog}
               profit={formatCurrency(resp.netProfit)} 
               roi={resp.roi} 
               cashNeed={formatCurrency(resp.necessaryCash)} 
+
+              dialog_title={dialog_title}
+              dialog_profit={dialog_profit}
+              dialog_cash={dialog_cash}
+              dialog_quality={dialog_quality}
+              dialog_roi={dialog_roi}
           />
         }
     </div>

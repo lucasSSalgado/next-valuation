@@ -1,0 +1,37 @@
+{
+    "flip" : {
+        "title": "Your All in One Flip Calculator",
+        "description": "This is a very custbale flip calculator make to be possible its use in difference countries, difference way of payment, different interest rates and different taxes systems, enjoy.",
+        "content": "First you need to choose if will pay in cash or leverage with a financing, this change everything.",
+        "cash_label": "Cash",
+        "loan_label": "Loan",
+        "common_form": {
+            "price_label": "Purchansing Price:",
+            "sell_label": "Sell Price:",
+            "rehab_label": "Rehab Cost:",
+            "holding_label": "All Holding Cost (utilities, insurance, taxes, fees, etc) by Month:",
+            "documentation_label": "Documentation Cost:",
+            "buyer_comission_label": "Comission to the Buyer (%):",
+            "seller_comission_label": "Seller Comission if applicable (%):",
+            "option1_label": "Optional Costs 1 (Selling Costs, more fees, more taxes):",
+            "option2_label": "Optional Costs 2 (More taxes? Really?):",
+            "time_label": "Time to sell (in months):",
+            "profit_label": "Taxes on Profit (%):",
+            "submit": "Calculate"
+        },
+        "loan_form": {
+            "down_label": "Down Payment (%):",
+            "interest_label": "Interate Rates Anually (%):",
+            "years_label": "Financing Years:",
+            "discount_label": "Discount in sell (%):",
+            "fees_label": "Local Fees (%):"
+        },
+        "dialog": {
+                "dialog_title": "Flip Expectations",
+                "dialog_profit": "Profit: ",
+                "dialog_roi": "ROI: ",
+                "dialog_cash": "Cash Needed: ",
+                "dialog_quality": "Deal Quality: "
+            }
+    }
+}
