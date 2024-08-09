@@ -1,0 +1,29 @@
+{
+    "investor": {
+        "title": "Investor Framework",
+        "p1": "Welcome to our comprehensive guide on the investment frameworks used by some of the worlds most renowned investors. This page serves as your gateway to understanding the meticulous strategies and criteria that legendary investors use to evaluate stocks. Drawing insights from their most influential books (or book about then), we break down the core principles that have guided their investment decisions and led to their remarkable success.",
+        "p2": "Off course a lot of successful investor and manager will not enter that list, this is becouse not all of then leave behind techs, or have some peculiar approuch that is not easy but in a framework like we intead to did here, but if you miss someone you can always ",
+        "table": {
+            "title": "All investor coverage",
+            "investor": "Investor",
+            "style": "Style",
+            "performance": "Performance",
+            "f-row": {
+                "style": "75% Value / 25% Quality",
+                "performance": "19.8% annualised between 1965 and 2023"
+            },
+            "s-row": {
+                "style": "Quality Investment",
+                "performance": "Unknown"
+            },
+            "t-row": {
+                "style": "Universal",
+                "performance": "29.2% annualised between 1977 and 1990"
+            },
+            "q-row": {
+                "style": "Quality Investment",
+                "performance": "15.4% annualised between 2011 and 2024"
+            }
+        }
+    }
+}

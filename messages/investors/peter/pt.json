@@ -1,0 +1,12 @@
+{
+    "peter": {
+        "description": "Performance Histórica: 29.2% anualizado entre 1965 e 2023",
+        "content": "Peter Lynch, nascido em 1944 em Newton, Massachusetts, é um investidor lendário mais conhecido por administrar o Fidelity Magellan Fund de 1977 a 1990, onde obteve um retorno médio anual de 29%, aumentando os ativos do fundo de US$ 18 milhões para US$ 14 bilhões. Lynch estudou no Boston College e obteve um MBA pela Wharton School. Ele é famoso por sua filosofia de 'investir no que você conhece', encorajando investidores a comprar ações de empresas que eles entendem e acreditam, e por popularizar a estratégia de 'crescimento a um preço razoável' (GARP). Sua abordagem de investimento era flexível, abrangendo vários setores e tamanhos de empresas. Lynch foi autor de livros influentes como 'One Up On Wall Street' e 'Beating the Street', desmistificando o investimento para a pessoa comum e deixando um legado de conselhos práticos sobre investimentos e desempenho excepcional.",
+        "footer": {
+            "title": "Livros de Peter Lynch:",
+            "book1": "O jeito Peter Lynch de investir",
+            "book2": "One Up On Wall Street"
+        },
+        "comming": "Vindo em breve...."
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "investor": {
+        "title": "Framework dos Investidores",
+        "p1": "Bem-vindo ao nosso guia abrangente sobre as estruturas de investimento usadas por alguns dos investidores mais renomados do mundo. Esta página serve como sua porta de entrada para entender as estratégias e critérios meticulosos que investidores lendários usam para avaliar ações. Tirando insights de seus livros mais influentes (ou livro sobre eles), nós dividimos os princípios básicos que guiaram suas decisões de investimento e levaram ao seu sucesso notável.",
+        "p2": "Claro que muitos investidores e gestores bem-sucedidos não entrarão nessa lista, isso porque nem todos deixam para trás os técnicos ou têm alguma abordagem peculiar que não é fácil, mas em uma estrutura como a que pretendemos fazer aqui, mas se você sentir falta de alguém, você sempre pode ",
+        "table": {
+            "title": "Investidores ate então",
+            "investor": "Investidor",
+            "style": "estilo",
+            "performance": "Performace",
+            "f-row": {
+                "style": "75% Valor / 25% Qualidade",
+                "performance": "19.8% anualizado entre 1965 e 2023"
+            },
+            "s-row": {
+                "style": "Investimento em Qualidade",
+                "performance": "desconhecido"
+            },
+            "t-row": {
+                "style": "Universal",
+                "performance": "29.2% anualizado entre 1977 e 1990"
+            },
+            "q-row": {
+                "style": "Investimento em Qualidade",
+                "performance": "15.4% anualizado entre 2011 e 2024"
+            }
+        }
+    }
+}
