@@ -1,0 +1,81 @@
+{
+    "terry-smith": {
+        "description": "Performance Histórica:: 15.4% anualizado entre 2011 and 2024",
+        "content": "Terry Smith, nascido em 1953, é um importante investidor britânico e fundador do Fundsmith, um dos fundos de melhor desempenho do Reino Unido. Conhecido por sua estratégia de investimento direta e de longo prazo, Smith se concentra em comprar negócios de alta qualidade a preços razoáveis ​​e mantê-los indefinidamente. Ele enfatiza o investimento em empresas com fundamentos sólidos, vantagens competitivas duráveis ​​e modelos de negócios resilientes. A abordagem de Smith é frequentemente comparada ao estilo de Warren Buffett, com uma clara preferência pela simplicidade e paciência no investimento. Seus trabalhos notáveis ​​incluem o livro 'Accounting for Growth', onde ele critica as práticas contábeis e enfatiza a importância de entender as demonstrações financeiras. Sob sua liderança, o Fundsmith tem consistentemente entregue retornos impressionantes, tornando Smith uma figura respeitada no mundo dos investimentos.",
+        "content2": {
+            "title": "Estratégia em uma frase: ",
+            "body": "Invista em boas empresas. Não pague caro. Não faça nada."
+        },
+        "footer": {
+            "title": "Livros de Terry Smith: ",
+            "book1": "Investing for Growth"
+        },
+        "resume": {
+            "title": "Invista em boas empresas. Não pague caro. Não faça nada.",
+            "p1": {
+                "title": "O que é uma boa empresa?",
+                "p1": "Em seu livro, Sir Terry Smith conta repetidamente o que é um bom negócio. Em sua carta anual aos acionistas de seu fundo Fundsmith, ele sempre nos conta as métricas que observa:",
+                "ul": {
+                    "roce": {
+                        "strong": "Retorno sobre o capital empregado (ROCE)",
+                        "body": ": EBIT dividido por total de ativos menos passivos de curto prazo."
+                    },
+                    "gross-margin": "Alta margem bruta",
+                    "profit-margin": "Alta margem operacional",
+                    "convertion-rate": {
+                        "strong": "Alta taxa de conversão de caixa",
+                        "body": ": caixa gerado dividido lucro"
+                    },
+                    "laverage": "Baixa Alavancagem",
+                    "interest-cover": {
+                        "strong": "Alta taxa de cobertura de juros",
+                        "body": ": EBIT dividido pelos juros em determinado período"
+                    }
+                },
+                "p2": "Se uma empresa pode tomar dinheiro emprestado a 5% e investir a 10%, então o negócio vai bem, se ela tomar dinheiro emprestado a 5% e aplicar 3%, ela perderá valor ao longo do tempo, simples assim. Mas o retorno sobre o capital sozinho não fornecerá uma fonte de crescimento, a empresa precisa ser capaz de crescer em alguma direção e implantar mais capital a essa taxa mais alta.",
+                "p3": "Outras coisas que Sir Smith costuma falar é sobre o histórico da empresa, ele gosta de investir em empresas antigas. E em empresas que têm um Moat.",
+                "q1": "... é investir em um portfólio de ações de boas empresas que podem ser confiáveis ​​para aumentar o valor ao longo do tempo. Essas empresas existem há décadas ou mais, têm bons resultados financeiros (altoretorno sobre o capital, altas margens, boa conversão de caixa dos lucros eníveis moderados de dívida) mesmo no fundo do ciclo econômico.Elas também têm vantagens competitivas identificáveis ​​que devem permitirque esses retornos persistam apesar de sua atração óbvia por concorrentes...",
+                "q2": "Estamos buscando empresas que ofereçam um produto e/ou serviço superior aos clientes, o que lhes permite gerar esses retornos financeiros impressionantes e evitar que a concorrência os corroa.",
+                "p4": "Uma boa empresa deve ser reconhecida como tal. Deve ser fácil explicar por que esta é uma boa empresa e por que esta é ruim, e a contabilidade precisa refletir este forte desempenho financeiro. Se você precisa de muita explicação e pensamento esotérico para explicar por que algo é bom, provavelmente não é."
+            },
+            "p2": {
+                "title": "Valuation Importa",
+                "p1": "Quando ouvi falar pela primeira vez sobre investimento de qualidade e crescimento, acreditei que essa estratégia não se importa com as avaliações. Mas eu estava errado. Embora essa estratégia se concentre na qualidade do negócio, não existe um bom negócio, independentemente do preço.",
+                "p2-p1": "Mas Sir Smith tem uma abordagem muito única sobre avaliação, o principal indicador para ele é o",
+                "p2-formula": " Yield do fluxo de caixa licre: Fluxo de caixa livre dividido pelo valor de mercado. ",
+                "p2-p2": " E geralmente não olha para índices P/L. Ele argumenta que nem todos os ganhos são feitos da mesma forma, então para avaliar uma empresa é melhor olhar para o dinheiro que ela gera em comparação com seus ativos totais. Os índices P/L também sofrem de outras falhas, eles desconsideram o capital empregado para gerar esses ganhos.",
+                "q1": "Em vez disso, preferimos confiar nos rendimentos do fluxo de caixa livre ao avaliar nossos investimentos, pois nem todos os Es – ou Lucros – são criados iguais. Os negócios das empresas do nosso portfólio são menos intensivos em capital do que o mercado como um todo. Como seus lucros são gerados com menos capital, seu retorno sobre o capital empregado é muito maior do que a média, o que consideramos o teste primário de seu desempenho. O retorno sobre o capital das empresas em nosso portfólio é em média de 34%. Isso se compara a uma média de cerca de 19% para as ações não financeiras no S&P 500 e no FTSE 100.",
+                "p3": "Embora a avaliação importe, e Sir Smith venda e compre considerando isso, é apenas um indicador secundário, avaliações baixas e preço de ações não são as informações mais importantes, o desempenho fundamental é. Parece que ele é um grande fã de Charlie Munger, o braço direito de Warren Buffet e sempre se referirá a essa citação quando tiver a chance.",
+                "q2": "‘A longo prazo, é difícil para uma ação obter um retorno muito melhor do que o negócio que a sustenta. Se o negócio lucra 6% sobre o capital ao longo de 40 anos e você o mantém por esses 40 anos, você não vai obter muito diferente de um retorno de 6% — mesmo se você o comprar originalmente com um grande desconto. Por outro lado, se um negócio lucra 18% sobre o capital ao longo de 20 ou 30 anos, mesmo se você pagar um preço aparentemente caro, você acabará com um bom resultado.’ (Ênfase adicionada.) Não tenho ideia do porquê o Sr. Munger escolheu essas taxas de retorno específicas, mas o que eu sei é que ele não está expressando uma opinião. O que ele está descrevendo é uma certeza matemática. Se você investir a longo prazo em empresas que podem entregar altos retornos sobre o capital, e que investem pelo menos uma parte significativa dos fluxos de caixa que geram para obter retornos igualmente altos, ao longo do tempo isso tem muito mais impacto no desempenho das ações do que o preço que você paga por elas."
+            },
+            "p3": {
+                "title": "Não faça nada",
+                "body": "Sir Smith é o primeiro gestor de fundos que vejo destacando o baixo giro de seu fundo. Ele argumenta que impostos, custos de transação e outras despesas podem realmente prejudicar o desempenho do investidor. Ele parece influenciado por John C. Bogle, criador do Vanguard Group e o primeiro defensor de um portfólio de baixo custo. Não há muito a acrescentar, é um fato matemático que o custo de negociação, taxas e impostos diminuirão o desempenho."
+            },
+            "p4": {
+                "title": "O que procurar?",
+                "q1": "As pessoas costumam nos dizer: “Ah, vocês tentam escolher vencedores.” A realidade é que não buscamos prever quem vai ganhar, mas sim apostar em uma empresa que já ganhou.",
+                "q2": "Na Fundsmith, não buscamos escolher vencedores no sentido que a maioria dos apostadores faz, que é estudar a forma, ver os cavalos no ringue e então apostar. Buscamos imitar Alex Bird – esperamos até saber quem ganhou e então esperamos que os bookmakers nos ofereçam probabilidades contra eles ganharem.",
+                "p1": "Uma parte interessante da estratégia do Fundsmith é investir em empresas que todos nós sabemos que são boas, sabemos que são as vencedoras no campo em que atuam e esperamos que o Sr. Mercado aposte contra elas. Ele argumenta que é realmente difícil descobrir como vencerá no mercado, é fácil e lucrativo apostar nas que já venceram. Algumas dessas empresas são: Colgate, Facebook, Microsoft, Nestlé, etc. Há momentos em que até mesmo esse negócio titânico pode ser engarrafado a um preço razoável.",
+                "q3": "Existem algumas empresas em que não precisamos especular se elas venceram no sentido de serem bem-sucedidas e dominarem certas categorias de produtos. A Nestlé é a maior empresa de alimentos e bebidas do mundo e está no mercado há 148 anos com apenas uma perda. A Colgate Palmolive tem 45% do mercado mundial de pasta de dente e 35% de escovas de dente. Ela também é líder em sabonete líquido e a terceira em ração para animais de estimação. Precisamos simplesmente esperar até que o mercado precifique mal essas ações para termos nossa chance de apostar em um certo vencedor. Isso pode acontecer por muitos motivos, por exemplo, quando ocorre um pânico como o que todo o mercado experimentou em 2008-09.",
+                "q4": "Ou movimentos cambiais como a recente alta do franco suíço, que fez as ações da Nestlé caírem mais de 10%, embora 98% de seus negócios estejam fora da Suíça. Situações como essas podem fornecer chances de investir apostando em um certo vencedor se elas levarem a avaliação a um nível que não reflita os retornos sustentáveis ​​dessas empresas.",
+                "q5": "No entanto, o Facebook está em um PE histórico de 19,7× – quase o mesmo que o S&P 500. A menos que haja uma deterioração muito mais severa no desempenho operacional do Facebook do que vimos até agora ou esperamos razoavelmente, isso parece barato para nós.",
+                "q6": "Eu suspeito fortemente que o julgamento da maioria das pessoas sobre o Facebook é baseado em suas experiências pessoais e preconceitos. Mas 69% do DAU do Facebook e 73% do seu MAU estão fora dos Estados Unidos e da Europa. O quanto você acha que eles se importam com alegações de uso indevido de dados em uma eleição nos EUA?",
+                "q7": "Uma das lições que isso ilustra é que você só pode investir em negócios realmente bons com uma classificação barata quando eles têm um problema. Nosso investimento na Microsoft coincidiu com o período problemático sob seu CEO anterior, quando conseguiu ficar em terceiro lugar em uma corrida de dois cavalos em dispositivos móveis e em segundo em uma corrida de um cavalo em busca online. Nosso trabalho é determinar se tais problemas são uma falha temporária que apresenta uma oportunidade para nós como investidores ou uma ameaça existencial."
+            },
+            "addicional": "Conhecimento adicional: ",
+            "dividends": "Dividendos: ",
+            "dividend-body": "Isso é ilustrado pelo desempenho da Berkshire Hathaway de Warren Buffett, que nunca pagou um dividendo durante os 50 anos em que a administrou. O Sr. Buffett concluiu corretamente que se a taxa de retorno que ele poderia obter reinvestindo fundos na Berkshire fosse maior do que a taxa de retorno do Índice S&P 500, produziria um melhor desempenho para os investidores se ele retivesse todos os lucros e os reinvestisse. Você pode pensar que poderia obter o mesmo resultado se a Berkshire pagasse um dividendo e você o reinvestisse. Não se você pagar imposto de renda sobre sua renda de investimento, pois você teria apenas o valor do dividendo líquido de imposto para reinvestir. Portanto, não é o dividendo que é importante, ou mesmo apenas o reinvestimento do dividendo, mas sim a taxa de retorno do reinvestimento do dividendo que impulsiona o retorno",
+            "diversification": "Diversificação: ",
+            "diversification-body1": "O risco cai drasticamente à medida que o portfólio aumenta em número a partir de apenas uma ação, mas quando chega a cerca de 20 a 30 ações, a maior parte da redução de risco que pode ser alcançada já foi alcançada. O problema é que aumentar o número de ações além disso não só não consegue atingir nenhuma redução de risco significativa, mas também leva a outros problemas.",
+            "diversification-body2": "No final das contas, se você possui muitas ações, seu desempenho será igual ao do benchmark ou índice que é composto por essas ações. Não faz sentido administrar um portfólio ou pagar um gestor de fundos para fazer isso se você for fazer isso. É mais barato simplesmente comprar um fundo de índice.",
+            "performance": "Mensurar performance:",
+            "performance-body": "But a quarter is too short a period to judge performance reasonably, and even a year is just the time it takes the earth to go round the sun. It is not a natural time period over which to measure the performance of any business or investment unless it is linked to the earth’s orbit.",
+            "buyback": "Recompra de ações: ",
+            "buyback-body": "Mas um trimestre é um período muito curto para julgar o desempenho razoavelmente, e até mesmo um ano é apenas o tempo que a Terra leva para dar a volta ao Sol. Não é um período de tempo natural para medir o desempenho de qualquer negócio ou investimento, a menos que esteja vinculado à órbita da Terra.",
+            "macro": "Previsões e macroeconomia: ",
+            "macro-p1": "A única função das previsões macroeconomicas é fazer macroeconomia parecer respeitável.",
+            "macro-p2": "Uma coisa que observei é a obsessão de comentaristas de mercado, investidores e consultores com macroeconomia, taxas de juros, flexibilização quantitativa, alocação de ativos, alocação geográfica regional, moedas, mercados desenvolvidos versus mercados emergentes — enquanto eles quase nunca falam sobre investir em boas empresas."
+        }
+    }
+}
