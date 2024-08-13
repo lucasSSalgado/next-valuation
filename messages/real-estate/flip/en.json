@@ -13,6 +13,8 @@
             "documentation_label": "Documentation Cost:",
             "buyer_comission_label": "Comission to the Buyer (%):",
             "seller_comission_label": "Seller Comission if applicable (%):",
+            "discount_label": "Discount in sell (%):",
+            "fees_label": "Local Fees (%):",
             "option1_label": "Optional Costs 1 (Selling Costs, more fees, more taxes):",
             "option2_label": "Optional Costs 2 (More taxes? Really?):",
             "time_label": "Time to sell (in months):",
@@ -22,9 +24,7 @@
         "loan_form": {
             "down_label": "Down Payment (%):",
             "interest_label": "Interate Rates Anually (%):",
-            "years_label": "Financing Years:",
-            "discount_label": "Discount in sell (%):",
-            "fees_label": "Local Fees (%):"
+            "years_label": "Financing Years:"
         },
         "dialog": {
                 "dialog_title": "Flip Expectations",

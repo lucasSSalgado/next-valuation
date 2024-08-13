@@ -21,6 +21,7 @@ interface Props {
     holding_label: string 
     buyer_comission_label: string 
     seller_comission_label: string 
+    discount_label: string,
     option1_label: string 
     option2_label: string 
     time_label: string 
@@ -30,7 +31,6 @@ interface Props {
     down_label: string,
     interest_label: string,
     years_label: string,
-    discount_label: string,
     fees_label: string
 
     dialog_title: string
@@ -45,7 +45,7 @@ export default function FlipForm(
         cash_label, loan_label, 
         price_label, sell_label, rehab_label, documentation_label, holding_label, buyer_comission_label, 
         seller_comission_label, option1_label, option2_label, time_label, profit_label, submit,
-        dialog_title, dialog_profit, dialog_roi, dialog_cash, dialog_quality,
+        dialog_title, dialog_profit, dialog_roi, dialog_cash, dialog_quality, 
         down_label, interest_label, years_label, discount_label, fees_label
     } : Props) {
     const [paymentType, setPaymentType] = useState<cashOrLoan>(undefined)
@@ -69,6 +69,8 @@ export default function FlipForm(
                         holding_label={holding_label}
                         buyer_comission_label={buyer_comission_label}
                         seller_comission_label={seller_comission_label}
+                        discount_label={discount_label}
+                        fees_label={fees_label}
                         option1_label={option1_label}
                         option2_label={option2_label}
                         time_label={time_label}

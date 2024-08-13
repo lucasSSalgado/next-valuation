@@ -1,2 +1,1 @@
-traduzir mais coisas
-corrigir calculadora a vista (falta alguns campos (desconto, itbi acho))
+criar lending page

@@ -12,6 +12,7 @@ export const formSchema = z.object({
     hodingCosts: z.string().refine((val) => validatePositiveCurrency(val), { message: "Other Costs must be positive." }),
     leiloeiroComission: z.string().optional(),
     sellerComission: z.string().optional(),
+    localFees: z.string().optional(),
     discountInSell: z.string().optional(),
     otherCosts1: z.string().optional(),
     otherCosts2: z.string().optional(),
@@ -30,6 +31,7 @@ export const useCustomForm = () => {
             hodingCosts: '',
             leiloeiroComission: '',
             sellerComission: '',
+            localFees: '',
             discountInSell: '',
             otherCosts1: '',
             otherCosts2: '',
@@ -47,21 +49,25 @@ export const calculateCash = (data: z.infer<typeof formSchema>): FlipResponse =>
     const holdingCosts = parseCorrencyToNumber(data.hodingCosts)
     const leiloeiroComission = data.leiloeiroComission ? parseInt(data.leiloeiroComission) / 100 : 0
     const sellerComission = data.sellerComission ? parseInt(data.sellerComission) / 100 : 0
+    const localFees = data.localFees ? parseInt(data.localFees) / 100 : 0
     const discountInSell = data.discountInSell ? parseInt(data.discountInSell) : 0
     const otherCosts1 = parseCorrencyToNumber(data.otherCosts1 ? data.otherCosts1 : '0')
     const otherCosts2 = parseCorrencyToNumber(data.otherCosts2 ? data.otherCosts2 : '0')
     const timeToSell = parseInt(data.timeToSell) 
     const taxes = parseInt(data.taxesOnProfit) / 100
 
-    const allCosts = price + rehab + documentation + (holdingCosts * timeToSell) + otherCosts1 + otherCosts2 
-                     + (price * leiloeiroComission) + (sellerComission * sell)
-    const profit = (sell - (1 - discountInSell)) - allCosts
-    const netProfit = profit - (profit * taxes)
+    const allDedicbleCosts = price + rehab + documentation + (holdingCosts * timeToSell) + (price * leiloeiroComission) + (sellerComission * sell) + ((price * localFees /100))
+    const allNonDedicbleCosts = otherCosts1 + otherCosts2
+    const allCosts = allDedicbleCosts + allNonDedicbleCosts
+
+    const profit = (sell - (1 - discountInSell)) - allDedicbleCosts
+    const netProfit = profit - (profit * taxes) - allNonDedicbleCosts
+
 
     return {
         netProfit: netProfit,
         necessaryCash: allCosts,
-        roi: (profit / allCosts) * 100,
+        roi: (netProfit / allCosts) * 100,
         monthlyRoi: Math.pow((profit / allCosts) * 100, 1/12)
     }
 }

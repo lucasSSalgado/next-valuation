@@ -39,6 +39,8 @@ export default function FlipCalculatorPage({params: {locale}} : {params: {locale
                 holding_label={t('common_form.holding_label')}
                 buyer_comission_label={t('common_form.buyer_comission_label')}
                 seller_comission_label={t('common_form.seller_comission_label')}
+                discount_label={ t('common_form.discount_label') }
+                fees_label={ t('common_form.fees_label') }
                 option1_label={t('common_form.option1_label')}
                 option2_label={t('common_form.option2_label')}
                 time_label={t('common_form.time_label')}
@@ -48,8 +50,6 @@ export default function FlipCalculatorPage({params: {locale}} : {params: {locale
                 down_label={ t('loan_form.down_label') } 
                 interest_label={ t('loan_form.interest_label') }
                 years_label={ t('loan_form.years_label') }
-                discount_label={ t('loan_form.discount_label') }
-                fees_label={ t('loan_form.fees_label') }
 
                 dialog_title={ t('dialog.dialog_title') }
                 dialog_profit={ t('dialog.dialog_profit') }

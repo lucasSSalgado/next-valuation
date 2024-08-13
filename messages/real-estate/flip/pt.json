@@ -13,6 +13,8 @@
             "holding_label": "Todos os custos de Holding (luz, agua, seguro, taxas, etc) por mês:",
             "buyer_comission_label": "Comissão ao Comprador/Leiloeiro se aplicável (%):",
             "seller_comission_label": "Comissão de venda se aplicável (%):",
+            "discount_label": "Desconto na Venda (%):",
+            "fees_label": "Impostos Locais (%):",
             "option1_label": "Custo opicional 1 (Custos de venda, advogado, mais taxas, etc):",
             "option2_label": "Custo opicional 2 (Mais impostos? Sério?):",
             "time_label": "Tempo para vender (em meses):",
@@ -22,16 +24,14 @@
         "loan_form": {
             "down_label": "Entrada (%):",
             "interest_label": "Taxa de Juros Anual (%):",
-            "years_label": "Anos de financiamento:",
-            "discount_label": "Desconto na Venda (%):",
-            "fees_label": "Impostos Locais (%):"
+            "years_label": "Anos de financiamento:"
         },
         "dialog": {
-                "dialog_title": "Expectativas do Flip",
-                "dialog_profit": "Lucro Líquido: ",
-                "dialog_roi": "ROI: ",
-                "dialog_cash": "Dinheiro necessário: ",
-                "dialog_quality": "Qualidade: "
+            "dialog_title": "Expectativas do Flip",
+            "dialog_profit": "Lucro Líquido: ",
+            "dialog_roi": "ROI: ",
+            "dialog_cash": "Dinheiro necessário: ",
+            "dialog_quality": "Qualidade: "
             }
     }
 }

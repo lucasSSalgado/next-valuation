@@ -41,6 +41,8 @@ interface Props {
   holding_label: string 
   buyer_comission_label: string 
   seller_comission_label: string 
+  discount_label: string
+  fees_label: string
   option1_label: string 
   option2_label: string 
   time_label: string 
@@ -56,7 +58,7 @@ interface Props {
 
 export default function CachCalculator({
   price_label, sell_label, rehab_label, documentation_label, holding_label, buyer_comission_label, 
-  seller_comission_label, option1_label, option2_label, time_label, profit_label, submit,
+  seller_comission_label, discount_label, fees_label, option1_label, option2_label, time_label, profit_label, submit,
   dialog_title, dialog_profit, dialog_roi, dialog_cash, dialog_quality
 }: Props) {    
   const [resp, setResp] = useState<FlipResponse>()
@@ -122,7 +124,7 @@ export default function CachCalculator({
                   <FormItem>
                       <FormLabel>{ documentation_label }</FormLabel>
                       <FormControl>
-                      <Input placeholder="$50.000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                      <Input placeholder="$5.000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                       </FormControl>
                       <FormMessage />
                   </FormItem>
@@ -137,7 +139,7 @@ export default function CachCalculator({
                 <FormItem>
                   <FormLabel>{ holding_label }</FormLabel>
                   <FormControl>
-                    <Input placeholder="$50.000" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                    <Input placeholder="$500" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -171,6 +173,36 @@ export default function CachCalculator({
               </FormItem>
             )}
             />
+            
+
+            <FormField
+              control={form.control}
+              name="discountInSell"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{ discount_label }</FormLabel>
+                  <FormControl>
+                    <Input placeholder="3%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+            <FormField 
+              control={form.control}
+              name="localFees"
+              render={({ field }) => (
+                  <FormItem>
+                      <FormLabel>{ fees_label }</FormLabel>
+                      <FormControl>
+                          <Input placeholder="2%" {...field} onChange={(e) => field.onChange(handleCurrencyInput(e.target.value))} />
+                      </FormControl>
+                      <FormMessage />
+                  </FormItem>
+              )}
+              />
             <FormField 
                 control={form.control}
                 name="otherCosts1"
