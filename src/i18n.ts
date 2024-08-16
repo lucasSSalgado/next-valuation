@@ -27,5 +27,6 @@ export default getRequestConfig(async ({locale}) => ({
     ...(await import(`../messages/investors/fisher/${locale}.json`)).default,
     ...(await import(`../messages/investors/terry/${locale}.json`)).default,
     ...(await import(`../messages/navbar/${locale}.json`)).default,
+    ...(await import(`../messages/contact/${locale}.json`)).default,
   }
 }));

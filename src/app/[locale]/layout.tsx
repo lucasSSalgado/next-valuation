@@ -48,7 +48,7 @@ export default function RootLayout({children, params}: Props) {
           framework={t('framework')}
           contact={t('contact')}
         />
-        {children}
+        { children }
         <Footer />
       </body>
     </html>

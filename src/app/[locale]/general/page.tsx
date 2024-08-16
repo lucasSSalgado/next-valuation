@@ -6,5 +6,5 @@ export default function GeneralPage({params: {locale}} : {params: {locale: strin
     unstable_setRequestLocale(locale);
     const t = useTranslations('general');
 
-    return <p>{t('home.title')}</p>
+    return <p>{ t('home.title') }</p>
 }

@@ -1,10 +1,14 @@
 {
-  "general": {
-      "home": {
-          "title": "teste em portugues"
-      }
-  },
-  "test": {
-    "message": "teste"
+  "root": {
+    "title": "Bem-vindo ao Valth: Sua Caixa de Ferramentas Financeira",
+    "p1": "Mergulhe no mundo das finanças com o Valth, onde reunimos a sabedoria de investidores lendários, ferramentas inovadoras e insights práticos para ajudá-lo a tomar decisões financeiras mais inteligentes. Seja você um investidor experiente ou esteja apenas começando, nossa plataforma oferece uma riqueza de recursos projetados para guiá-lo pelas complexidades do cenário financeiro.",
+    "frameworks": "Estratégias de Investidores: Estratégias Atemporais para o Investimento Moderno",
+    "p2": "Explore as estratégias de investidores icônicos como Warren Buffett e Benjamin Graham. Destilamos suas abordagens em estruturas acessíveis que você pode aplicar aos seus próprios investimentos. Seja investindo em valor, estratégias de crescimento ou acumulação de riqueza a longo prazo, nossos insights ajudarão você a navegar no mercado com confiança.",
+    "calculators": "Calculadoras Completas: Avaliação de Empresas e Análise Imobiliária",
+    "p3": "Nossa plataforma possui calculadoras poderosas voltadas para duas áreas críticas: avaliação de empresas e imóveis. Use nossas calculadoras de fluxo de caixa descontado e número de Graham para avaliar com precisão o valor de empresas. Para quem tem interesse em imóveis, oferecemos ferramentas para avaliar investimentos imobiliários, analisar retornos e tomar decisões informadas sobre compra ou venda.",
+    "crypto": "Além do Básico: Cripto, 5 Forças de Porter e Mais",
+    "p4": "Além das finanças tradicionais, exploramos tópicos emergentes como criptomoedas, bem como ferramentas clássicas de análise de negócios, como as 5 Forças de Porter. Se você está explorando novas oportunidades de investimento ou avaliando o cenário competitivo, nossos recursos fornecem uma visão holística do mundo financeiro.",
+    "next": "Mostrando o Next.js: A Jornada de um Desenvolvedor",
+    "p5": "Este site não é apenas um recurso financeiro; é também uma vitrine da minha jornada como desenvolvedor. Construído com Next.js, cada recurso e ferramenta reflete meu compromisso em dominar o desenvolvimento web. Você pode explorar o código e ver como o site foi construído visitando meu GitHub. Estou animado para compartilhar tanto minha paixão por finanças quanto meu crescimento como desenvolvedor com você."
   }
 }

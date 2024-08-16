@@ -1,7 +1,7 @@
 export default function Footer(){
     return (
         <footer className="bg-slate-800 text-white py-6">
-            <div className="container mx-auto flex justify-center space-x-6">
+            <div className="container mx-auto flex justify-center space-x-10">
                 <a
                     href="https://github.com/yourusername"
                     target="_blank"

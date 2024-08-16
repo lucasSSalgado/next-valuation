@@ -1,0 +1,16 @@
+{
+    "contact": {
+        "title": "Contato",
+        "p1": "Olá! Meu nome é Lucas Sodré Salgado, sou brasileiro e tenho 27 anos. Sou um desenvolvedor apaixonado por tecnologia, sempre buscando novas oportunidades e desafios. Se você deseja discutir um projeto, tirar dúvidas sobre o meu trabalho ou simplesmente trocar ideias, não hesite em me contatar.",
+        "contact-title": "Informações de Contato",
+        "github": "GitHub: [Seu GitHub]",
+        "linkedin": "LinkedIn: [Seu LinkedIn]",
+        "email": "Email: [Seu e-mail]",
+        "portfolio": "Portifolio: [Seu portifolio]",
+        "skills-title": "Minhas Habilidades",
+        "languages": "Fluente em Inglês e Português",
+        "time": "Mais de 3 anos de experiência profissional",
+        "experience": "Experiência sólida com Spring Boot, Angular, SQL e Oracle DB",
+        "knowledge": "Conhecimento em Golang, Next.js, React, Tailwind CSS, Prisma, Postgres e AWS"
+    }
+}

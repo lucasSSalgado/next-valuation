@@ -1,16 +1,14 @@
 {
-    "HomePage": {
-      "title": "Hello world!"
-    },
-    "general": {
-      "home": {
-        "title": "Hello world!"
-      },
-      "compound-interest": {
-        "title": "Compound Interest Calculator"
-      }
-    },
-    "test": {
-      "message": "test"
-    }
+  "root": {
+    "title": "Welcome to Valth: Your Financial Toolkit",
+    "p1": "Dive into the world of finance with Valth, where we bring together the wisdom of legendary investors, cutting-edge tools, and practical insights to help you make smarter financial decisions. Whether you're a seasoned investor or just getting started, our platform offers a wealth of resources designed to guide you through the complexities of the financial landscape.",
+    "frameworks": "Investor Frameworks: Timeless Strategies for Modern Investing",
+    "p2": "Explore the strategies of iconic investors like Warren Buffett and Benjamin Graham. We've distilled their approaches into accessible frameworks that you can apply to your own investments. Whether it’s value investing, growth strategies, or long-term wealth accumulation, our insights will help you navigate the market with confidence.",
+    "calculators": "Comprehensive Calculators: Business Valuation and Real Estate Analysis",
+    "p3": "Our platform features powerful calculators tailored to two critical areas: business valuation and real estate. Use our discounted cash flow and Graham number calculators to accurately assess the value of businesses. For those interested in real estate, we offer tools to evaluate property investments, analyze returns, and make informed decisions about buying or selling.",
+    "crypto": "Beyond the Basics: Crypto, Porter’s 5 Forces, and More",
+    "p4": "In addition to traditional finance, we delve into emerging topics like cryptocurrency, as well as classic business analysis tools such as Porter’s 5 Forces. Whether you're exploring new investment opportunities or assessing the competitive landscape, our resources provide a holistic view of the financial world.",
+    "next": "Showcasing Next.js: A Developer’s Journey",
+    "p5": "This site isn’t just a financial resource; it’s also a showcase of my journey as a developer. Built with Next.js, every feature and tool reflects my commitment to mastering web development. You can explore the code and see how the site was built by visiting my GitHub. I’m excited to share both my passion for finance and my growth as a developer with you."
+  }
 }
