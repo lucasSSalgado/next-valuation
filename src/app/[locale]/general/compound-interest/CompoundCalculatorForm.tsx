@@ -47,7 +47,7 @@ export default function CompoundCalculatorForm
     return (
         <div>
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 text-primary">
                 <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
                     <FormField
                         control={form.control}

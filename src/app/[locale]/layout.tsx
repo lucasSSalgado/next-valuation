@@ -9,6 +9,7 @@ import { locales } from "@/navigation";
 import { ReactNode } from "react";
 import { unstable_setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { ThemeProvider } from "@/components/ui/theme-provider";
  
 const inter = Inter({
   subsets: ["latin"],
@@ -41,15 +42,22 @@ export default function RootLayout({children, params}: Props) {
   
   return (
     <html lang={locale}>
-      <body className={cn("min-h-screen bg-gray-100 font-sans antialiased", inter.variable)}>
-        <Navbar 
-          value={t('value')}
-          real_estate={t('real_estate')}
-          framework={t('framework')}
-          contact={t('contact')}
-        />
-        { children }
-        <Footer />
+      <body className={cn("min-h-screen font-sans antialiased", inter.variable)}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar 
+            value={t('value')}
+            real_estate={t('real_estate')}
+            framework={t('framework')}
+            contact={t('contact')}
+          />
+          { children }
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

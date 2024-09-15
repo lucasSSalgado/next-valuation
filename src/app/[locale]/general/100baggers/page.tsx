@@ -6,7 +6,7 @@ export default function BaggerPage({params: {locale}} : {params: {locale: string
     unstable_setRequestLocale(locale);
     const t = useTranslations('100bagger');
 
-    return <div className="md:p-8 p-4 md:w-3/4 mx-auto">
+    return <div className="md:p-8 p-4 md:w-3/4 mx-auto text-primary">
         <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 text-center">{ t('title') }</h2>
         <p className="mt-3 border-l-2 pl-6 italic text-center md:text-left">
             { t('p1') }

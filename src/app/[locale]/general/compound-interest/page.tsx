@@ -7,7 +7,7 @@ export default function CompoundCalculator({params: {locale}} : {params: {locale
     const t = useTranslations('compound');
 
     return <div className="md:p-8 p-4 md:w-3/4 mx-auto">
-        <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 text-center">
+        <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 text-center text-primary">
             { t('title') }
         </h2>
 

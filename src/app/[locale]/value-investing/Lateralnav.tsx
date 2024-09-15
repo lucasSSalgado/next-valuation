@@ -11,34 +11,34 @@ export default function Lateralnav() {
     const t = useTranslations('lateralnav-value')
 
     return (
-        <div className="bg-slate-700">
+        <div className="bg-secondary-foreground/90 dark:bg-secondary/70 dark:text-secondary-foreground">
             <div className="flex flex-col text-secondary gap-4 mt-8 px-4">
                 <Button variant="link">
-                    <Link className="text-secondary" href="/value-investing">
+                    <Link className="text-secondary dark:text-primary" href="/value-investing">
                         <span className="md:hidden"><GoHome size={24} /></span>
                         <span className="hidden md:block">Home</span>
                     </Link>
                 </Button> 
                 <Button variant="link">
-                    <Link className="text-secondary" href="/value-investing/discounted-cash-flow">
+                    <Link className="text-secondary dark:text-primary" href="/value-investing/discounted-cash-flow">
                         <span className="md:hidden"><CiDiscount1 size={24} /></span>
                         <span className="hidden md:block">{ t('dcf') }</span>
                     </Link>
                 </Button>
                 <Button variant="link">
-                    <Link className="text-secondary" href="/value-investing/gordon-model">
+                    <Link className="text-secondary dark:text-primary" href="/value-investing/gordon-model">
                         <span className="md:hidden"><LiaCoinsSolid size={24} /></span>
                         <span className="hidden md:block">{ t('gordon') }</span>
                     </Link>
                 </Button>
                 <Button variant="link">
-                    <Link className="text-secondary" href="/value-investing/liquidation-value">
+                    <Link className="text-secondary dark:text-primary" href="/value-investing/liquidation-value">
                         <span className="md:hidden"><PiBombLight size={24} /></span>
                         <span className="hidden md:block">{ t('liquidation') }</span>
                     </Link>
                 </Button>
                 <Button variant="link">
-                    <Link className="text-secondary" href="/value-investing/graham-formula">
+                    <Link className="text-secondary dark:text-primary" href="/value-investing/graham-formula">
                         <span className="md:hidden"><RiFormula size={24} /></span>
                         <span className="hidden md:block">{ t('graham') }</span>
                     </Link>

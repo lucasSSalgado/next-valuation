@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/navigation";
 import { useEffect, useState } from "react";
 import { usePathname } from 'next/navigation';
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 interface Props {
     value: string
@@ -15,6 +16,7 @@ interface Props {
 export default function Navbar({ value, real_estate, framework, contact }: Props) {
     const pathname = usePathname();
 
+    console.log(pathname)
     const [isOpen, setIsOpen] = useState(false);
     const [path, setPath] = useState('');
 
@@ -33,15 +35,15 @@ export default function Navbar({ value, real_estate, framework, contact }: Props
     };
 
     return (
-        <header className="bg-slate-800 shadow w-full">
+        <header className="bg-primary shadow w-full dark:bg-secondary dark:text-secondary-foreground">
             <nav className="">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     <Button className="flex items-center space-x-3 rtl:space-x-reverse" variant="link">
-                        <Link className="self-center text-2xl font-semibold whitespace-nowrap text-secondary" href="/">Valth</Link>
+                        <Link className="self-center text-2xl font-semibold whitespace-nowrap text-secondary dark:text-primary" href="/">Valth</Link>
                     </Button>
                     <button 
                         type="button" 
-                        className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" 
+                        className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2" 
                         aria-controls="navbar-default" 
                         aria-expanded={isOpen}
                         onClick={toggleMenu}
@@ -58,37 +60,40 @@ export default function Navbar({ value, real_estate, framework, contact }: Props
                                 <Button variant="link">
                                     <Link 
                                         href="/general" 
-                                        className={`text-secondary ${path === 'general' ? 'font-bold text-yellow-400 underline' : ''}`} 
+                                        className={`text-secondary dark:text-primary ${path === 'general' ? 'font-bold dark:text-yellow-400 text-yellow-400 underline' : ''}`} 
                                         aria-current="page">Geral</Link>
                                 </Button>
                             </li>
                             <li>    
                                 <Button variant="link">
                                     <Link 
-                                        className={`text-secondary ${path === 'value-investing' ? 'font-bold text-yellow-400 underline' : ''}`} 
+                                        className={`text-secondary dark:text-primary ${path === 'value-investing' ? 'font-bold dark:text-yellow-400 text-yellow-400 underline' : ''}`} 
                                         href="/value-investing">{ value }</Link>
                                 </Button>
                             </li>
                             <li>
                                 <Button variant="link">
                                     <Link 
-                                        className={`text-secondary ${path === 'real-estate' ? 'font-bold text-yellow-400 underline' : ''}`} 
+                                        className={`text-secondary dark:text-primary ${path === 'real-estate' ? 'font-bold dark:text-yellow-400 text-yellow-400 underline' : ''}`} 
                                         href="/real-estate">{ real_estate }</Link>
                                 </Button>
                             </li>
                             <li>
                                 <Button variant="link">
                                     <Link 
-                                        className={`text-secondary ${path === 'investor-framework' ? 'font-bold text-yellow-400 underline' : ''}`} 
+                                        className={`text-secondary dark:text-primary ${path === 'investor-framework' ? 'font-bold dark:text-yellow-400 text-yellow-400 underline' : ''}`} 
                                         href="/investor-framework">{ framework }</Link>
                                 </Button>
                             </li>
                             <li>
                                 <Button variant="link">
                                     <Link 
-                                        className={`text-secondary ${path === 'contact' ? 'font-bold text-yellow-400 underline' : ''}`} 
+                                        className={`text-secondary dark:text-primary ${path === 'contact' ? 'font-bold dark:text-yellow-400 text-yellow-400 underline' : ''}`} 
                                         href="/contact">{ contact }</Link>
                                 </Button>
+                            </li>
+                            <li>
+                                <ThemeToggle />
                             </li>
                         </ul>
                     </div>

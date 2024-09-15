@@ -1,6 +1,6 @@
 export default function Footer(){
     return (
-        <footer className="bg-slate-800 text-white py-6">
+        <footer className="bg-primary text-primary-foreground py-6 dark:bg-secondary dark:text-secondary-foreground">
             <div className="container mx-auto flex justify-center space-x-10">
                 <a
                     href="https://github.com/yourusername"
