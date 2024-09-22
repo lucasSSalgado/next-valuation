@@ -49,7 +49,7 @@ export default function ResultDialog(
             <DialogContent>
                 <DialogHeader>
                 <DialogTitle className="text-center p-2 scroll-m-20 text-2xl font-semibold tracking-tight">{ dialog_title }</DialogTitle>
-                <DialogDescription className="p-2 leading-7 [&:not(:first-child)]:mt-6 text-black text-lg italic">
+                <DialogDescription className="p-2 leading-7 [&:not(:first-child)]:mt-6 text-lg italic">
                     {dialog_profit}{profit} <br/>
                     {dialog_roi}{`${roi.toFixed(2)}%`} <br/>
                     {dialog_cash}{cashNeed} <br />

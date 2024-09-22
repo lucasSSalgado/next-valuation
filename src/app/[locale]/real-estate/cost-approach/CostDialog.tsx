@@ -48,7 +48,7 @@ export default function CostDialog(
             <DialogContent>
                 <DialogHeader>
                 <DialogTitle className="text-center p-2 scroll-m-20 text-2xl font-semibold tracking-tight">{ title }</DialogTitle>
-                <DialogDescription className="p-2 leading-7 [&:not(:first-child)]:mt-6 text-black text-lg italic">
+                <DialogDescription className="p-2 leading-7 [&:not(:first-child)]:mt-6 text-lg italic">
                     { fair_value } {formatCurrency(fairValue)} <br/>
                     {
                         discont !== null ? 
