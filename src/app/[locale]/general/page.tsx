@@ -4,7 +4,7 @@ import {unstable_setRequestLocale} from 'next-intl/server';
 
 export default function GeneralPage({params: {locale}} : {params: {locale: string}}) {
     unstable_setRequestLocale(locale);
-    const t = useTranslations('general');
+    const t = useTranslations('home');
 
-    return <p>{ t('home.title') }</p>
+    return <p>{ t('title') }</p>
 }

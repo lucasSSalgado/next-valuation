@@ -5,6 +5,8 @@ import { Link } from "@/navigation";
 import { useEffect, useState } from "react";
 import { usePathname } from 'next/navigation';
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { Languages } from "lucide-react";
+import { LenguageToggle } from "./LanguageToggle";
 
 interface Props {
     value: string
@@ -16,7 +18,6 @@ interface Props {
 export default function Navbar({ value, real_estate, framework, contact }: Props) {
     const pathname = usePathname();
 
-    console.log(pathname)
     const [isOpen, setIsOpen] = useState(false);
     const [path, setPath] = useState('');
 
@@ -92,7 +93,8 @@ export default function Navbar({ value, real_estate, framework, contact }: Props
                                         href="/contact">{ contact }</Link>
                                 </Button>
                             </li>
-                            <li>
+                            <li className="flex items-center space-x-1 rtl:space-x-reverse">
+                                <LenguageToggle />
                                 <ThemeToggle />
                             </li>
                         </ul>
