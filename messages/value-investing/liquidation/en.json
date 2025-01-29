@@ -2,7 +2,7 @@
     "liquidation": {
         "title": "Liquidation Value",
         "useCase": "Bankruptcies and Liquidations",
-        "formula": "Cash + Book value of Hard assets * (1 - discount) - total liabilities",
+        "formula": "[\\text{book value of hard assets} \\times (1 - discount)] + cash - \\text{total liabilities}",
         "description": {
             "p1": "Liquidation value refers to the estimated amount that would be received if all of a company's assets were sold off and its liabilities paid. This valuation method is crucial in scenarios such as bankruptcy, mergers and acquisitions, and distressed asset sales.",
             "p2": "Liquidation value provides an accurate estimate of what stakeholders might receive if a company is liquidated,  making it particularly useful in bankruptcy proceedings and for creditors determining their potential recovery. However, it often undervalues a company that could be worth more if it continues operations. Market conditions can significantly affect liquidation values, especially during economic downturns. Additionally, liquidation value typically results in a lower valuation compared to methods like book value or market value.",

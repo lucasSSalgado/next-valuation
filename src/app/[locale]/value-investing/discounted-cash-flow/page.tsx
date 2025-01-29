@@ -12,7 +12,7 @@ export default function DiscoutedCashPage({params: {locale}} : {params: {locale:
         <div className="p-8 w-3/4">
             <ValuationDescription 
                 title={ t('title') }
-                formula={ t('formula') }
+                formula={ t.raw('formula') }
                 useCase={ t('use') }
                 description={[
                     t('description.p1'),

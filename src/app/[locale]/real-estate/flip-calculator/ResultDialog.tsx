@@ -18,7 +18,6 @@ interface Props {
     profit: string
     roi: number
     cashNeed: string
-
     dialog_title: string
     dialog_profit: string
     dialog_roi: string

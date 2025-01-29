@@ -1,3 +1,6 @@
+import MathFormula from "../components/MathFormula"
+
+
 type props = {
     title: string
     useCase: string
@@ -14,7 +17,7 @@ export default function ValuationDescription(props: props) {
             {props.useCase}
         </p>
         <p className="leading-7 [&:not(:first-child)]:mt-2 font-light italic p-2">
-           Formula: {props.formula}
+           Formula: <MathFormula formula={props.formula} /> 
         </p>
         <div className="mt-3">
             {

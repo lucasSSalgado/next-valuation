@@ -1,7 +1,7 @@
 {
     "dcf": {
         "title": "Fluxo de caixa descontado",
-        "formula": "Σ[(LPA * (1 + taxa crescimento))^ anos / (1 + taxa desconto)^ anos]",
+        "formula": "\\sum{[( LPA \\times (1 + \\text{taxa crescimento}))^{anos} ) / (1 + \\text{taxa desconto}^{anos})]}",
         "use": "Caso de uso: Geral",
         "description": {
             "p1": "O Fluxo de Caixa Descontado (FCD) é um dos métodos de avaliação mais renomados e versáteis. Ele avalia um negócio estimando os fluxos de caixa futuros e trazendo-os ao valor presente. Existem infinitas maneiras de realizar uma análise DCF e, como muitos outros métodos de avaliação, suas estimativas determinam o sucesso da sua análise. Tipicamente, o Custo Médio Ponderado de Capital (WACC) é usado para descontar os valores futuros ao seu valor presente.",

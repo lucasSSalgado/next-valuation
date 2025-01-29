@@ -14,7 +14,7 @@ export default function GrahamFormulaPAge({params: {locale}} : {params: {locale:
             <ValuationDescription 
                 title={ t('title') }
                 useCase={ t('useCase') }
-                formula={ t('formula') }
+                formula={ t.raw('formula') }
                 description={[
                     t('description.p1'),
                     t('description.p2'),

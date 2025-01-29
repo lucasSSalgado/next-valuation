@@ -8,7 +8,7 @@ export const formSchema = z.object({
     cash: z.string().refine((val) => validatePositiveCurrency(val), { message: "Cash must be a positive number." }),
     discount: z.string().refine((val) => parseFloat(val) > 0, { message: "Discount must be a positive number." }),
     bookValue: z.string().refine((val) => parseFloat(val) > 0, { message: "Book Value must be a positive number." }),
-    liabilities: z.string().refine((val) => validatePositiveCurrency(val), { message: "Liabilities must be a positive number." }),
+    liabilities: z.string().refine((val) => validatePositiveCurrency(val), { message: "Liabilities cannot be a negative number." }),
     numberOfShares: z.string().refine((val) => parseFloat(val) > 0, { message: "Number of Shares must be a positive number." }),
 })
 
@@ -34,11 +34,14 @@ export const liquidationCalculator = (data: z.infer<typeof formSchema>): Liquida
     const liabilities = parseCorrencyToNumber(data.liabilities)
     const numberOfShares = parseCorrencyToNumber(data.numberOfShares)
 
-    const value = ((bookValue * (1 - discount) + cash) - liabilities) / numberOfShares
+    let value = cash
+    value += bookValue * (1 - discount)
+    value = value - liabilities
+    const valuePerShare = value / numberOfShares
 
     return {
-        fairValue: value,
-        discount: (value - price) / price * 100
+        fairValue: valuePerShare,
+        discount: (valuePerShare - price) / price * 100
     }
 }
 

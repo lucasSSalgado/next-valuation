@@ -13,7 +13,7 @@ export default function LiquidationValuePage({params: {locale}} : {params: {loca
             <ValuationDescription 
                 title={t('title')}
                 useCase={t('useCase')}
-                formula={t('formula')}
+                formula={t.raw('formula')}
                 description={[
                     t('description.p1'),
                     t('description.p2'),

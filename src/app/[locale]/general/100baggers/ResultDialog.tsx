@@ -50,7 +50,7 @@ export default function ResultDialog(
                 <DialogTitle className="text-center p-2 scroll-m-20 text-2xl font-semibold tracking-tight">
                     { dialog_title }
                 </DialogTitle>
-                <DialogDescription className="p-2 leading-7 [&:not(:first-child)]:mt-6 text-black text-lg italic">
+                <DialogDescription className="p-2 leading-7 [&:not(:first-child)]:mt-6 text-lg italic">
                     {message} <br />
                     { dialog_result } {change.toFixed(2)}% <br />
                     { dialog_realistc } {(change / 5).toFixed(2)}% <br />

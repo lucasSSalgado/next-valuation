@@ -214,7 +214,7 @@ export default function BaggerCalculator(
         <div className="mt-10 bg-secondary/90 p-5 rounded-sm">
             <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto mt-4">
+                <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto">
                     <FormField
                     control={form.control}
                     name="time"

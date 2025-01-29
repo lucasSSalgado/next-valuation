@@ -13,7 +13,7 @@ export default function GordonModelPage({params: {locale}} : {params: {locale: s
             <ValuationDescription
                 title={t('title')}
                 useCase={t('useCase')}
-                formula={t('formula')}
+                formula={t.raw('formula')}
                 description={[
                     t('description.p1'),
                 ]}

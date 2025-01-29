@@ -15,7 +15,7 @@ export const handleCurrencyInput = (numStr: string): string => {
 export const validatePositiveCurrency = (val: string | undefined): boolean => {
     if (!val) return true;
     val = val.replace(/,/g, '');
-    return val === '' || !isNaN(parseFloat(val)) && parseFloat(val) > 0;
+    return val === '' || !isNaN(parseFloat(val)) && parseFloat(val) >= 0;
 }
 
 export const parseCorrencyToNumber = (val: string): number => {

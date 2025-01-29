@@ -1,7 +1,7 @@
 {
     "dcf": {
-        "title": "Fluxo de caixa descontado",
-        "formula": "Σ[(EPS * (1 + growth rate))^ years / (1 + discount rate)^ years]",
+        "title": "Discounted Cash Flow",
+        "formula": "\\sum{[( EPS \\times (1 + \\text{growth rate}))^{years} ) / (1 + \\text{discount rate}^{years})]}",
         "use": "Use Case: Geral",
         "description": {
             "p1": "Discounted Cash Flow (DCF) is one of the most renowned and versatile valuation methods. It values a business by estimating future cash flows and bringing them to present value. There are infinite ways to perform a DCF analysis, and like many other valuation methods, your estimates determine the success of your analysis. Typically, the Weighted Average Cost of Capital (WACC) is used to discount future values to their present value.",
