@@ -26,7 +26,7 @@
         "change_label": "The company is in a fast changing industry?",
         "margin_label": "In the last four years the company present a high gross margin relative to the industry?",
         "company_label": "The company is showing incrise in it finances in the last four years (growth eps, profitability, margins, etc)?",
-        "undertand_label": "Do you undestand how the company make money, can you explain it to someone alse?",
+        "undertand_label": "Do you undestand how the company make money?",
         "sales_roe_label": "When the sales growth incrise, the ROE and gross margin remain high?",
         "yes": "Yes",
         "no": "No",

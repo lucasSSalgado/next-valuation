@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import BaggerCalculator from "./BaggerCalculator";
 import {unstable_setRequestLocale} from 'next-intl/server';
+import { Separator } from "@/components/ui/separator";
 
 export default function BaggerPage({params: {locale}} : {params: {locale: string}}) {
     unstable_setRequestLocale(locale);
@@ -28,6 +29,7 @@ export default function BaggerPage({params: {locale}} : {params: {locale: string
             { t('p5') }
         </p>
 
+        <Separator className="my-4" />
         <BaggerCalculator 
             time_label={t('time_label')} 
             growth_label={t('growth_label')}

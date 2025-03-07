@@ -211,7 +211,7 @@ export default function BaggerCalculator(
     }
 
     return (
-        <div className="mt-10 bg-secondary/90 p-5 rounded-sm">
+        <div>
             <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid md:grid-cols-2 min-w-full max-w-sm items-center gap-5 mx-auto">

@@ -1,7 +1,6 @@
 import { Separator } from '@/components/ui/separator';
 import { useTranslations } from 'next-intl';
 import {unstable_setRequestLocale} from 'next-intl/server';
-import Link from 'next/link';
 
 export default function ContactPage({params: {locale}} : {params: {locale: string}}) {
     unstable_setRequestLocale(locale);
@@ -19,8 +18,8 @@ export default function ContactPage({params: {locale}} : {params: {locale: strin
             <Separator />
             <h4 className="mt-6 scroll-m-20 border-b pb-2 text-xl font-semibold tracking-tight first:mt-0 md:text-left text-center">{ t('contact-title') }</h4>
             <ul className="mt-6 border-l-2 pl-6 italic text-center md:text-left">
-                <li><a target='_blank' href={ githubLink }>{ t('github') }</a></li>
-                <li><a target='_blank' href={ linkedinLink }>{ t('linkedin') }</a></li>
+                <li><a target='_blank' className='hover:underline' href={ githubLink }>{ t('github') }</a></li>
+                <li><a target='_blank' className='hover:underline' href={ linkedinLink }>{ t('linkedin') }</a></li>
                 <li>{ t('email') }</li>
                 <li>{ t('portfolio') }</li>
             </ul>
