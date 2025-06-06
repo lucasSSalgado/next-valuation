@@ -43,6 +43,12 @@ export default function Lateralnav() {
                         <span className="hidden md:block">{ t('flip') }</span>
                     </Link>
                 </Button>
+                <Button variant="link">
+                    <Link className="text-secondary dark:text-primary" href="/real-estate/reit">
+                        <span className="md:hidden"><SlCalculator size={24} /></span>
+                        <span className="hidden md:block">{ t('reit') }</span>
+                    </Link>
+                </Button>
             </div>
         </div>
     );

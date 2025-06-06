@@ -60,7 +60,7 @@ export default function Navbar({ value, real_estate, framework, contact }: Props
                             <li>
                                 <Button variant="link">
                                     <Link 
-                                        href="/general" 
+                                        href="/general/compound-interest" 
                                         className={`text-secondary dark:text-primary ${path === 'general' ? 'font-bold dark:text-yellow-400 text-yellow-400 underline' : ''}`} 
                                         aria-current="page">Geral</Link>
                                 </Button>

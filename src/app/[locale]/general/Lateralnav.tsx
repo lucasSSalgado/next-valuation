@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "@/navigation";
 import { CiCalculator2 } from "react-icons/ci";
-import { GoHome } from "react-icons/go";
 import { HiOutlineViewfinderCircle } from "react-icons/hi2";
 import { CiBitcoin } from "react-icons/ci";
 import { BsGraphUpArrow } from "react-icons/bs";
@@ -13,12 +12,6 @@ export default function Lateralnav() {
     return (
         <div className="bg-secondary-foreground/90 dark:bg-secondary/70 dark:text-secondary-foreground">
             <div className="flex flex-col gap-4 mt-8 px-4">
-                <Button variant="link">
-                    <Link className="text-secondary dark:text-primary" href="/general">
-                        <span className="md:hidden"><GoHome size={24} /></span>
-                        <span className="hidden md:block">Home</span>
-                    </Link>
-                </Button> 
                 <Button variant="link">
                     <Link className="text-secondary dark:text-primary" href="/general/compound-interest">
                         <span className="md:hidden"><CiCalculator2 size={24} /></span>
