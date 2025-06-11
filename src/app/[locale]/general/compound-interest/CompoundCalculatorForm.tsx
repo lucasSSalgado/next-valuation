@@ -151,7 +151,7 @@ export default function CompoundCalculatorForm
                                 <CardTitle>{ dialog_title }</CardTitle>
                             </CardHeader>
                             <CardContent>
-                                <p>{  final_value } { formatCurrency(result.finalValue)  }</p>
+                                <p>{ final_value } { formatCurrency(result.finalValue)  }</p>
                                 <p>{ total_interest } { formatCurrency(result.interest) }</p>
                                 <p>{ total_cost } { formatCurrency(result.investment) }</p>
                             </CardContent>

@@ -4,8 +4,8 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 
 export const formSchema = z.object({
-    principal: z.string().refine((val) => parseFloat(val) > 0, { message: "Principal must be a positive number." }),
-    monthlyPayment: z.string().refine((val) => parseFloat(val) > 0, { message: "Monthly Payment must be a positive number." }),
+    principal: z.string().refine((val) => parseFloat(val) >= 0, { message: "Principal must be a positive number." }),
+    monthlyPayment: z.string().refine((val) => parseFloat(val) >= 0, { message: "Monthly Payment must be a positive number." }),
     rate: z.string().refine((val) => parseFloat(val) > 0, { message: "Rate must be a positive number." }),
     rateType: z.enum(["monthly", "annually"]),
     time: z.string().refine((val) => parseFloat(val) > 0, { message: "Time must be a positive number." }),

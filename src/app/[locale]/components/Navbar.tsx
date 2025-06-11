@@ -5,7 +5,6 @@ import { Link } from "@/navigation";
 import { useEffect, useState } from "react";
 import { usePathname } from 'next/navigation';
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
-import { Languages } from "lucide-react";
 import { LenguageToggle } from "./LanguageToggle";
 
 interface Props {
