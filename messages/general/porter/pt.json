@@ -3,6 +3,11 @@
         "title": "As Cinco Forças de Porter",
         "p1": "As Cinco Forças de Porter é uma estrutura para analisar a dinâmica competitiva dentro de uma indústria. Ela examina cinco fatores principais que moldam a intensidade da competição e a rentabilidade de uma indústria. A primeira força é a ameaça de novos entrantes, que considera quão fácil ou difícil é para novas empresas entrarem no mercado e competirem. Se as barreiras de entrada são baixas, novos entrantes podem rapidamente aumentar a competição, potencialmente reduzindo a rentabilidade dos jogadores existentes. A segunda força é o poder de barganha dos fornecedores. Esta força analisa quanto poder os fornecedores têm sobre os preços e a qualidade dos materiais ou serviços que fornecem. Quando os fornecedores são poucos ou oferecem produtos únicos, eles podem exigir preços mais altos, comprimindo as margens da indústria.",
         "p2": "A terceira força é o poder de barganha dos compradores, que analisa a influência dos clientes sobre os preços e termos. Quando os compradores são poucos ou compram em grandes volumes, eles podem negociar por preços mais baixos ou melhor serviço, afetando a rentabilidade da indústria. A quarta força é a ameaça de produtos ou serviços substitutos. Esta força avalia a disponibilidade de produtos alternativos que podem atender à mesma necessidade. Alta disponibilidade de substitutos pode limitar o preço que pode ser cobrado e aumentar a competição. Finalmente, a quinta força é a intensidade da rivalidade competitiva. Esta força examina o grau de competição entre as empresas existentes. Alta rivalidade pode resultar de muitos concorrentes, crescimento lento da indústria ou falta de diferenciação, levando a guerras de preços e redução da rentabilidade.",
-        "p3": "Juntas, essas forças determinam o cenário competitivo e o potencial de rentabilidade dentro de uma indústria, orientando a tomada de decisões estratégicas para as empresas."
+        "p3": "Juntas, essas forças determinam o cenário competitivo e o potencial de rentabilidade dentro de uma indústria, orientando a tomada de decisões estratégicas para as empresas.",
+        "image": "/poter_pt.png",
+        "name_link1" : "Começe aqui",
+        "link1": "https://www.empiricus.com.br/explica/5-forcas-de-porter/",
+        "name_link2" : "Aprofundamento",
+        "link2": "https://rockcontent.com/br/blog/5-forcas-de-porter/"
     }
 }

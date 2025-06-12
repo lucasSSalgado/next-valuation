@@ -1,5 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
+import { Separator } from '@/components/ui/separator';
 import { useTranslations } from 'next-intl';
 import {unstable_setRequestLocale} from 'next-intl/server';
+import UsefulLinks from '../../components/UsefulLinks';
 
 export default function PoterPage({params: {locale}} : {params: {locale: string}}) {
     unstable_setRequestLocale(locale);
@@ -16,5 +19,12 @@ export default function PoterPage({params: {locale}} : {params: {locale: string}
         <p className="leading-7 [&:not(:first-child)]:mt-2">
             { t('p3') }
         </p>
+        <Separator className="my-4" />
+        <img src={t('image')} alt="Porter Forces" width={1000} height={1000} />
+        <Separator className="my-4" />
+        <UsefulLinks articles={[
+            { name: t('name_link1'), url: t('link1') }, 
+            { name: t('name_link2'), url: t('link2') }
+        ]} />
     </div>
 }
