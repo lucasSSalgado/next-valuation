@@ -1,7 +1,7 @@
 {
     "graham": {
         "title": "Formula de Graham",
-        "useCase": "Companhias com muitos ativos físicos e crescimento estável",
+        "useCase": "Caso de uso: Companhias com muitos ativos físicos e crescimento estável",
         "formula": "\\sqrt{[(LPA \\times 15) + (BTV \\times 1.5)]}",
         "description": {
             "p1": "A Fórmula de Graham ou Número de Graham é uma maneira simplista e rápida de determinar o preço máximo de uma ação com base no lucro por ação e no valor contábil por ação. Não é uma forma sofisticada de avaliar ações e tem muitas limitações, sendo boa para empresas com muitos ativos tangíveis no balanço.",

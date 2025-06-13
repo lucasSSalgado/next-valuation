@@ -1,7 +1,7 @@
 {
     "liquidation": {
         "title": "Liquidation Value",
-        "useCase": "Bankruptcies and Liquidations",
+        "useCase": "Use case: Bankruptcies and Liquidations",
         "formula": "[\\text{book value of hard assets} \\times (1 - discount)] + cash - \\text{total liabilities}",
         "description": {
             "p1": "Liquidation value refers to the estimated amount that would be received if all of a company's assets were sold off and its liabilities paid. This valuation method is crucial in scenarios such as bankruptcy, mergers and acquisitions, and distressed asset sales.",

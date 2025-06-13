@@ -3,7 +3,7 @@ export default function Footer(){
         <footer className="bg-primary text-primary-foreground py-6 dark:bg-secondary dark:text-secondary-foreground">
             <div className="container mx-auto flex justify-center space-x-10">
                 <a
-                    href="https://github.com/lucasSSalgadoe"
+                    href="https://github.com/lucasSSalgado"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-gray-400"

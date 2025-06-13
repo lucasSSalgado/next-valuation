@@ -1,7 +1,7 @@
 {
     "graham": {
         "title": "Graham Formula",
-        "useCase": "Companies with a lot of hard assets and stable growth",
+        "useCase": "Use case: Companies with a lot of hard assets and stable growth",
         "formula": "\\sqrt{[(EPS \\times 15) + (BTV \\times 1.5)]}",
         "description": {
             "p1": "The Graham Formula or Graham Number is a simplistic and fast way to determine the maximum price a stock value based on the earing per share and book value per share. Is not a sofisticated way to value stocks and has many limitation, it is good for companies with lots of hard assets in the balance sheet.",

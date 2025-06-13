@@ -1,7 +1,7 @@
 {
     "liquidation": {
         "title": "Valor de liquidação",
-        "useCase": "Falências e liquidações",
+        "useCase": "Caso de uso: Falências e liquidações",
         "formula": "[\\text{valor patrimonial dos ativos físicos} \\times (1 - desconto)] + dinheiro - \\text{total dos passivos}",
         "description": {
             "p1": "Valor de liquidação refere-se ao montante estimado que seria recebido se todos os ativos de uma empresa fossem vendidos e suas obrigações pagas. Este método de avaliação é crucial em cenários como falência, fusões e aquisições, e vendas de ativos em dificuldades.",
