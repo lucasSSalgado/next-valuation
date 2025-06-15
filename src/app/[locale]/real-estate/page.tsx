@@ -26,11 +26,7 @@ export default function RealEstatePAge({params: {locale}} : {params: {locale: st
 
             <UsefulLinks 
                 articles={[
-                    { name: "Bigger Pockets Site", url: "https://www.biggerpockets.com/"}
-                ]}
-                videos={[
-                    { name: "Bigger Pockets Channel", url: "https://www.youtube.com/@biggerpockets" },
-                    { name: "Chad Carson Channel", url: "https://www.youtube.com/@CoachChadCarson"}
+                    { name: "Comece aqui", url: "https://investindoemtijolos.com/"}
                 ]}
             />
         </div>

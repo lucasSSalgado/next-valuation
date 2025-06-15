@@ -9,6 +9,7 @@ import {
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog"
+import { formatCurrency } from "@/lib/formatter"
 
 interface Props {
     openDialog: boolean
@@ -48,8 +49,8 @@ export default function IncomeDialog(
                 <DialogHeader>
                 <DialogTitle className="text-center p-2 scroll-m-20 text-2xl font-semibold tracking-tight">{ dialog_title }</DialogTitle>
                 <DialogDescription className="p-2 leading-7 [&:not(:first-child)]:mt-6 text-lg italic">
-                    { dialog_fair_value }{`${fairPrice.toFixed(2)}`} <br/>
-                    { dialog_price }{`${price.toFixed(2)}`} <br/>
+                    { dialog_fair_value }{`${formatCurrency(fairPrice)}`} <br/>
+                    { dialog_price }{`${formatCurrency(price)}`} <br/>
                     { dialog_discount }{`${discount.toFixed(2)}%`} <br/>
                     { dialog_quality }{ dealQuality } <br />
                 </DialogDescription>
